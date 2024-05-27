@@ -1,0 +1,9 @@
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/crypto/PkiObjectPkcs11.c:163:14:xPrvDestoryObject	40	static,ignoring_inline_asm
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/crypto/PkiObjectPkcs11.c:74:14:xPrvExportPubKeyDer	80	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/crypto/PkiObjectPkcs11.c:197:13:xPrvCkRvToPkiStatus	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/crypto/PkiObjectPkcs11.c:229:13:xPkcs11InitMbedtlsPkContext	80	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/crypto/PkiObjectPkcs11.c:307:13:xPkcs11WriteCertificate	80	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/crypto/PkiObjectPkcs11.c:398:13:xPkcs11ReadCertificate	48	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/crypto/PkiObjectPkcs11.c:478:13:xPkcs11GenerateKeyPairEC	280	static,ignoring_inline_asm
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/crypto/PkiObjectPkcs11.c:583:13:xPkcs11ReadPublicKey	88	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/crypto/PkiObjectPkcs11.c:663:13:xPkcs11WritePubKey	80	static

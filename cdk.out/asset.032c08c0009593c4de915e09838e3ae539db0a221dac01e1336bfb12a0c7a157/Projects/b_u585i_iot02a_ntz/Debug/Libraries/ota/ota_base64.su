@@ -1,0 +1,4 @@
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/AWS/OTA/source/ota_base64.c:192:23:preprocessBase64Index	16	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/AWS/OTA/source/ota_base64.c:264:13:updateBase64DecodingBuffer	8	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/AWS/OTA/source/ota_base64.c:316:23:decodeBase64IndexBuffer	24	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/AWS/OTA/source/ota_base64.c:420:16:base64Decode	80	static

@@ -1,0 +1,12 @@
+cbortojson.c:294:18:add_value_metadata	16
+cbortojson.c:409:18:stringify_map_key	4
+cbortojson.c:202:18:generic_dump_base64	7
+cbortojson.c:287:18:dump_bytestring_base64url	1
+cbortojson.c:280:18:dump_bytestring_base64	1
+cbortojson.c:171:18:dump_bytestring_base16	4
+cbortojson.c:330:18:find_tagged_type	4
+cbortojson.c:345:18:tagged_value_to_json	22
+cbortojson.c:499:18:value_to_json	58
+cbortojson.c:431:18:array_to_json	4
+cbortojson.c:446:18:map_to_json	17
+cbortojson.c:703:11:cbor_value_to_json_advance	1

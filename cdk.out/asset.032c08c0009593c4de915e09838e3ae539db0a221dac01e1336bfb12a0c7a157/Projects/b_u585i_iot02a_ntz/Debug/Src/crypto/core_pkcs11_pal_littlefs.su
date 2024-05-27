@@ -1,0 +1,8 @@
+../Src/crypto/core_pkcs11_pal_littlefs.c:60:14:prvFileExists	280	static
+../Src/crypto/core_pkcs11_pal_littlefs.c:98:14:prvReadData	400	static
+../Src/crypto/core_pkcs11_pal_littlefs.c:196:7:PKCS11_PAL_Initialize	8	static
+../Src/crypto/core_pkcs11_pal_littlefs.c:202:18:PKCS11_PAL_SaveObject	120	static
+../Src/crypto/core_pkcs11_pal_littlefs.c:274:18:PKCS11_PAL_FindObject	16	static
+../Src/crypto/core_pkcs11_pal_littlefs.c:302:7:PKCS11_PAL_GetObjectValue	24	static
+../Src/crypto/core_pkcs11_pal_littlefs.c:331:6:PKCS11_PAL_GetObjectValueCleanup	8	static
+../Src/crypto/core_pkcs11_pal_littlefs.c:345:7:PKCS11_PAL_DestroyObject	16	static

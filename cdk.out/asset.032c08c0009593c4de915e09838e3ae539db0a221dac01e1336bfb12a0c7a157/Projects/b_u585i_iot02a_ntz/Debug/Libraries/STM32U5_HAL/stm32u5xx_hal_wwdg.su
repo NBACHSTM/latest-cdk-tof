@@ -1,0 +1,5 @@
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_wwdg.c:230:13:HAL_WWDG_MspInit	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_wwdg.c:176:19:HAL_WWDG_Init	8	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_wwdg.c:343:19:HAL_WWDG_Refresh	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_wwdg.c:395:13:HAL_WWDG_EarlyWakeupCallback	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_wwdg.c:366:6:HAL_WWDG_IRQHandler	8	static

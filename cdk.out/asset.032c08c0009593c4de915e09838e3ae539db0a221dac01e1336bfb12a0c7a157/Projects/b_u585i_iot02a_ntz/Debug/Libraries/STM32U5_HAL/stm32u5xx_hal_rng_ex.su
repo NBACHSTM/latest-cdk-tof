@@ -1,0 +1,4 @@
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_rng_ex.c:85:19:HAL_RNGEx_SetConfig	16	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_rng_ex.c:181:19:HAL_RNGEx_GetConfig	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_rng_ex.c:232:19:HAL_RNGEx_LockConfig	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_rng_ex.c:291:19:HAL_RNGEx_RecoverSeedError	8	static

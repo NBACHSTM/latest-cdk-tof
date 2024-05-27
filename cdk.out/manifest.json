@@ -1,18 +1,18 @@
 {
   "version": "36.0.0",
   "artifacts": {
-    "assembly-PipelineStack10-MlStage9": {
+    "assembly-PipelineStack10-MlStage10": {
       "type": "cdk:cloud-assembly",
       "properties": {
-        "directoryName": "assembly-PipelineStack10-MlStage9",
-        "displayName": "PipelineStack10/MlStage9"
+        "directoryName": "assembly-PipelineStack10-MlStage10",
+        "displayName": "PipelineStack10/MlStage10"
       }
     },
-    "assembly-PipelineStack10-IotStage9-dev": {
+    "assembly-PipelineStack10-IotStage10-dev": {
       "type": "cdk:cloud-assembly",
       "properties": {
-        "directoryName": "assembly-PipelineStack10-IotStage9-dev",
-        "displayName": "PipelineStack10/IotStage9-dev"
+        "directoryName": "assembly-PipelineStack10-IotStage10-dev",
+        "displayName": "PipelineStack10/IotStage10-dev"
       }
     },
     "PipelineStack10.assets": {
@@ -32,7 +32,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::958196000588:role/cdk-stmicro10-deploy-role-958196000588-eu-central-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::958196000588:role/cdk-stmicro10-cfn-exec-role-958196000588-eu-central-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-stmicro10-assets-958196000588-eu-central-1/e68ca357304778401a97c0f31e244120e94234e30d4bc6b8711aae80afb7f028.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-stmicro10-assets-958196000588-eu-central-1/7f7ef25f1524b45243bc6dbdb7969d95b3eb137be9f5b70ceffd6a2798a077c9.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/stmicro10/version",
         "additionalDependencies": [
@@ -48,10 +48,10 @@
         "PipelineStack10.assets"
       ],
       "metadata": {
-        "/PipelineStack10/PipelineLogGroup9/Resource": [
+        "/PipelineStack10/PipelineLogGroup10/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "PipelineLogGroup91C7A520E"
+            "data": "PipelineLogGroup10B05E5484"
           }
         ],
         "/PipelineStack10/Pipeline/Pipeline": [

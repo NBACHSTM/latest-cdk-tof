@@ -1,7 +1,7 @@
 {
  "Description": "AWS STM32 ML at Edge Accelerator (uksb-1tupboc18)",
  "Resources": {
-  "PipelineLogGroup91C7A520E": {
+  "PipelineLogGroup10B05E5484": {
    "Type": "AWS::Logs::LogGroup",
    "Properties": {
     "RetentionInDays": 731
@@ -9,7 +9,7 @@
    "UpdateReplacePolicy": "Retain",
    "DeletionPolicy": "Retain",
    "Metadata": {
-    "aws:cdk:path": "PipelineStack10/PipelineLogGroup9/Resource"
+    "aws:cdk:path": "PipelineStack10/PipelineLogGroup10/Resource"
    }
   },
   "PipelineArtifactsBucketEncryptionKeyF5BF0670": {
@@ -340,7 +340,7 @@
      },
      "Type": "S3"
     },
-    "Name": "StMicroPipeline9",
+    "Name": "StMicroPipeline10",
     "RestartExecutionOnUpdate": true,
     "RoleArn": {
      "Fn::GetAtt": [
@@ -906,7 +906,7 @@
          "Version": "1"
         },
         "Configuration": {
-         "StackName": "MlStage9-MlStack9",
+         "StackName": "MlStage10-MlStack10",
          "Capabilities": "CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND",
          "RoleArn": {
           "Fn::Join": [
@@ -922,7 +922,7 @@
          },
          "ActionMode": "CHANGE_SET_REPLACE",
          "ChangeSetName": "PipelineChange",
-         "TemplatePath": "SynthStep_Output::assembly-PipelineStack10-MlStage9/PipelineStack10MlStage9MlStack98806942F.template.json"
+         "TemplatePath": "SynthStep_Output::assembly-PipelineStack10-MlStage10/PipelineStack10MlStage10MlStack108B727304.template.json"
         },
         "InputArtifacts": [
          {
@@ -952,7 +952,7 @@
          "Version": "1"
         },
         "Configuration": {
-         "StackName": "MlStage9-MlStack9",
+         "StackName": "MlStage10-MlStack10",
          "ActionMode": "CHANGE_SET_EXECUTE",
          "ChangeSetName": "PipelineChange"
         },
@@ -972,7 +972,7 @@
         "RunOrder": 2
        }
       ],
-      "Name": "MlStage9"
+      "Name": "MlStage10"
      },
      {
       "Actions": [
@@ -984,7 +984,7 @@
          "Version": "1"
         },
         "Configuration": {
-         "StackName": "IotStage9-dev-IotStack9",
+         "StackName": "IotStage10-dev-IotStack10",
          "Capabilities": "CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND",
          "RoleArn": {
           "Fn::Join": [
@@ -1000,7 +1000,7 @@
          },
          "ActionMode": "CHANGE_SET_REPLACE",
          "ChangeSetName": "PipelineChange",
-         "TemplatePath": "SynthStep_Output::assembly-PipelineStack10-IotStage9-dev/PipelineStack10IotStage9devIotStack93F97BC48.template.json"
+         "TemplatePath": "SynthStep_Output::assembly-PipelineStack10-IotStage10-dev/PipelineStack10IotStage10devIotStack106624A9C1.template.json"
         },
         "InputArtifacts": [
          {
@@ -1030,7 +1030,7 @@
          "Version": "1"
         },
         "Configuration": {
-         "StackName": "IotStage9-dev-IotStack9",
+         "StackName": "IotStage10-dev-IotStack10",
          "ActionMode": "CHANGE_SET_EXECUTE",
          "ChangeSetName": "PipelineChange"
         },
@@ -1050,7 +1050,7 @@
         "RunOrder": 2
        }
       ],
-      "Name": "IotStage9-dev"
+      "Name": "IotStage10-dev"
      }
     ]
    },
@@ -1213,7 +1213,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "PipelineLogGroup91C7A520E",
+         "PipelineLogGroup10B05E5484",
          "Arn"
         ]
        }
@@ -1366,7 +1366,7 @@
     "LogsConfig": {
      "CloudWatchLogs": {
       "GroupName": {
-       "Ref": "PipelineLogGroup91C7A520E"
+       "Ref": "PipelineLogGroup10B05E5484"
       },
       "Status": "ENABLED"
      }
@@ -1587,7 +1587,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "PipelineLogGroup91C7A520E",
+         "PipelineLogGroup10B05E5484",
          "Arn"
         ]
        }
@@ -1755,12 +1755,12 @@
     "LogsConfig": {
      "CloudWatchLogs": {
       "GroupName": {
-       "Ref": "PipelineLogGroup91C7A520E"
+       "Ref": "PipelineLogGroup10B05E5484"
       },
       "Status": "ENABLED"
      }
     },
-    "Name": "StMicroPipeline9-selfupdate",
+    "Name": "StMicroPipeline10-selfupdate",
     "ServiceRole": {
      "Fn::GetAtt": [
       "PipelineUpdatePipelineSelfMutationRole57E559E8",
@@ -1846,7 +1846,7 @@
        "Effect": "Allow",
        "Resource": {
         "Fn::GetAtt": [
-         "PipelineLogGroup91C7A520E",
+         "PipelineLogGroup10B05E5484",
          "Arn"
         ]
        }
@@ -1934,7 +1934,7 @@
     "LogsConfig": {
      "CloudWatchLogs": {
       "GroupName": {
-       "Ref": "PipelineLogGroup91C7A520E"
+       "Ref": "PipelineLogGroup10B05E5484"
       },
       "Status": "ENABLED"
      }
@@ -1946,7 +1946,7 @@
      ]
     },
     "Source": {
-     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-MlStage9/PipelineStack10MlStage9MlStack98806942F.assets.json\\\" --verbose publish \\\"ed6cd104ff5f101d06dae8cb2b87cc6e6d69b9a22055b467ea6cae10ff023023:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-MlStage10/PipelineStack10MlStage10MlStack108B727304.assets.json\\\" --verbose publish \\\"ed6cd104ff5f101d06dae8cb2b87cc6e6d69b9a22055b467ea6cae10ff023023:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
      "Type": "CODEPIPELINE"
     }
    },
@@ -1980,7 +1980,7 @@
     "LogsConfig": {
      "CloudWatchLogs": {
       "GroupName": {
-       "Ref": "PipelineLogGroup91C7A520E"
+       "Ref": "PipelineLogGroup10B05E5484"
       },
       "Status": "ENABLED"
      }
@@ -1992,7 +1992,7 @@
      ]
     },
     "Source": {
-     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-IotStage9-dev/PipelineStack10IotStage9devIotStack93F97BC48.assets.json\\\" --verbose publish \\\"badf25698ef9e79d486bd8ad13e549825c780cf80a61dab63e6cc4d1b9b7a997:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-IotStage10-dev/PipelineStack10IotStage10devIotStack106624A9C1.assets.json\\\" --verbose publish \\\"badf25698ef9e79d486bd8ad13e549825c780cf80a61dab63e6cc4d1b9b7a997:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
      "Type": "CODEPIPELINE"
     }
    },
@@ -2026,7 +2026,7 @@
     "LogsConfig": {
      "CloudWatchLogs": {
       "GroupName": {
-       "Ref": "PipelineLogGroup91C7A520E"
+       "Ref": "PipelineLogGroup10B05E5484"
       },
       "Status": "ENABLED"
      }
@@ -2038,7 +2038,7 @@
      ]
     },
     "Source": {
-     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-IotStage9-dev/PipelineStack10IotStage9devIotStack93F97BC48.assets.json\\\" --verbose publish \\\"91b6a7b637186625244031077785e5e7ac8a73b3f810d256420b6618ad57a67f:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-IotStage10-dev/PipelineStack10IotStage10devIotStack106624A9C1.assets.json\\\" --verbose publish \\\"032c08c0009593c4de915e09838e3ae539db0a221dac01e1336bfb12a0c7a157:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
      "Type": "CODEPIPELINE"
     }
    },
@@ -2072,7 +2072,7 @@
     "LogsConfig": {
      "CloudWatchLogs": {
       "GroupName": {
-       "Ref": "PipelineLogGroup91C7A520E"
+       "Ref": "PipelineLogGroup10B05E5484"
       },
       "Status": "ENABLED"
      }
@@ -2084,7 +2084,7 @@
      ]
     },
     "Source": {
-     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-IotStage9-dev/PipelineStack10IotStage9devIotStack93F97BC48.assets.json\\\" --verbose publish \\\"04c4ddffba72e7a512e62b1f9bba16ab62e36348bcaeec6a74754c22c1d5ec3a:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-IotStage10-dev/PipelineStack10IotStage10devIotStack106624A9C1.assets.json\\\" --verbose publish \\\"04c4ddffba72e7a512e62b1f9bba16ab62e36348bcaeec6a74754c22c1d5ec3a:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
      "Type": "CODEPIPELINE"
     }
    },
@@ -2118,7 +2118,7 @@
     "LogsConfig": {
      "CloudWatchLogs": {
       "GroupName": {
-       "Ref": "PipelineLogGroup91C7A520E"
+       "Ref": "PipelineLogGroup10B05E5484"
       },
       "Status": "ENABLED"
      }
@@ -2130,7 +2130,7 @@
      ]
     },
     "Source": {
-     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-IotStage9-dev/PipelineStack10IotStage9devIotStack93F97BC48.assets.json\\\" --verbose publish \\\"32bc803a1df18e05d70af253972e1dc7d2b48170c64b41fa75149aff0419d2ac:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-IotStage10-dev/PipelineStack10IotStage10devIotStack106624A9C1.assets.json\\\" --verbose publish \\\"32bc803a1df18e05d70af253972e1dc7d2b48170c64b41fa75149aff0419d2ac:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
      "Type": "CODEPIPELINE"
     }
    },
@@ -2164,7 +2164,7 @@
     "LogsConfig": {
      "CloudWatchLogs": {
       "GroupName": {
-       "Ref": "PipelineLogGroup91C7A520E"
+       "Ref": "PipelineLogGroup10B05E5484"
       },
       "Status": "ENABLED"
      }
@@ -2176,7 +2176,7 @@
      ]
     },
     "Source": {
-     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-IotStage9-dev/PipelineStack10IotStage9devIotStack93F97BC48.assets.json\\\" --verbose publish \\\"0a3bd3f508c969584a61316069ada559ef454e56983c566a2fe2f1e30423e248:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-IotStage10-dev/PipelineStack10IotStage10devIotStack106624A9C1.assets.json\\\" --verbose publish \\\"0a3bd3f508c969584a61316069ada559ef454e56983c566a2fe2f1e30423e248:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
      "Type": "CODEPIPELINE"
     }
    },
@@ -2210,7 +2210,7 @@
     "LogsConfig": {
      "CloudWatchLogs": {
       "GroupName": {
-       "Ref": "PipelineLogGroup91C7A520E"
+       "Ref": "PipelineLogGroup10B05E5484"
       },
       "Status": "ENABLED"
      }
@@ -2222,7 +2222,7 @@
      ]
     },
     "Source": {
-     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-IotStage9-dev/PipelineStack10IotStage9devIotStack93F97BC48.assets.json\\\" --verbose publish \\\"b6781238fc3ace8ef655fd66333b964d3cca61f0c9c97e001fa9eb80953c3dd0:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-IotStage10-dev/PipelineStack10IotStage10devIotStack106624A9C1.assets.json\\\" --verbose publish \\\"b6781238fc3ace8ef655fd66333b964d3cca61f0c9c97e001fa9eb80953c3dd0:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
      "Type": "CODEPIPELINE"
     }
    },
@@ -2256,7 +2256,7 @@
     "LogsConfig": {
      "CloudWatchLogs": {
       "GroupName": {
-       "Ref": "PipelineLogGroup91C7A520E"
+       "Ref": "PipelineLogGroup10B05E5484"
       },
       "Status": "ENABLED"
      }
@@ -2268,7 +2268,7 @@
      ]
     },
     "Source": {
-     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-IotStage9-dev/PipelineStack10IotStage9devIotStack93F97BC48.assets.json\\\" --verbose publish \\\"e6746a201904a70c66f08c29fa83492ae4f5f835dead2c2e7abb303367e33152:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-IotStage10-dev/PipelineStack10IotStage10devIotStack106624A9C1.assets.json\\\" --verbose publish \\\"e6746a201904a70c66f08c29fa83492ae4f5f835dead2c2e7abb303367e33152:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
      "Type": "CODEPIPELINE"
     }
    },
@@ -2302,7 +2302,7 @@
     "LogsConfig": {
      "CloudWatchLogs": {
       "GroupName": {
-       "Ref": "PipelineLogGroup91C7A520E"
+       "Ref": "PipelineLogGroup10B05E5484"
       },
       "Status": "ENABLED"
      }
@@ -2314,7 +2314,7 @@
      ]
     },
     "Source": {
-     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-IotStage9-dev/PipelineStack10IotStage9devIotStack93F97BC48.assets.json\\\" --verbose publish \\\"c67cbac96870da027364dc14f3687a41cbe1aa5a6f5393e941f458726edd832b:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-IotStage10-dev/PipelineStack10IotStage10devIotStack106624A9C1.assets.json\\\" --verbose publish \\\"c67cbac96870da027364dc14f3687a41cbe1aa5a6f5393e941f458726edd832b:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
      "Type": "CODEPIPELINE"
     }
    },
@@ -2348,7 +2348,7 @@
     "LogsConfig": {
      "CloudWatchLogs": {
       "GroupName": {
-       "Ref": "PipelineLogGroup91C7A520E"
+       "Ref": "PipelineLogGroup10B05E5484"
       },
       "Status": "ENABLED"
      }
@@ -2360,7 +2360,7 @@
      ]
     },
     "Source": {
-     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-MlStage9/PipelineStack10MlStage9MlStack98806942F.assets.json\\\" --verbose publish \\\"b7f33614a69548d6bafe224d751a7ef238cde19097415e553fe8b63a4c8fd8a6:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-MlStage10/PipelineStack10MlStage10MlStack108B727304.assets.json\\\" --verbose publish \\\"b7f33614a69548d6bafe224d751a7ef238cde19097415e553fe8b63a4c8fd8a6:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
      "Type": "CODEPIPELINE"
     }
    },
@@ -2394,7 +2394,7 @@
     "LogsConfig": {
      "CloudWatchLogs": {
       "GroupName": {
-       "Ref": "PipelineLogGroup91C7A520E"
+       "Ref": "PipelineLogGroup10B05E5484"
       },
       "Status": "ENABLED"
      }
@@ -2406,7 +2406,7 @@
      ]
     },
     "Source": {
-     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-MlStage9/PipelineStack10MlStage9MlStack98806942F.assets.json\\\" --verbose publish \\\"03899ebd2d93c31a82d3bcbe702261d822e0e57ebe119aa68b265726c39c9739:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-MlStage10/PipelineStack10MlStage10MlStack108B727304.assets.json\\\" --verbose publish \\\"03899ebd2d93c31a82d3bcbe702261d822e0e57ebe119aa68b265726c39c9739:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
      "Type": "CODEPIPELINE"
     }
    },
@@ -2440,7 +2440,7 @@
     "LogsConfig": {
      "CloudWatchLogs": {
       "GroupName": {
-       "Ref": "PipelineLogGroup91C7A520E"
+       "Ref": "PipelineLogGroup10B05E5484"
       },
       "Status": "ENABLED"
      }
@@ -2452,7 +2452,7 @@
      ]
     },
     "Source": {
-     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-MlStage9/PipelineStack10MlStage9MlStack98806942F.assets.json\\\" --verbose publish \\\"e6b89e9d9af9983a2efa065dc643ea9fcc177c808e33112c38ad4c583c91dc53:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-MlStage10/PipelineStack10MlStage10MlStack108B727304.assets.json\\\" --verbose publish \\\"e6b89e9d9af9983a2efa065dc643ea9fcc177c808e33112c38ad4c583c91dc53:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
      "Type": "CODEPIPELINE"
     }
    },
@@ -2486,7 +2486,7 @@
     "LogsConfig": {
      "CloudWatchLogs": {
       "GroupName": {
-       "Ref": "PipelineLogGroup91C7A520E"
+       "Ref": "PipelineLogGroup10B05E5484"
       },
       "Status": "ENABLED"
      }
@@ -2498,7 +2498,7 @@
      ]
     },
     "Source": {
-     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-MlStage9/PipelineStack10MlStage9MlStack98806942F.assets.json\\\" --verbose publish \\\"c53555fd05f6fc6e7a4e6be6da16b51281898483e639bd32a3e5975c406e8941:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-MlStage10/PipelineStack10MlStage10MlStack108B727304.assets.json\\\" --verbose publish \\\"c53555fd05f6fc6e7a4e6be6da16b51281898483e639bd32a3e5975c406e8941:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
      "Type": "CODEPIPELINE"
     }
    },
@@ -2532,7 +2532,7 @@
     "LogsConfig": {
      "CloudWatchLogs": {
       "GroupName": {
-       "Ref": "PipelineLogGroup91C7A520E"
+       "Ref": "PipelineLogGroup10B05E5484"
       },
       "Status": "ENABLED"
      }
@@ -2544,7 +2544,7 @@
      ]
     },
     "Source": {
-     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-MlStage9/PipelineStack10MlStage9MlStack98806942F.assets.json\\\" --verbose publish \\\"ac4a1bd8c7c7879385a212db2c46b2cb8f9e23b91c993d826d478bff7dbc0af3:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-MlStage10/PipelineStack10MlStage10MlStack108B727304.assets.json\\\" --verbose publish \\\"ac4a1bd8c7c7879385a212db2c46b2cb8f9e23b91c993d826d478bff7dbc0af3:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
      "Type": "CODEPIPELINE"
     }
    },
@@ -2578,7 +2578,7 @@
     "LogsConfig": {
      "CloudWatchLogs": {
       "GroupName": {
-       "Ref": "PipelineLogGroup91C7A520E"
+       "Ref": "PipelineLogGroup10B05E5484"
       },
       "Status": "ENABLED"
      }
@@ -2590,7 +2590,7 @@
      ]
     },
     "Source": {
-     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-MlStage9/PipelineStack10MlStage9MlStack98806942F.assets.json\\\" --verbose publish \\\"62e5d16252a1963a543dae523e59c46e1a4c81136d25c2e74ff108e59aadd8a4:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-MlStage10/PipelineStack10MlStage10MlStack108B727304.assets.json\\\" --verbose publish \\\"8f1585a7f6c6218d4063df4e046acc3d8e1e54ec3d5633b9d77b71ec81fe3c08:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
      "Type": "CODEPIPELINE"
     }
    },
@@ -2624,7 +2624,7 @@
     "LogsConfig": {
      "CloudWatchLogs": {
       "GroupName": {
-       "Ref": "PipelineLogGroup91C7A520E"
+       "Ref": "PipelineLogGroup10B05E5484"
       },
       "Status": "ENABLED"
      }
@@ -2636,7 +2636,7 @@
      ]
     },
     "Source": {
-     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-IotStage9-dev/PipelineStack10IotStage9devIotStack93F97BC48.assets.json\\\" --verbose publish \\\"11013dcfc3b9b10cb3f005c23906bf7c627e9827327dba3b4b0cdf25c74534c8:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-IotStage10-dev/PipelineStack10IotStage10devIotStack106624A9C1.assets.json\\\" --verbose publish \\\"11013dcfc3b9b10cb3f005c23906bf7c627e9827327dba3b4b0cdf25c74534c8:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
      "Type": "CODEPIPELINE"
     }
    },
@@ -2670,7 +2670,7 @@
     "LogsConfig": {
      "CloudWatchLogs": {
       "GroupName": {
-       "Ref": "PipelineLogGroup91C7A520E"
+       "Ref": "PipelineLogGroup10B05E5484"
       },
       "Status": "ENABLED"
      }
@@ -2682,7 +2682,7 @@
      ]
     },
     "Source": {
-     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-IotStage9-dev/PipelineStack10IotStage9devIotStack93F97BC48.assets.json\\\" --verbose publish \\\"7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets@2\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-PipelineStack10-IotStage10-dev/PipelineStack10IotStage10devIotStack106624A9C1.assets.json\\\" --verbose publish \\\"7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94:958196000588-eu-central-1\\\"\"\n      ]\n    }\n  }\n}",
      "Type": "CODEPIPELINE"
     }
    },

@@ -1,0 +1,188 @@
+{
+  "version": "36.0.0",
+  "files": {
+    "11013dcfc3b9b10cb3f005c23906bf7c627e9827327dba3b4b0cdf25c74534c8": {
+      "source": {
+        "path": "../asset.11013dcfc3b9b10cb3f005c23906bf7c627e9827327dba3b4b0cdf25c74534c8",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "958196000588-eu-central-1": {
+          "bucketName": "cdk-stmicro10-assets-958196000588-eu-central-1",
+          "objectKey": "11013dcfc3b9b10cb3f005c23906bf7c627e9827327dba3b4b0cdf25c74534c8.zip",
+          "region": "eu-central-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::958196000588:role/cdk-stmicro10-file-publishing-role-958196000588-eu-central-1"
+        }
+      }
+    },
+    "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94": {
+      "source": {
+        "path": "../asset.7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "958196000588-eu-central-1": {
+          "bucketName": "cdk-stmicro10-assets-958196000588-eu-central-1",
+          "objectKey": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip",
+          "region": "eu-central-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::958196000588:role/cdk-stmicro10-file-publishing-role-958196000588-eu-central-1"
+        }
+      }
+    },
+    "badf25698ef9e79d486bd8ad13e549825c780cf80a61dab63e6cc4d1b9b7a997": {
+      "source": {
+        "path": "../asset.badf25698ef9e79d486bd8ad13e549825c780cf80a61dab63e6cc4d1b9b7a997",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "958196000588-eu-central-1": {
+          "bucketName": "cdk-stmicro10-assets-958196000588-eu-central-1",
+          "objectKey": "badf25698ef9e79d486bd8ad13e549825c780cf80a61dab63e6cc4d1b9b7a997.zip",
+          "region": "eu-central-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::958196000588:role/cdk-stmicro10-file-publishing-role-958196000588-eu-central-1"
+        }
+      }
+    },
+    "b7f33614a69548d6bafe224d751a7ef238cde19097415e553fe8b63a4c8fd8a6": {
+      "source": {
+        "path": "../asset.b7f33614a69548d6bafe224d751a7ef238cde19097415e553fe8b63a4c8fd8a6",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "958196000588-eu-central-1": {
+          "bucketName": "cdk-stmicro10-assets-958196000588-eu-central-1",
+          "objectKey": "b7f33614a69548d6bafe224d751a7ef238cde19097415e553fe8b63a4c8fd8a6.zip",
+          "region": "eu-central-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::958196000588:role/cdk-stmicro10-file-publishing-role-958196000588-eu-central-1"
+        }
+      }
+    },
+    "ed6cd104ff5f101d06dae8cb2b87cc6e6d69b9a22055b467ea6cae10ff023023": {
+      "source": {
+        "path": "../asset.ed6cd104ff5f101d06dae8cb2b87cc6e6d69b9a22055b467ea6cae10ff023023",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "958196000588-eu-central-1": {
+          "bucketName": "cdk-stmicro10-assets-958196000588-eu-central-1",
+          "objectKey": "ed6cd104ff5f101d06dae8cb2b87cc6e6d69b9a22055b467ea6cae10ff023023.zip",
+          "region": "eu-central-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::958196000588:role/cdk-stmicro10-file-publishing-role-958196000588-eu-central-1"
+        }
+      }
+    },
+    "032c08c0009593c4de915e09838e3ae539db0a221dac01e1336bfb12a0c7a157": {
+      "source": {
+        "path": "../asset.032c08c0009593c4de915e09838e3ae539db0a221dac01e1336bfb12a0c7a157",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "958196000588-eu-central-1": {
+          "bucketName": "cdk-stmicro10-assets-958196000588-eu-central-1",
+          "objectKey": "032c08c0009593c4de915e09838e3ae539db0a221dac01e1336bfb12a0c7a157.zip",
+          "region": "eu-central-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::958196000588:role/cdk-stmicro10-file-publishing-role-958196000588-eu-central-1"
+        }
+      }
+    },
+    "04c4ddffba72e7a512e62b1f9bba16ab62e36348bcaeec6a74754c22c1d5ec3a": {
+      "source": {
+        "path": "../asset.04c4ddffba72e7a512e62b1f9bba16ab62e36348bcaeec6a74754c22c1d5ec3a",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "958196000588-eu-central-1": {
+          "bucketName": "cdk-stmicro10-assets-958196000588-eu-central-1",
+          "objectKey": "04c4ddffba72e7a512e62b1f9bba16ab62e36348bcaeec6a74754c22c1d5ec3a.zip",
+          "region": "eu-central-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::958196000588:role/cdk-stmicro10-file-publishing-role-958196000588-eu-central-1"
+        }
+      }
+    },
+    "32bc803a1df18e05d70af253972e1dc7d2b48170c64b41fa75149aff0419d2ac": {
+      "source": {
+        "path": "../asset.32bc803a1df18e05d70af253972e1dc7d2b48170c64b41fa75149aff0419d2ac",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "958196000588-eu-central-1": {
+          "bucketName": "cdk-stmicro10-assets-958196000588-eu-central-1",
+          "objectKey": "32bc803a1df18e05d70af253972e1dc7d2b48170c64b41fa75149aff0419d2ac.zip",
+          "region": "eu-central-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::958196000588:role/cdk-stmicro10-file-publishing-role-958196000588-eu-central-1"
+        }
+      }
+    },
+    "0a3bd3f508c969584a61316069ada559ef454e56983c566a2fe2f1e30423e248": {
+      "source": {
+        "path": "../asset.0a3bd3f508c969584a61316069ada559ef454e56983c566a2fe2f1e30423e248",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "958196000588-eu-central-1": {
+          "bucketName": "cdk-stmicro10-assets-958196000588-eu-central-1",
+          "objectKey": "0a3bd3f508c969584a61316069ada559ef454e56983c566a2fe2f1e30423e248.zip",
+          "region": "eu-central-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::958196000588:role/cdk-stmicro10-file-publishing-role-958196000588-eu-central-1"
+        }
+      }
+    },
+    "b6781238fc3ace8ef655fd66333b964d3cca61f0c9c97e001fa9eb80953c3dd0": {
+      "source": {
+        "path": "../asset.b6781238fc3ace8ef655fd66333b964d3cca61f0c9c97e001fa9eb80953c3dd0",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "958196000588-eu-central-1": {
+          "bucketName": "cdk-stmicro10-assets-958196000588-eu-central-1",
+          "objectKey": "b6781238fc3ace8ef655fd66333b964d3cca61f0c9c97e001fa9eb80953c3dd0.zip",
+          "region": "eu-central-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::958196000588:role/cdk-stmicro10-file-publishing-role-958196000588-eu-central-1"
+        }
+      }
+    },
+    "e6746a201904a70c66f08c29fa83492ae4f5f835dead2c2e7abb303367e33152": {
+      "source": {
+        "path": "../asset.e6746a201904a70c66f08c29fa83492ae4f5f835dead2c2e7abb303367e33152",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "958196000588-eu-central-1": {
+          "bucketName": "cdk-stmicro10-assets-958196000588-eu-central-1",
+          "objectKey": "e6746a201904a70c66f08c29fa83492ae4f5f835dead2c2e7abb303367e33152.zip",
+          "region": "eu-central-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::958196000588:role/cdk-stmicro10-file-publishing-role-958196000588-eu-central-1"
+        }
+      }
+    },
+    "c67cbac96870da027364dc14f3687a41cbe1aa5a6f5393e941f458726edd832b": {
+      "source": {
+        "path": "../asset.c67cbac96870da027364dc14f3687a41cbe1aa5a6f5393e941f458726edd832b",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "958196000588-eu-central-1": {
+          "bucketName": "cdk-stmicro10-assets-958196000588-eu-central-1",
+          "objectKey": "c67cbac96870da027364dc14f3687a41cbe1aa5a6f5393e941f458726edd832b.zip",
+          "region": "eu-central-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::958196000588:role/cdk-stmicro10-file-publishing-role-958196000588-eu-central-1"
+        }
+      }
+    },
+    "e69e0edb694845375c6a5b6449cbaf03fb25032664aeb564cd9db9139dcfdeca": {
+      "source": {
+        "path": "PipelineStack10IotStage10devIotStack106624A9C1.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "958196000588-eu-central-1": {
+          "bucketName": "cdk-stmicro10-assets-958196000588-eu-central-1",
+          "objectKey": "e69e0edb694845375c6a5b6449cbaf03fb25032664aeb564cd9db9139dcfdeca.json",
+          "region": "eu-central-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::958196000588:role/cdk-stmicro10-file-publishing-role-958196000588-eu-central-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

@@ -1,0 +1,11 @@
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_gpio.c:197:6:HAL_GPIO_Init	20	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_gpio.c:369:6:HAL_GPIO_DeInit	20	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_gpio.c:471:15:HAL_GPIO_ReadPin	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_gpio.c:505:6:HAL_GPIO_WritePin	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_gpio.c:529:6:HAL_GPIO_TogglePin	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_gpio.c:555:19:HAL_GPIO_LockPin	16	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_gpio.c:639:6:HAL_GPIO_EnableHighSPeedLowVoltage	8	static,ignoring_inline_asm
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_gpio.c:697:6:HAL_GPIO_DisableHighSPeedLowVoltage	8	static,ignoring_inline_asm
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_gpio.c:769:13:HAL_GPIO_EXTI_Rising_Callback	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_gpio.c:784:13:HAL_GPIO_EXTI_Falling_Callback	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_gpio.c:748:6:HAL_GPIO_EXTI_IRQHandler	8	static

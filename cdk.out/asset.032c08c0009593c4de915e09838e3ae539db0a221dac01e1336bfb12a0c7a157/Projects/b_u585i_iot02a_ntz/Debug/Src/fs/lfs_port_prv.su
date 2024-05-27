@@ -1,0 +1,3 @@
+../Src/fs/lfs_port_prv.c:35:5:lfs_port_lock	8	static
+../Src/fs/lfs_port_prv.c:45:5:lfs_port_unlock	8	static
+../Src/fs/lfs_port_prv.c:60:10:lfs_crc	12	static

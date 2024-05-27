@@ -1,0 +1,5 @@
+../Src/crypto/rng_alt_stm32u5.c:52:13:vRngInit	8	static,ignoring_inline_asm
+../Src/crypto/rng_alt_stm32u5.c:47:13:vRngIrqHandler	8	static
+../Src/crypto/rng_alt_stm32u5.c:68:6:HAL_RNG_ReadyDataCallback	16	static
+../Src/crypto/rng_alt_stm32u5.c:83:6:HAL_RNG_ErrorCallback	16	static
+../Src/crypto/rng_alt_stm32u5.c:96:5:mbedtls_hardware_poll	56	static

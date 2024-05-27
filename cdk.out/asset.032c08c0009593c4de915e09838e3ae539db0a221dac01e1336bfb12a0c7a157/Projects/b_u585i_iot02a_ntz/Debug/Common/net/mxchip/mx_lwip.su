@@ -1,0 +1,5 @@
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/net/mxchip/mx_lwip.c:68:13:vLwipStatusCallback	16	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/net/mxchip/mx_lwip.c:36:13:vAddMXHeaderToEthernetFrame	24	static,ignoring_inline_asm
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/net/mxchip/mx_lwip.c:121:7:prvxLinkOutput	32	static,ignoring_inline_asm
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/net/mxchip/mx_lwip.c:193:12:prvxLinkInput	16	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/net/mxchip/mx_lwip.c:250:7:prvInitNetInterface	24	static,ignoring_inline_asm

@@ -1,0 +1,3 @@
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/app/mqtt/freertos_command_pool.c:61:6:Agent_InitializePool	16	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/app/mqtt/freertos_command_pool.c:79:22:Agent_GetCommand	16	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/app/mqtt/freertos_command_pool.c:100:6:Agent_ReleaseCommand	24	static

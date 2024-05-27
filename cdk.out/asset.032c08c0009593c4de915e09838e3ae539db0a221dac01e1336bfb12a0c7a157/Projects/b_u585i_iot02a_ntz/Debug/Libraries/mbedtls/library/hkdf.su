@@ -1,0 +1,3 @@
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/mbedtls/library/hkdf.c:49:5:mbedtls_hkdf_extract	96	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/mbedtls/library/hkdf.c:79:5:mbedtls_hkdf_expand	128	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/mbedtls/library/hkdf.c:28:5:mbedtls_hkdf	96	static

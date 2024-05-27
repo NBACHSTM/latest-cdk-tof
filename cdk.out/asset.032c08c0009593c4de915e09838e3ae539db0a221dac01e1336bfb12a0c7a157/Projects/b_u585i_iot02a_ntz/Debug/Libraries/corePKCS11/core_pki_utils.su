@@ -1,0 +1,2 @@
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/FreeRTOS/corePKCS11/source/core_pki_utils.c:43:8:PKI_mbedTLSSignatureToPkcs11Signature	16	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/FreeRTOS/corePKCS11/source/core_pki_utils.c:131:8:PKI_pkcs11SignatureTombedTLSSignature	88	static

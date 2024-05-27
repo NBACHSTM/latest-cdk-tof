@@ -1,0 +1,15 @@
+mx_netconn.c:256:13:vLwipReadyCallback	2
+mx_lwip.h:51:20:vLogAddress	1
+mx_lwip.h:119:20:vSetAdminUp	3
+mx_lwip.h:83:20:vStartDhcp	4
+mx_lwip.h:101:20:vStopDhcp	4
+mx_netconn.c:350:13:vInitializeContexts	4
+mx_netconn.c:107:17:ulWaitForNotifyBits	5
+mx_netconn.c:182:19:xWaitForMxStatus	5
+mx_netconn.c:305:13:vInitializeWifiModule	6
+mx_lwip.h:62:20:vClearAddress	5
+mx_netconn.c:272:19:xConnectToAP	4
+mx_netconn.c:154:13:vHandleMxStatusUpdate	7
+mx_netconn.c:236:13:vMxStatusNotify	1
+mx_netconn.c:216:12:net_request_reconnect	2
+mx_netconn.c:410:6:net_main	19

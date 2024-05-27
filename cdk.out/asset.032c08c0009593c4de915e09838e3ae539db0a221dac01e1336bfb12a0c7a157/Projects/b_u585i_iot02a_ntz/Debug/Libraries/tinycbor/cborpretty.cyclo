@@ -1,0 +1,8 @@
+cborpretty.c:180:13:printRecursionLimit	1
+cborpretty.c:185:18:hexDump	3
+cborpretty.c:197:18:utf8EscapedDump	33
+cborpretty.c:258:20:resolve_indicator	27
+cborpretty.c:303:20:get_indicator	1
+cborpretty.c:339:18:value_to_pretty	76
+cborpretty.c:309:18:container_to_pretty	8
+cborpretty.c:574:11:cbor_value_to_pretty_stream	1
