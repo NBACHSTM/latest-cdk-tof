@@ -1,0 +1,17 @@
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_uart_drv.c:118:13:vUart1MspDeInitCallback	8	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_uart_drv.c:72:13:vUart1MspInitCallback	240	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_uart_drv.c:602:13:uart_unlock	8	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_uart_drv.c:458:16:uart_read_timeout	8	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_uart_drv.c:440:16:uart_read	8	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_uart_drv.c:597:13:uart_lock	8	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_uart_drv.c:417:13:uart_write	16	static,ignoring_inline_asm
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_uart_drv.c:335:13:vTxThread	80	static,ignoring_inline_asm
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_uart_drv.c:219:13:rxErrorCallback	24	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_uart_drv.c:233:13:rxEventCallback	24	static,ignoring_inline_asm
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_uart_drv.c:283:13:vRxThread	24	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_uart_drv.c:324:13:txCompleteCallback	16	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_uart_drv.c:476:13:uart_print	8	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_uart_drv.c:486:16:uart_readline	16	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_uart_drv.c:113:6:USART1_IRQHandler	8	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_uart_drv.c:138:22:vInitUartEarly	8	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_uart_drv.c:150:12:xInitConsoleUart	24	static

@@ -1,0 +1,16 @@
+custom_ranging_sensor.c:556:13:reset_device	1
+custom_ranging_sensor.c:505:16:VL53L5CX_Probe	6
+custom_ranging_sensor.c:40:9:CUSTOM_RANGING_SENSOR_Init	3
+custom_ranging_sensor.c:161:9:CUSTOM_RANGING_SENSOR_DeInit	3
+custom_ranging_sensor.c:187:9:CUSTOM_RANGING_SENSOR_ReadID	3
+custom_ranging_sensor.c:214:9:CUSTOM_RANGING_SENSOR_GetCapabilities	3
+custom_ranging_sensor.c:240:9:CUSTOM_RANGING_SENSOR_ConfigProfile	3
+custom_ranging_sensor.c:267:9:CUSTOM_RANGING_SENSOR_ConfigROI	4
+custom_ranging_sensor.c:298:9:CUSTOM_RANGING_SENSOR_ConfigIT	3
+custom_ranging_sensor.c:324:9:CUSTOM_RANGING_SENSOR_GetDistance	3
+custom_ranging_sensor.c:350:9:CUSTOM_RANGING_SENSOR_Start	3
+custom_ranging_sensor.c:375:9:CUSTOM_RANGING_SENSOR_Stop	3
+custom_ranging_sensor.c:401:9:CUSTOM_RANGING_SENSOR_SetAddress	3
+custom_ranging_sensor.c:427:9:CUSTOM_RANGING_SENSOR_GetAddress	3
+custom_ranging_sensor.c:453:9:CUSTOM_RANGING_SENSOR_SetPowerMode	3
+custom_ranging_sensor.c:479:9:CUSTOM_RANGING_SENSOR_GetPowerMode	3

@@ -1,0 +1,3 @@
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_crc_ex.c:89:19:HAL_CRCEx_Polynomial_Set	4	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_crc_ex.c:159:19:HAL_CRCEx_Input_Data_Reverse	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_crc_ex.c:185:19:HAL_CRCEx_Output_Data_Reverse	0	static

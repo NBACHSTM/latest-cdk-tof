@@ -1,0 +1,20 @@
+{
+  "version": "36.0.0",
+  "files": {
+    "7f7ef25f1524b45243bc6dbdb7969d95b3eb137be9f5b70ceffd6a2798a077c9": {
+      "source": {
+        "path": "PipelineStack10.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "958196000588-eu-central-1": {
+          "bucketName": "cdk-stmicro10-assets-958196000588-eu-central-1",
+          "objectKey": "7f7ef25f1524b45243bc6dbdb7969d95b3eb137be9f5b70ceffd6a2798a077c9.json",
+          "region": "eu-central-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::958196000588:role/cdk-stmicro10-file-publishing-role-958196000588-eu-central-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

@@ -1,0 +1,7 @@
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/logging.c:57:6:vDyingGasp	16	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/logging.c:169:6:vLoggingInit	8	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/logging.c:176:6:vLoggingPrintf	44	static,ignoring_inline_asm
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/logging.c:85:13:vSendLogMessageEarly	24	static,ignoring_inline_asm
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/logging.c:107:6:vInitLoggingEarly	8	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/logging.c:113:13:vSendLogMessage	24	static,ignoring_inline_asm
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/logging.c:288:6:vLoggingDeInit	0	static

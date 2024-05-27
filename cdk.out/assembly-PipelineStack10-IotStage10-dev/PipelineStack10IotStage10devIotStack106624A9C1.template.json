@@ -1,0 +1,4267 @@
+{
+ "Resources": {
+  "CodecertificateFnServiceRole35D12E5E": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/certificateFn/ServiceRole/Resource"
+   }
+  },
+  "CodecertificateFnServiceRoleDefaultPolicyF0360B9B": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "acm:DeleteCertificate",
+        "acm:ImportCertificate"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "CodecertificateFnServiceRoleDefaultPolicyF0360B9B",
+    "Roles": [
+     {
+      "Ref": "CodecertificateFnServiceRole35D12E5E"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/certificateFn/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "CodecertificateFnF7D085F8": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "11013dcfc3b9b10cb3f005c23906bf7c627e9827327dba3b4b0cdf25c74534c8.zip"
+    },
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "CodecertificateFnServiceRole35D12E5E",
+      "Arn"
+     ]
+    },
+    "Runtime": "python3.8"
+   },
+   "DependsOn": [
+    "CodecertificateFnServiceRoleDefaultPolicyF0360B9B",
+    "CodecertificateFnServiceRole35D12E5E"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/certificateFn/Resource",
+    "aws:asset:path": "../asset.11013dcfc3b9b10cb3f005c23906bf7c627e9827327dba3b4b0cdf25c74534c8",
+    "aws:asset:is-bundled": true,
+    "aws:asset:property": "Code"
+   }
+  },
+  "CodeCertificatePrframeworkonEventServiceRoleDD5603F7": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/CertificatePr/framework-onEvent/ServiceRole/Resource"
+   }
+  },
+  "CodeCertificatePrframeworkonEventServiceRoleDefaultPolicyB8038024": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CodecertificateFnF7D085F8",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodecertificateFnF7D085F8",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "CodeCertificatePrframeworkonEventServiceRoleDefaultPolicyB8038024",
+    "Roles": [
+     {
+      "Ref": "CodeCertificatePrframeworkonEventServiceRoleDD5603F7"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/CertificatePr/framework-onEvent/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "CodeCertificatePrframeworkonEventB329D697": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
+    },
+    "Description": "AWS CDK resource provider framework - onEvent (PipelineStack10/IotStage10-dev/IotStack10/Code/CertificatePr)",
+    "Environment": {
+     "Variables": {
+      "USER_ON_EVENT_FUNCTION_ARN": {
+       "Fn::GetAtt": [
+        "CodecertificateFnF7D085F8",
+        "Arn"
+       ]
+      }
+     }
+    },
+    "Handler": "framework.onEvent",
+    "Role": {
+     "Fn::GetAtt": [
+      "CodeCertificatePrframeworkonEventServiceRoleDD5603F7",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 900
+   },
+   "DependsOn": [
+    "CodeCertificatePrframeworkonEventServiceRoleDefaultPolicyB8038024",
+    "CodeCertificatePrframeworkonEventServiceRoleDD5603F7"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/CertificatePr/framework-onEvent/Resource",
+    "aws:asset:path": "../asset.7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "CodeCertificateCrB23083AB": {
+   "Type": "AWS::CloudFormation::CustomResource",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CodeCertificatePrframeworkonEventB329D697",
+      "Arn"
+     ]
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/CertificateCr/Default"
+   }
+  },
+  "CodesigningProfileServiceRole344C6065": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/signingProfile/ServiceRole/Resource"
+   }
+  },
+  "CodesigningProfileServiceRoleDefaultPolicy543B90E4": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "signer:CancelSigningProfile",
+        "signer:PutSigningProfile"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "CodesigningProfileServiceRoleDefaultPolicy543B90E4",
+    "Roles": [
+     {
+      "Ref": "CodesigningProfileServiceRole344C6065"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/signingProfile/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "CodesigningProfile7875E312": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "badf25698ef9e79d486bd8ad13e549825c780cf80a61dab63e6cc4d1b9b7a997.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+     }
+    },
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "CodesigningProfileServiceRole344C6065",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs16.x"
+   },
+   "DependsOn": [
+    "CodesigningProfileServiceRoleDefaultPolicy543B90E4",
+    "CodesigningProfileServiceRole344C6065"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/signingProfile/Resource",
+    "aws:asset:path": "../asset.badf25698ef9e79d486bd8ad13e549825c780cf80a61dab63e6cc4d1b9b7a997",
+    "aws:asset:is-bundled": true,
+    "aws:asset:property": "Code"
+   }
+  },
+  "CodeSigningProfilePrframeworkonEventServiceRole7CD5CE2A": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/SigningProfilePr/framework-onEvent/ServiceRole/Resource"
+   }
+  },
+  "CodeSigningProfilePrframeworkonEventServiceRoleDefaultPolicyC5E05F6E": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CodesigningProfile7875E312",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodesigningProfile7875E312",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "CodeSigningProfilePrframeworkonEventServiceRoleDefaultPolicyC5E05F6E",
+    "Roles": [
+     {
+      "Ref": "CodeSigningProfilePrframeworkonEventServiceRole7CD5CE2A"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/SigningProfilePr/framework-onEvent/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "CodeSigningProfilePrframeworkonEventDC9BF1F8": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
+    },
+    "Description": "AWS CDK resource provider framework - onEvent (PipelineStack10/IotStage10-dev/IotStack10/Code/SigningProfilePr)",
+    "Environment": {
+     "Variables": {
+      "USER_ON_EVENT_FUNCTION_ARN": {
+       "Fn::GetAtt": [
+        "CodesigningProfile7875E312",
+        "Arn"
+       ]
+      }
+     }
+    },
+    "Handler": "framework.onEvent",
+    "Role": {
+     "Fn::GetAtt": [
+      "CodeSigningProfilePrframeworkonEventServiceRole7CD5CE2A",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 900
+   },
+   "DependsOn": [
+    "CodeSigningProfilePrframeworkonEventServiceRoleDefaultPolicyC5E05F6E",
+    "CodeSigningProfilePrframeworkonEventServiceRole7CD5CE2A"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/SigningProfilePr/framework-onEvent/Resource",
+    "aws:asset:path": "../asset.7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "CodeSigningProfileCr377EB60C": {
+   "Type": "AWS::CloudFormation::CustomResource",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CodeSigningProfilePrframeworkonEventDC9BF1F8",
+      "Arn"
+     ]
+    },
+    "certificateArn": {
+     "Fn::GetAtt": [
+      "CodeCertificateCrB23083AB",
+      "certificateArn"
+     ]
+    },
+    "codeSigningLabel": "ota_signer_pub",
+    "platformId": "AmazonFreeRTOS-Default"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/SigningProfileCr/Default"
+   }
+  },
+  "CodeFirmwaresAccessLog2C5DF758": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketEncryption": {
+     "ServerSideEncryptionConfiguration": [
+      {
+       "ServerSideEncryptionByDefault": {
+        "SSEAlgorithm": "AES256"
+       }
+      }
+     ]
+    },
+    "PublicAccessBlockConfiguration": {
+     "BlockPublicAcls": true,
+     "BlockPublicPolicy": true,
+     "IgnorePublicAcls": true,
+     "RestrictPublicBuckets": true
+    },
+    "Tags": [
+     {
+      "Key": "aws-cdk:auto-delete-objects",
+      "Value": "true"
+     }
+    ],
+    "VersioningConfiguration": {
+     "Status": "Enabled"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/FirmwaresAccessLog/Resource"
+   }
+  },
+  "CodeFirmwaresAccessLogPolicyDEFF7FB1": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "CodeFirmwaresAccessLog2C5DF758"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "s3:*",
+       "Condition": {
+        "Bool": {
+         "aws:SecureTransport": "false"
+        }
+       },
+       "Effect": "Deny",
+       "Principal": {
+        "AWS": "*"
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CodeFirmwaresAccessLog2C5DF758",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeFirmwaresAccessLog2C5DF758",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "s3:DeleteObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:PutBucketPolicy"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::GetAtt": [
+          "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+          "Arn"
+         ]
+        }
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CodeFirmwaresAccessLog2C5DF758",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeFirmwaresAccessLog2C5DF758",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": "s3:PutObject",
+       "Condition": {
+        "ArnLike": {
+         "aws:SourceArn": {
+          "Fn::GetAtt": [
+           "CodeFirmwares1A1D3FC7",
+           "Arn"
+          ]
+         }
+        },
+        "StringEquals": {
+         "aws:SourceAccount": "958196000588"
+        }
+       },
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "logging.s3.amazonaws.com"
+       },
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::GetAtt": [
+            "CodeFirmwaresAccessLog2C5DF758",
+            "Arn"
+           ]
+          },
+          "/*"
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/FirmwaresAccessLog/Policy/Resource"
+   }
+  },
+  "CodeFirmwaresAccessLogAutoDeleteObjectsCustomResourceDC8DA816": {
+   "Type": "Custom::S3AutoDeleteObjects",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
+      "Arn"
+     ]
+    },
+    "BucketName": {
+     "Ref": "CodeFirmwaresAccessLog2C5DF758"
+    }
+   },
+   "DependsOn": [
+    "CodeFirmwaresAccessLogPolicyDEFF7FB1"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/FirmwaresAccessLog/AutoDeleteObjectsCustomResource/Default"
+   }
+  },
+  "CodeFirmwares1A1D3FC7": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketEncryption": {
+     "ServerSideEncryptionConfiguration": [
+      {
+       "ServerSideEncryptionByDefault": {
+        "SSEAlgorithm": "AES256"
+       }
+      }
+     ]
+    },
+    "LoggingConfiguration": {
+     "DestinationBucketName": {
+      "Ref": "CodeFirmwaresAccessLog2C5DF758"
+     }
+    },
+    "PublicAccessBlockConfiguration": {
+     "BlockPublicAcls": true,
+     "BlockPublicPolicy": true,
+     "IgnorePublicAcls": true,
+     "RestrictPublicBuckets": true
+    },
+    "Tags": [
+     {
+      "Key": "aws-cdk:auto-delete-objects",
+      "Value": "true"
+     }
+    ],
+    "VersioningConfiguration": {
+     "Status": "Enabled"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/Firmwares/Resource"
+   }
+  },
+  "CodeFirmwaresPolicyA2D6389F": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "CodeFirmwares1A1D3FC7"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "s3:*",
+       "Condition": {
+        "Bool": {
+         "aws:SecureTransport": "false"
+        }
+       },
+       "Effect": "Deny",
+       "Principal": {
+        "AWS": "*"
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CodeFirmwares1A1D3FC7",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeFirmwares1A1D3FC7",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "s3:DeleteObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:PutBucketPolicy"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::GetAtt": [
+          "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+          "Arn"
+         ]
+        }
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CodeFirmwares1A1D3FC7",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeFirmwares1A1D3FC7",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/Firmwares/Policy/Resource"
+   }
+  },
+  "CodeFirmwaresAutoDeleteObjectsCustomResourceF3F5C832": {
+   "Type": "Custom::S3AutoDeleteObjects",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
+      "Arn"
+     ]
+    },
+    "BucketName": {
+     "Ref": "CodeFirmwares1A1D3FC7"
+    }
+   },
+   "DependsOn": [
+    "CodeFirmwaresPolicyA2D6389F"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/Firmwares/AutoDeleteObjectsCustomResource/Default"
+   }
+  },
+  "CodeFirmwaresNotifications24619849": {
+   "Type": "Custom::S3BucketNotifications",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "BucketNotificationsHandler050a0587b7544547bf325f094a3db8347ECC3691",
+      "Arn"
+     ]
+    },
+    "BucketName": {
+     "Ref": "CodeFirmwares1A1D3FC7"
+    },
+    "NotificationConfiguration": {
+     "LambdaFunctionConfigurations": [
+      {
+       "Events": [
+        "s3:ObjectCreated:*"
+       ],
+       "LambdaFunctionArn": {
+        "Fn::GetAtt": [
+         "CodeotaF38F9976",
+         "Arn"
+        ]
+       }
+      }
+     ]
+    },
+    "Managed": true
+   },
+   "DependsOn": [
+    "CodeFirmwaresAllowBucketNotificationsToPipelineStack10IotStage10devIotStack10CodeotaD9BA63A00EF89468"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/Firmwares/Notifications/Resource"
+   }
+  },
+  "CodeFirmwaresAllowBucketNotificationsToPipelineStack10IotStage10devIotStack10CodeotaD9BA63A00EF89468": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "CodeotaF38F9976",
+      "Arn"
+     ]
+    },
+    "Principal": "s3.amazonaws.com",
+    "SourceAccount": "958196000588",
+    "SourceArn": {
+     "Fn::GetAtt": [
+      "CodeFirmwares1A1D3FC7",
+      "Arn"
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/Firmwares/AllowBucketNotificationsToPipelineStack10IotStage10devIotStack10CodeotaD9BA63A0"
+   }
+  },
+  "CodeSignedFirmwaresAccessLog7C16233F": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketEncryption": {
+     "ServerSideEncryptionConfiguration": [
+      {
+       "ServerSideEncryptionByDefault": {
+        "SSEAlgorithm": "AES256"
+       }
+      }
+     ]
+    },
+    "PublicAccessBlockConfiguration": {
+     "BlockPublicAcls": true,
+     "BlockPublicPolicy": true,
+     "IgnorePublicAcls": true,
+     "RestrictPublicBuckets": true
+    },
+    "Tags": [
+     {
+      "Key": "aws-cdk:auto-delete-objects",
+      "Value": "true"
+     }
+    ],
+    "VersioningConfiguration": {
+     "Status": "Enabled"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/SignedFirmwaresAccessLog/Resource"
+   }
+  },
+  "CodeSignedFirmwaresAccessLogPolicyF238861E": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "CodeSignedFirmwaresAccessLog7C16233F"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "s3:*",
+       "Condition": {
+        "Bool": {
+         "aws:SecureTransport": "false"
+        }
+       },
+       "Effect": "Deny",
+       "Principal": {
+        "AWS": "*"
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CodeSignedFirmwaresAccessLog7C16233F",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeSignedFirmwaresAccessLog7C16233F",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "s3:DeleteObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:PutBucketPolicy"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::GetAtt": [
+          "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+          "Arn"
+         ]
+        }
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CodeSignedFirmwaresAccessLog7C16233F",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeSignedFirmwaresAccessLog7C16233F",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": "s3:PutObject",
+       "Condition": {
+        "ArnLike": {
+         "aws:SourceArn": {
+          "Fn::GetAtt": [
+           "CodeSignedFirmwaresC40E859E",
+           "Arn"
+          ]
+         }
+        },
+        "StringEquals": {
+         "aws:SourceAccount": "958196000588"
+        }
+       },
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "logging.s3.amazonaws.com"
+       },
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::GetAtt": [
+            "CodeSignedFirmwaresAccessLog7C16233F",
+            "Arn"
+           ]
+          },
+          "/*"
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/SignedFirmwaresAccessLog/Policy/Resource"
+   }
+  },
+  "CodeSignedFirmwaresAccessLogAutoDeleteObjectsCustomResourceC1594F7E": {
+   "Type": "Custom::S3AutoDeleteObjects",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
+      "Arn"
+     ]
+    },
+    "BucketName": {
+     "Ref": "CodeSignedFirmwaresAccessLog7C16233F"
+    }
+   },
+   "DependsOn": [
+    "CodeSignedFirmwaresAccessLogPolicyF238861E"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/SignedFirmwaresAccessLog/AutoDeleteObjectsCustomResource/Default"
+   }
+  },
+  "CodeSignedFirmwaresC40E859E": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketEncryption": {
+     "ServerSideEncryptionConfiguration": [
+      {
+       "ServerSideEncryptionByDefault": {
+        "SSEAlgorithm": "AES256"
+       }
+      }
+     ]
+    },
+    "LoggingConfiguration": {
+     "DestinationBucketName": {
+      "Ref": "CodeSignedFirmwaresAccessLog7C16233F"
+     }
+    },
+    "PublicAccessBlockConfiguration": {
+     "BlockPublicAcls": true,
+     "BlockPublicPolicy": true,
+     "IgnorePublicAcls": true,
+     "RestrictPublicBuckets": true
+    },
+    "Tags": [
+     {
+      "Key": "aws-cdk:auto-delete-objects",
+      "Value": "true"
+     }
+    ],
+    "VersioningConfiguration": {
+     "Status": "Enabled"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/SignedFirmwares/Resource"
+   }
+  },
+  "CodeSignedFirmwaresPolicy7C0E4E30": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "CodeSignedFirmwaresC40E859E"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "s3:*",
+       "Condition": {
+        "Bool": {
+         "aws:SecureTransport": "false"
+        }
+       },
+       "Effect": "Deny",
+       "Principal": {
+        "AWS": "*"
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CodeSignedFirmwaresC40E859E",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeSignedFirmwaresC40E859E",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "s3:DeleteObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:PutBucketPolicy"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::GetAtt": [
+          "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+          "Arn"
+         ]
+        }
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CodeSignedFirmwaresC40E859E",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeSignedFirmwaresC40E859E",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/SignedFirmwares/Policy/Resource"
+   }
+  },
+  "CodeSignedFirmwaresAutoDeleteObjectsCustomResourceDC7874A6": {
+   "Type": "Custom::S3AutoDeleteObjects",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
+      "Arn"
+     ]
+    },
+    "BucketName": {
+     "Ref": "CodeSignedFirmwaresC40E859E"
+    }
+   },
+   "DependsOn": [
+    "CodeSignedFirmwaresPolicy7C0E4E30"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/SignedFirmwares/AutoDeleteObjectsCustomResource/Default"
+   }
+  },
+  "CodeModelCodeAccessLog5391E02D": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketEncryption": {
+     "ServerSideEncryptionConfiguration": [
+      {
+       "ServerSideEncryptionByDefault": {
+        "SSEAlgorithm": "AES256"
+       }
+      }
+     ]
+    },
+    "PublicAccessBlockConfiguration": {
+     "BlockPublicAcls": true,
+     "BlockPublicPolicy": true,
+     "IgnorePublicAcls": true,
+     "RestrictPublicBuckets": true
+    },
+    "Tags": [
+     {
+      "Key": "aws-cdk:auto-delete-objects",
+      "Value": "true"
+     }
+    ],
+    "VersioningConfiguration": {
+     "Status": "Enabled"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/ModelCodeAccessLog/Resource"
+   }
+  },
+  "CodeModelCodeAccessLogPolicyC8D7AB3B": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "CodeModelCodeAccessLog5391E02D"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "s3:*",
+       "Condition": {
+        "Bool": {
+         "aws:SecureTransport": "false"
+        }
+       },
+       "Effect": "Deny",
+       "Principal": {
+        "AWS": "*"
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CodeModelCodeAccessLog5391E02D",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeModelCodeAccessLog5391E02D",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "s3:DeleteObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:PutBucketPolicy"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::GetAtt": [
+          "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+          "Arn"
+         ]
+        }
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CodeModelCodeAccessLog5391E02D",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeModelCodeAccessLog5391E02D",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": "s3:PutObject",
+       "Condition": {
+        "ArnLike": {
+         "aws:SourceArn": {
+          "Fn::GetAtt": [
+           "CodeModelCodeAA5A182D",
+           "Arn"
+          ]
+         }
+        },
+        "StringEquals": {
+         "aws:SourceAccount": "958196000588"
+        }
+       },
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "logging.s3.amazonaws.com"
+       },
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::GetAtt": [
+            "CodeModelCodeAccessLog5391E02D",
+            "Arn"
+           ]
+          },
+          "/*"
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/ModelCodeAccessLog/Policy/Resource"
+   }
+  },
+  "CodeModelCodeAccessLogAutoDeleteObjectsCustomResourceCEFF9679": {
+   "Type": "Custom::S3AutoDeleteObjects",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
+      "Arn"
+     ]
+    },
+    "BucketName": {
+     "Ref": "CodeModelCodeAccessLog5391E02D"
+    }
+   },
+   "DependsOn": [
+    "CodeModelCodeAccessLogPolicyC8D7AB3B"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/ModelCodeAccessLog/AutoDeleteObjectsCustomResource/Default"
+   }
+  },
+  "CodeModelCodeAA5A182D": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketEncryption": {
+     "ServerSideEncryptionConfiguration": [
+      {
+       "ServerSideEncryptionByDefault": {
+        "SSEAlgorithm": "AES256"
+       }
+      }
+     ]
+    },
+    "LoggingConfiguration": {
+     "DestinationBucketName": {
+      "Ref": "CodeModelCodeAccessLog5391E02D"
+     }
+    },
+    "PublicAccessBlockConfiguration": {
+     "BlockPublicAcls": true,
+     "BlockPublicPolicy": true,
+     "IgnorePublicAcls": true,
+     "RestrictPublicBuckets": true
+    },
+    "Tags": [
+     {
+      "Key": "aws-cdk:auto-delete-objects",
+      "Value": "true"
+     }
+    ],
+    "VersioningConfiguration": {
+     "Status": "Enabled"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/ModelCode/Resource"
+   }
+  },
+  "CodeModelCodePolicyDE4DA2FE": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "CodeModelCodeAA5A182D"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "s3:*",
+       "Condition": {
+        "Bool": {
+         "aws:SecureTransport": "false"
+        }
+       },
+       "Effect": "Deny",
+       "Principal": {
+        "AWS": "*"
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CodeModelCodeAA5A182D",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeModelCodeAA5A182D",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "s3:DeleteObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:PutBucketPolicy"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::GetAtt": [
+          "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+          "Arn"
+         ]
+        }
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CodeModelCodeAA5A182D",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeModelCodeAA5A182D",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/ModelCode/Policy/Resource"
+   }
+  },
+  "CodeModelCodeAutoDeleteObjectsCustomResourceEB5E2E00": {
+   "Type": "Custom::S3AutoDeleteObjects",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
+      "Arn"
+     ]
+    },
+    "BucketName": {
+     "Ref": "CodeModelCodeAA5A182D"
+    }
+   },
+   "DependsOn": [
+    "CodeModelCodePolicyDE4DA2FE"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/ModelCode/AutoDeleteObjectsCustomResource/Default"
+   }
+  },
+  "CodeGetMlBucketNameC59F5BF5": {
+   "Type": "Custom::AWS",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
+      "Arn"
+     ]
+    },
+    "Create": "{\"service\":\"SecretsManager\",\"action\":\"getSecretValue\",\"parameters\":{\"SecretId\":\"arn:aws:secretsmanager:eu-central-1:958196000588:secret:MlBucketArn\"},\"physicalResourceId\":{\"id\":\"MlBucketArn\"}}",
+    "InstallLatestAwsSdk": false
+   },
+   "DependsOn": [
+    "CodeGetMlBucketNameCustomResourcePolicy9F985572"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/GetMlBucketName/Resource/Default"
+   }
+  },
+  "CodeGetMlBucketNameCustomResourcePolicy9F985572": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "kms:Decrypt",
+        "secretsmanager:GetSecretValue"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "CodeGetMlBucketNameCustomResourcePolicy9F985572",
+    "Roles": [
+     {
+      "Ref": "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/GetMlBucketName/CustomResourcePolicy/Resource"
+   }
+  },
+  "CodeIoTBuildLogGroup210605FD": {
+   "Type": "AWS::Logs::LogGroup",
+   "Properties": {
+    "RetentionInDays": 731
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IoTBuildLogGroup/Resource"
+   }
+  },
+  "CodeIotBuildRole39902A48": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "codebuild.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuild/Role/Resource"
+   }
+  },
+  "CodeIotBuildRoleDefaultPolicy3B2BA019": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "s3:GetBucket*",
+        "s3:GetObject*",
+        "s3:List*"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        "arn:aws:s3:::cdk-stmicro10-assets-958196000588-eu-central-1",
+        "arn:aws:s3:::cdk-stmicro10-assets-958196000588-eu-central-1/*",
+        "arn:aws:s3:::cdk-stmicro10-assets-958196000588-eu-central-1/032c08c0009593c4de915e09838e3ae539db0a221dac01e1336bfb12a0c7a157.zip",
+        {
+         "Fn::GetAtt": [
+          "CodeGetMlBucketNameC59F5BF5",
+          "SecretString"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "CodeModelCodeAA5A182D",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeGetMlBucketNameC59F5BF5",
+             "SecretString"
+            ]
+           },
+           "/ml/tmp/ml/"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeModelCodeAA5A182D",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "s3:Abort*",
+        "s3:DeleteObject*",
+        "s3:GetBucket*",
+        "s3:GetObject*",
+        "s3:List*",
+        "s3:PutObject",
+        "s3:PutObjectLegalHold",
+        "s3:PutObjectRetention",
+        "s3:PutObjectTagging",
+        "s3:PutObjectVersionTagging"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CodeFirmwares1A1D3FC7",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "CodeGetMlBucketNameC59F5BF5",
+          "SecretString"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeFirmwares1A1D3FC7",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeGetMlBucketNameC59F5BF5",
+             "SecretString"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "CodeIoTBuildLogGroup210605FD",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:aws:logs:eu-central-1:958196000588:log-group:/aws/codebuild/",
+           {
+            "Ref": "CodeIotBuildC8A581E3"
+           },
+           ":*"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:aws:logs:eu-central-1:958196000588:log-group:/aws/codebuild/",
+           {
+            "Ref": "CodeIotBuildC8A581E3"
+           }
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "codebuild:BatchPutCodeCoverages",
+        "codebuild:BatchPutTestCases",
+        "codebuild:CreateReport",
+        "codebuild:CreateReportGroup",
+        "codebuild:UpdateReport"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:aws:codebuild:eu-central-1:958196000588:report-group/",
+          {
+           "Ref": "CodeIotBuildC8A581E3"
+          },
+          "-*"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": "kms:Decrypt",
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "CodeIotBuildRoleDefaultPolicy3B2BA019",
+    "Roles": [
+     {
+      "Ref": "CodeIotBuildRole39902A48"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuild/Role/DefaultPolicy/Resource"
+   }
+  },
+  "CodeIotBuildC8A581E3": {
+   "Type": "AWS::CodeBuild::Project",
+   "Properties": {
+    "Artifacts": {
+     "Location": {
+      "Ref": "CodeFirmwares1A1D3FC7"
+     },
+     "NamespaceType": "NONE",
+     "OverrideArtifactName": true,
+     "Packaging": "NONE",
+     "Type": "S3"
+    },
+    "Cache": {
+     "Type": "NO_CACHE"
+    },
+    "EncryptionKey": "alias/aws/s3",
+    "Environment": {
+     "ComputeType": "BUILD_GENERAL1_SMALL",
+     "Image": "public.ecr.aws/y2t8c1e9/cube_ide_image:latest",
+     "ImagePullCredentialsType": "SERVICE_ROLE",
+     "PrivilegedMode": false,
+     "Type": "LINUX_CONTAINER"
+    },
+    "LogsConfig": {
+     "CloudWatchLogs": {
+      "GroupName": {
+       "Ref": "CodeIoTBuildLogGroup210605FD"
+      },
+      "Status": "ENABLED"
+     }
+    },
+    "SecondarySources": [
+     {
+      "Location": {
+       "Fn::Join": [
+        "",
+        [
+         {
+          "Fn::Select": [
+           0,
+           {
+            "Fn::Split": [
+             "/",
+             {
+              "Fn::Select": [
+               5,
+               {
+                "Fn::Split": [
+                 ":",
+                 {
+                  "Fn::GetAtt": [
+                   "CodeGetMlBucketNameC59F5BF5",
+                   "SecretString"
+                  ]
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         },
+         "/ml/tmp/ml/"
+        ]
+       ]
+      },
+      "SourceIdentifier": "ml",
+      "Type": "S3"
+     }
+    ],
+    "ServiceRole": {
+     "Fn::GetAtt": [
+      "CodeIotBuildRole39902A48",
+      "Arn"
+     ]
+    },
+    "Source": {
+     "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"artifacts\": {\n    \"files\": [\n      \"Projects/b_u585i_iot02a_ntz/Debug/b_u585i_iot02a_ntz.bin\"\n    ]\n  },\n  \"phases\": {\n    \"build\": {\n      \"commands\": [\n        \"mkdir -p Middleware/STM32_AI_Library\",\n        \"cp -r $CODEBUILD_SRC_DIR_ml/stm32ai_files/Inc Middleware/STM32_AI_Library/\",\n        \"cp -r $CODEBUILD_SRC_DIR_ml/stm32ai_files/Lib Middleware/STM32_AI_Library/\",\n        \"ls Middleware/STM32_AI_Library/Inc\",\n        \"ls Middleware/STM32_AI_Library/Lib\",\n        \"cp -r $CODEBUILD_SRC_DIR_ml/C_header/* Projects/Common/dpu/\",\n        \"ls Projects/Common/dpu\",\n        \"mv Middleware/STM32_AI_Library/Lib/NetworkRuntime730_CM33_GCC.a Middleware/STM32_AI_Library/Lib/NetworkRuntime800_CM33_GCC.a\",\n        \"cp -r $CODEBUILD_SRC_DIR_ml/stm32ai_files/network* Projects/Common/X-CUBE-AI/App/\",\n        \"/opt/st/stm32cubeide_1.12.1/headless-build.sh -data . -import Projects/b_u585i_iot02a_ntz -build b_u585i_iot02a_ntz\"\n      ]\n    }\n  }\n}",
+     "Location": "cdk-stmicro10-assets-958196000588-eu-central-1/032c08c0009593c4de915e09838e3ae539db0a221dac01e1336bfb12a0c7a157.zip",
+     "Type": "S3"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuild/Resource"
+   }
+  },
+  "CodeIotBuildTriggerbuildServiceRole201232D8": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/build/ServiceRole/Resource"
+   }
+  },
+  "CodeIotBuildTriggerbuildServiceRoleDefaultPolicyB5CE515F": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "codebuild:StartBuild",
+        "codebuild:batchGetBuilds"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "CodeIotBuildC8A581E3",
+         "Arn"
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "CodeIotBuildTriggerbuildServiceRoleDefaultPolicyB5CE515F",
+    "Roles": [
+     {
+      "Ref": "CodeIotBuildTriggerbuildServiceRole201232D8"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/build/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "CodeIotBuildTriggerbuildE31C25DD": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "04c4ddffba72e7a512e62b1f9bba16ab62e36348bcaeec6a74754c22c1d5ec3a.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+     }
+    },
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "CodeIotBuildTriggerbuildServiceRole201232D8",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs16.x"
+   },
+   "DependsOn": [
+    "CodeIotBuildTriggerbuildServiceRoleDefaultPolicyB5CE515F",
+    "CodeIotBuildTriggerbuildServiceRole201232D8"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/build/Resource",
+    "aws:asset:path": "../asset.04c4ddffba72e7a512e62b1f9bba16ab62e36348bcaeec6a74754c22c1d5ec3a",
+    "aws:asset:is-bundled": true,
+    "aws:asset:property": "Code"
+   }
+  },
+  "CodeIotBuildTriggercompleteServiceRole3993740C": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/complete/ServiceRole/Resource"
+   }
+  },
+  "CodeIotBuildTriggercompleteServiceRoleDefaultPolicyE01E7DE5": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "codebuild:StartBuild",
+        "codebuild:batchGetBuilds"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "CodeIotBuildC8A581E3",
+         "Arn"
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "CodeIotBuildTriggercompleteServiceRoleDefaultPolicyE01E7DE5",
+    "Roles": [
+     {
+      "Ref": "CodeIotBuildTriggercompleteServiceRole3993740C"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/complete/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "CodeIotBuildTriggercomplete520CB1B9": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "32bc803a1df18e05d70af253972e1dc7d2b48170c64b41fa75149aff0419d2ac.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "projectName": {
+       "Ref": "CodeIotBuildC8A581E3"
+      },
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+     }
+    },
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "CodeIotBuildTriggercompleteServiceRole3993740C",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs16.x"
+   },
+   "DependsOn": [
+    "CodeIotBuildTriggercompleteServiceRoleDefaultPolicyE01E7DE5",
+    "CodeIotBuildTriggercompleteServiceRole3993740C"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/complete/Resource",
+    "aws:asset:path": "../asset.32bc803a1df18e05d70af253972e1dc7d2b48170c64b41fa75149aff0419d2ac",
+    "aws:asset:is-bundled": true,
+    "aws:asset:property": "Code"
+   }
+  },
+  "CodeIotBuildTriggerBuildProviderframeworkonEventServiceRole14295204": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/BuildProvider/framework-onEvent/ServiceRole/Resource"
+   }
+  },
+  "CodeIotBuildTriggerBuildProviderframeworkonEventServiceRoleDefaultPolicy9E16D249": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CodeIotBuildTriggerbuildE31C25DD",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "CodeIotBuildTriggercomplete520CB1B9",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeIotBuildTriggerbuildE31C25DD",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeIotBuildTriggercomplete520CB1B9",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": "states:StartExecution",
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "CodeIotBuildTriggerBuildProviderwaiterstatemachineD5D3AC38"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "CodeIotBuildTriggerBuildProviderframeworkonEventServiceRoleDefaultPolicy9E16D249",
+    "Roles": [
+     {
+      "Ref": "CodeIotBuildTriggerBuildProviderframeworkonEventServiceRole14295204"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/BuildProvider/framework-onEvent/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "CodeIotBuildTriggerBuildProviderframeworkonEvent0139ACB3": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
+    },
+    "Description": "AWS CDK resource provider framework - onEvent (PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/BuildProvider)",
+    "Environment": {
+     "Variables": {
+      "USER_ON_EVENT_FUNCTION_ARN": {
+       "Fn::GetAtt": [
+        "CodeIotBuildTriggerbuildE31C25DD",
+        "Arn"
+       ]
+      },
+      "USER_IS_COMPLETE_FUNCTION_ARN": {
+       "Fn::GetAtt": [
+        "CodeIotBuildTriggercomplete520CB1B9",
+        "Arn"
+       ]
+      },
+      "WAITER_STATE_MACHINE_ARN": {
+       "Ref": "CodeIotBuildTriggerBuildProviderwaiterstatemachineD5D3AC38"
+      }
+     }
+    },
+    "Handler": "framework.onEvent",
+    "Role": {
+     "Fn::GetAtt": [
+      "CodeIotBuildTriggerBuildProviderframeworkonEventServiceRole14295204",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 900
+   },
+   "DependsOn": [
+    "CodeIotBuildTriggerBuildProviderframeworkonEventServiceRoleDefaultPolicy9E16D249",
+    "CodeIotBuildTriggerBuildProviderframeworkonEventServiceRole14295204"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/BuildProvider/framework-onEvent/Resource",
+    "aws:asset:path": "../asset.7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "CodeIotBuildTriggerBuildProviderframeworkisCompleteServiceRoleD9A825BC": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/BuildProvider/framework-isComplete/ServiceRole/Resource"
+   }
+  },
+  "CodeIotBuildTriggerBuildProviderframeworkisCompleteServiceRoleDefaultPolicyF59F8622": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CodeIotBuildTriggerbuildE31C25DD",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "CodeIotBuildTriggercomplete520CB1B9",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeIotBuildTriggerbuildE31C25DD",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeIotBuildTriggercomplete520CB1B9",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "CodeIotBuildTriggerBuildProviderframeworkisCompleteServiceRoleDefaultPolicyF59F8622",
+    "Roles": [
+     {
+      "Ref": "CodeIotBuildTriggerBuildProviderframeworkisCompleteServiceRoleD9A825BC"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/BuildProvider/framework-isComplete/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "CodeIotBuildTriggerBuildProviderframeworkisComplete5F057FB2": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
+    },
+    "Description": "AWS CDK resource provider framework - isComplete (PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/BuildProvider)",
+    "Environment": {
+     "Variables": {
+      "USER_ON_EVENT_FUNCTION_ARN": {
+       "Fn::GetAtt": [
+        "CodeIotBuildTriggerbuildE31C25DD",
+        "Arn"
+       ]
+      },
+      "USER_IS_COMPLETE_FUNCTION_ARN": {
+       "Fn::GetAtt": [
+        "CodeIotBuildTriggercomplete520CB1B9",
+        "Arn"
+       ]
+      }
+     }
+    },
+    "Handler": "framework.isComplete",
+    "Role": {
+     "Fn::GetAtt": [
+      "CodeIotBuildTriggerBuildProviderframeworkisCompleteServiceRoleD9A825BC",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 900
+   },
+   "DependsOn": [
+    "CodeIotBuildTriggerBuildProviderframeworkisCompleteServiceRoleDefaultPolicyF59F8622",
+    "CodeIotBuildTriggerBuildProviderframeworkisCompleteServiceRoleD9A825BC"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/BuildProvider/framework-isComplete/Resource",
+    "aws:asset:path": "../asset.7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "CodeIotBuildTriggerBuildProviderframeworkonTimeoutServiceRoleF08CAB2A": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/BuildProvider/framework-onTimeout/ServiceRole/Resource"
+   }
+  },
+  "CodeIotBuildTriggerBuildProviderframeworkonTimeoutServiceRoleDefaultPolicy692DA1F6": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CodeIotBuildTriggerbuildE31C25DD",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "CodeIotBuildTriggercomplete520CB1B9",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeIotBuildTriggerbuildE31C25DD",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeIotBuildTriggercomplete520CB1B9",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "CodeIotBuildTriggerBuildProviderframeworkonTimeoutServiceRoleDefaultPolicy692DA1F6",
+    "Roles": [
+     {
+      "Ref": "CodeIotBuildTriggerBuildProviderframeworkonTimeoutServiceRoleF08CAB2A"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/BuildProvider/framework-onTimeout/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "CodeIotBuildTriggerBuildProviderframeworkonTimeout97453E58": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
+    },
+    "Description": "AWS CDK resource provider framework - onTimeout (PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/BuildProvider)",
+    "Environment": {
+     "Variables": {
+      "USER_ON_EVENT_FUNCTION_ARN": {
+       "Fn::GetAtt": [
+        "CodeIotBuildTriggerbuildE31C25DD",
+        "Arn"
+       ]
+      },
+      "USER_IS_COMPLETE_FUNCTION_ARN": {
+       "Fn::GetAtt": [
+        "CodeIotBuildTriggercomplete520CB1B9",
+        "Arn"
+       ]
+      }
+     }
+    },
+    "Handler": "framework.onTimeout",
+    "Role": {
+     "Fn::GetAtt": [
+      "CodeIotBuildTriggerBuildProviderframeworkonTimeoutServiceRoleF08CAB2A",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 900
+   },
+   "DependsOn": [
+    "CodeIotBuildTriggerBuildProviderframeworkonTimeoutServiceRoleDefaultPolicy692DA1F6",
+    "CodeIotBuildTriggerBuildProviderframeworkonTimeoutServiceRoleF08CAB2A"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/BuildProvider/framework-onTimeout/Resource",
+    "aws:asset:path": "../asset.7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "CodeIotBuildTriggerBuildProviderwaiterstatemachineRole4D1514D6": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "states.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/BuildProvider/waiter-state-machine/Role/Resource"
+   }
+  },
+  "CodeIotBuildTriggerBuildProviderwaiterstatemachineRoleDefaultPolicyB8CA9F05": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CodeIotBuildTriggerBuildProviderframeworkisComplete5F057FB2",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "CodeIotBuildTriggerBuildProviderframeworkonTimeout97453E58",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeIotBuildTriggerBuildProviderframeworkisComplete5F057FB2",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeIotBuildTriggerBuildProviderframeworkonTimeout97453E58",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "CodeIotBuildTriggerBuildProviderwaiterstatemachineRoleDefaultPolicyB8CA9F05",
+    "Roles": [
+     {
+      "Ref": "CodeIotBuildTriggerBuildProviderwaiterstatemachineRole4D1514D6"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/BuildProvider/waiter-state-machine/Role/DefaultPolicy/Resource"
+   }
+  },
+  "CodeIotBuildTriggerBuildProviderwaiterstatemachineD5D3AC38": {
+   "Type": "AWS::StepFunctions::StateMachine",
+   "Properties": {
+    "DefinitionString": {
+     "Fn::Join": [
+      "",
+      [
+       "{\"StartAt\":\"framework-isComplete-task\",\"States\":{\"framework-isComplete-task\":{\"End\":true,\"Retry\":[{\"ErrorEquals\":[\"States.ALL\"],\"IntervalSeconds\":60,\"MaxAttempts\":60,\"BackoffRate\":1}],\"Catch\":[{\"ErrorEquals\":[\"States.ALL\"],\"Next\":\"framework-onTimeout-task\"}],\"Type\":\"Task\",\"Resource\":\"",
+       {
+        "Fn::GetAtt": [
+         "CodeIotBuildTriggerBuildProviderframeworkisComplete5F057FB2",
+         "Arn"
+        ]
+       },
+       "\"},\"framework-onTimeout-task\":{\"End\":true,\"Type\":\"Task\",\"Resource\":\"",
+       {
+        "Fn::GetAtt": [
+         "CodeIotBuildTriggerBuildProviderframeworkonTimeout97453E58",
+         "Arn"
+        ]
+       },
+       "\"}}}"
+      ]
+     ]
+    },
+    "RoleArn": {
+     "Fn::GetAtt": [
+      "CodeIotBuildTriggerBuildProviderwaiterstatemachineRole4D1514D6",
+      "Arn"
+     ]
+    }
+   },
+   "DependsOn": [
+    "CodeIotBuildTriggerBuildProviderwaiterstatemachineRoleDefaultPolicyB8CA9F05",
+    "CodeIotBuildTriggerBuildProviderwaiterstatemachineRole4D1514D6"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/BuildProvider/waiter-state-machine/Resource"
+   }
+  },
+  "CodeIotBuildTriggerBuildCr48CB3C54": {
+   "Type": "AWS::CloudFormation::CustomResource",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CodeIotBuildTriggerBuildProviderframeworkonEvent0139ACB3",
+      "Arn"
+     ]
+    },
+    "projectName": {
+     "Ref": "CodeIotBuildC8A581E3"
+    },
+    "state": "032c08c0009593c4de915e09838e3ae539db0a221dac01e1336bfb12a0c7a157"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/IotBuildTrigger/BuildCr/Default"
+   }
+  },
+  "CodeotaRoleEDD30A33": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "iot.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AmazonFreeRTOSOTAUpdate"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/otaRole/Resource"
+   }
+  },
+  "CodeotaRoleDefaultPolicyC9090202": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "iam:PassRole",
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "CodeotaRoleEDD30A33",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": [
+        "s3:Abort*",
+        "s3:DeleteObject*",
+        "s3:GetBucket*",
+        "s3:GetObject*",
+        "s3:List*",
+        "s3:PutObject",
+        "s3:PutObjectLegalHold",
+        "s3:PutObjectRetention",
+        "s3:PutObjectTagging",
+        "s3:PutObjectVersionTagging"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "CodeFirmwares1A1D3FC7",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "CodeSignedFirmwaresC40E859E",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeFirmwares1A1D3FC7",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "CodeSignedFirmwaresC40E859E",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "CodeotaRoleDefaultPolicyC9090202",
+    "Roles": [
+     {
+      "Ref": "CodeotaRoleEDD30A33"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/otaRole/DefaultPolicy/Resource"
+   }
+  },
+  "CodeotaServiceRole43EA1DC0": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/ota/ServiceRole/Resource"
+   }
+  },
+  "CodeotaServiceRoleDefaultPolicy54467496": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "iot:CreateOTAUpdate",
+        "iot:ListThings"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      },
+      {
+       "Action": "iam:PassRole",
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "CodeotaRoleEDD30A33",
+         "Arn"
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "CodeotaServiceRoleDefaultPolicy54467496",
+    "Roles": [
+     {
+      "Ref": "CodeotaServiceRole43EA1DC0"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/ota/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "CodeotaF38F9976": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "0a3bd3f508c969584a61316069ada559ef454e56983c566a2fe2f1e30423e248.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "signingProfileName": {
+       "Fn::GetAtt": [
+        "CodeSigningProfileCr377EB60C",
+        "profileName"
+       ]
+      },
+      "thingNamePrefix": "IotStage10devIotStack10Code2726DACB",
+      "destBucketName": {
+       "Ref": "CodeSignedFirmwaresC40E859E"
+      },
+      "roleArn": {
+       "Fn::GetAtt": [
+        "CodeotaRoleEDD30A33",
+        "Arn"
+       ]
+      },
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+     }
+    },
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "CodeotaServiceRole43EA1DC0",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs16.x"
+   },
+   "DependsOn": [
+    "CodeotaServiceRoleDefaultPolicy54467496",
+    "CodeotaServiceRole43EA1DC0"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Code/ota/Resource",
+    "aws:asset:path": "../asset.0a3bd3f508c969584a61316069ada559ef454e56983c566a2fe2f1e30423e248",
+    "aws:asset:is-bundled": true,
+    "aws:asset:property": "Code"
+   }
+  },
+  "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ]
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Sub": "arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role"
+   }
+  },
+  "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "b7f33614a69548d6bafe224d751a7ef238cde19097415e553fe8b63a4c8fd8a6.zip"
+    },
+    "Timeout": 900,
+    "MemorySize": 128,
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Description": {
+     "Fn::Join": [
+      "",
+      [
+       "Lambda function for auto-deleting objects in ",
+       {
+        "Ref": "CodeFirmwaresAccessLog2C5DF758"
+       },
+       " S3 bucket."
+      ]
+     ]
+    }
+   },
+   "DependsOn": [
+    "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler",
+    "aws:asset:path": "../asset.b7f33614a69548d6bafe224d751a7ef238cde19097415e553fe8b63a4c8fd8a6",
+    "aws:asset:property": "Code"
+   }
+  },
+  "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/AWS679f53fac002430cb0da5b7982bd2287/ServiceRole/Resource"
+   }
+  },
+  "AWS679f53fac002430cb0da5b7982bd22872D164C4C": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "ed6cd104ff5f101d06dae8cb2b87cc6e6d69b9a22055b467ea6cae10ff023023.zip"
+    },
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 120
+   },
+   "DependsOn": [
+    "AWS679f53fac002430cb0da5b7982bd2287ServiceRoleC1EA0FF2"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/AWS679f53fac002430cb0da5b7982bd2287/Resource",
+    "aws:asset:path": "../asset.ed6cd104ff5f101d06dae8cb2b87cc6e6d69b9a22055b467ea6cae10ff023023",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/BucketNotificationsHandler050a0587b7544547bf325f094a3db834/Role/Resource"
+   }
+  },
+  "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleDefaultPolicy2CF63D36": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "s3:PutBucketNotification",
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleDefaultPolicy2CF63D36",
+    "Roles": [
+     {
+      "Ref": "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/BucketNotificationsHandler050a0587b7544547bf325f094a3db834/Role/DefaultPolicy/Resource"
+   }
+  },
+  "BucketNotificationsHandler050a0587b7544547bf325f094a3db8347ECC3691": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Description": "AWS CloudFormation handler for \"Custom::S3BucketNotifications\" resources (@aws-cdk/aws-s3)",
+    "Code": {
+     "ZipFile": "import boto3  # type: ignore\nimport json\nimport logging\nimport urllib.request\n\ns3 = boto3.client(\"s3\")\n\nEVENTBRIDGE_CONFIGURATION = 'EventBridgeConfiguration'\nCONFIGURATION_TYPES = [\"TopicConfigurations\", \"QueueConfigurations\", \"LambdaFunctionConfigurations\"]\n\ndef handler(event: dict, context):\n  response_status = \"SUCCESS\"\n  error_message = \"\"\n  try:\n    props = event[\"ResourceProperties\"]\n    notification_configuration = props[\"NotificationConfiguration\"]\n    managed = props.get('Managed', 'true').lower() == 'true'\n    stack_id = event['StackId']\n    old = event.get(\"OldResourceProperties\", {}).get(\"NotificationConfiguration\", {})\n    if managed:\n      config = handle_managed(event[\"RequestType\"], notification_configuration)\n    else:\n      config = handle_unmanaged(props[\"BucketName\"], stack_id, event[\"RequestType\"], notification_configuration, old)\n    s3.put_bucket_notification_configuration(Bucket=props[\"BucketName\"], NotificationConfiguration=config)\n  except Exception as e:\n    logging.exception(\"Failed to put bucket notification configuration\")\n    response_status = \"FAILED\"\n    error_message = f\"Error: {str(e)}. \"\n  finally:\n    submit_response(event, context, response_status, error_message)\n\ndef handle_managed(request_type, notification_configuration):\n  if request_type == 'Delete':\n    return {}\n  return notification_configuration\n\ndef handle_unmanaged(bucket, stack_id, request_type, notification_configuration, old):\n  def with_id(n):\n    n['Id'] = f\"{stack_id}-{hash(json.dumps(n, sort_keys=True))}\"\n    return n\n\n  external_notifications = {}\n  existing_notifications = s3.get_bucket_notification_configuration(Bucket=bucket)\n  for t in CONFIGURATION_TYPES:\n    if request_type == 'Update':\n        ids = [with_id(n) for n in old.get(t, [])]\n        old_incoming_ids = [n['Id'] for n in ids]\n        external_notifications[t] = [n for n in existing_notifications.get(t, []) if not n['Id'] in old_incoming_ids]\n    elif request_type == 'Create':\n        external_notifications[t] = [n for n in existing_notifications.get(t, [])]\n  if EVENTBRIDGE_CONFIGURATION in existing_notifications:\n    external_notifications[EVENTBRIDGE_CONFIGURATION] = existing_notifications[EVENTBRIDGE_CONFIGURATION]\n\n  if request_type == 'Delete':\n    return external_notifications\n\n  notifications = {}\n  for t in CONFIGURATION_TYPES:\n    external = external_notifications.get(t, [])\n    incoming = [with_id(n) for n in notification_configuration.get(t, [])]\n    notifications[t] = external + incoming\n\n  if EVENTBRIDGE_CONFIGURATION in notification_configuration:\n    notifications[EVENTBRIDGE_CONFIGURATION] = notification_configuration[EVENTBRIDGE_CONFIGURATION]\n  elif EVENTBRIDGE_CONFIGURATION in external_notifications:\n    notifications[EVENTBRIDGE_CONFIGURATION] = external_notifications[EVENTBRIDGE_CONFIGURATION]\n\n  return notifications\n\ndef submit_response(event: dict, context, response_status: str, error_message: str):\n  response_body = json.dumps(\n    {\n      \"Status\": response_status,\n      \"Reason\": f\"{error_message}See the details in CloudWatch Log Stream: {context.log_stream_name}\",\n      \"PhysicalResourceId\": event.get(\"PhysicalResourceId\") or event[\"LogicalResourceId\"],\n      \"StackId\": event[\"StackId\"],\n      \"RequestId\": event[\"RequestId\"],\n      \"LogicalResourceId\": event[\"LogicalResourceId\"],\n      \"NoEcho\": False,\n    }\n  ).encode(\"utf-8\")\n  headers = {\"content-type\": \"\", \"content-length\": str(len(response_body))}\n  try:\n    req = urllib.request.Request(url=event[\"ResponseURL\"], headers=headers, data=response_body, method=\"PUT\")\n    with urllib.request.urlopen(req) as response:\n      print(response.read().decode(\"utf-8\"))\n    print(\"Status code: \" + response.reason)\n  except Exception as e:\n      print(\"send(..) failed executing request.urlopen(..): \" + str(e))\n"
+    },
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC",
+      "Arn"
+     ]
+    },
+    "Runtime": "python3.9",
+    "Timeout": 300
+   },
+   "DependsOn": [
+    "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleDefaultPolicy2CF63D36",
+    "BucketNotificationsHandler050a0587b7544547bf325f094a3db834RoleB6FB88EC"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/BucketNotificationsHandler050a0587b7544547bf325f094a3db834/Resource"
+   }
+  },
+  "TimeStreamDatabase2AB807C0": {
+   "Type": "AWS::Timestream::Database",
+   "Properties": {
+    "DatabaseName": "PipelineStack10IotStage10devIotStack10TimeStream1AB6F374Sounds"
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/TimeStream/Database"
+   }
+  },
+  "TimeStreamTable25811C02": {
+   "Type": "AWS::Timestream::Table",
+   "Properties": {
+    "DatabaseName": "PipelineStack10IotStage10devIotStack10TimeStream1AB6F374Sounds",
+    "TableName": "PipelineStack10IotStage10devIotStack10TimeStream1AB6F374Telemetry"
+   },
+   "DependsOn": [
+    "TimeStreamDatabase2AB807C0"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/TimeStream/Table"
+   }
+  },
+  "TimeStreamtopicIotTimeStreamRole84176763": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "iot.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/AmazonTimestreamFullAccess"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/TimeStream/topicIotTimeStreamRole/Resource"
+   }
+  },
+  "TimeStreamTopicRule4C010A27": {
+   "Type": "AWS::IoT::TopicRule",
+   "Properties": {
+    "TopicRulePayload": {
+     "Actions": [
+      {
+       "Timestream": {
+        "DatabaseName": "PipelineStack10IotStage10devIotStack10TimeStream1AB6F374Sounds",
+        "Dimensions": [
+         {
+          "Name": "device_name",
+          "Value": "${clientId()}"
+         },
+         {
+          "Name": "class",
+          "Value": "${class}"
+         },
+         {
+          "Name": "confidence",
+          "Value": "${confidence}"
+         },
+         {
+          "Name": "latitude",
+          "Value": "${latitude}"
+         },
+         {
+          "Name": "longitude",
+          "Value": "${longitude}"
+         }
+        ],
+        "RoleArn": {
+         "Fn::GetAtt": [
+          "TimeStreamtopicIotTimeStreamRole84176763",
+          "Arn"
+         ]
+        },
+        "TableName": "PipelineStack10IotStage10devIotStack10TimeStream1AB6F374Telemetry"
+       }
+      }
+     ],
+     "Sql": "SELECT * FROM '+/mic_sensor_data'"
+    }
+   },
+   "DependsOn": [
+    "TimeStreamDatabase2AB807C0",
+    "TimeStreamTable25811C02"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/TimeStream/TopicRule"
+   }
+  },
+  "GrafanaWorkspaceRole07F93163": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "grafana.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/AmazonTimestreamReadOnlyAccess"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/WorkspaceRole/Resource"
+   }
+  },
+  "GrafanaWorkspace8DF3C866": {
+   "Type": "AWS::Grafana::Workspace",
+   "Properties": {
+    "AccountAccessType": "CURRENT_ACCOUNT",
+    "AuthenticationProviders": [
+     "AWS_SSO"
+    ],
+    "DataSources": [
+     "TIMESTREAM"
+    ],
+    "GrafanaVersion": "8.4",
+    "PermissionType": "SERVICE_MANAGED",
+    "RoleArn": {
+     "Fn::GetAtt": [
+      "GrafanaWorkspaceRole07F93163",
+      "Arn"
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/Workspace"
+   }
+  },
+  "GrafanaApiKeySecretF7DC9B63": {
+   "Type": "AWS::SecretsManager::Secret",
+   "Properties": {
+    "GenerateSecretString": {}
+   },
+   "DependsOn": [
+    "GrafanaWorkspace8DF3C866"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/ApiKeySecret/Resource"
+   }
+  },
+  "GrafanaApiKeySecretRotationScheduleFB290158": {
+   "Type": "AWS::SecretsManager::RotationSchedule",
+   "Properties": {
+    "RotateImmediatelyOnUpdate": true,
+    "RotationLambdaARN": {
+     "Fn::GetAtt": [
+      "Grafanakeyrotation94DDD9E1",
+      "Arn"
+     ]
+    },
+    "RotationRules": {
+     "ScheduleExpression": "rate(29 days)"
+    },
+    "SecretId": {
+     "Ref": "GrafanaApiKeySecretF7DC9B63"
+    }
+   },
+   "DependsOn": [
+    "GrafanakeyrotationInvokeN0a2GKfZP0JmDqDEVhhu6A0TUv3NyNbk4YMFKNcF48AD6D3",
+    "GrafanaWorkspace8DF3C866"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/ApiKeySecret/RotationSchedule/Resource"
+   }
+  },
+  "GrafanaApiKeySecretPolicy1E82C135": {
+   "Type": "AWS::SecretsManager::ResourcePolicy",
+   "Properties": {
+    "ResourcePolicy": {
+     "Statement": [
+      {
+       "Action": "secretsmanager:DeleteSecret",
+       "Effect": "Deny",
+       "Principal": {
+        "AWS": "arn:aws:iam::958196000588:root"
+       },
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "SecretId": {
+     "Ref": "GrafanaApiKeySecretF7DC9B63"
+    }
+   },
+   "DependsOn": [
+    "GrafanaWorkspace8DF3C866"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/ApiKeySecret/Policy/Resource"
+   }
+  },
+  "GrafanakeyrotationServiceRole1E107046": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/AWSGrafanaAccountAdministrator"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/key-rotation/ServiceRole/Resource"
+   }
+  },
+  "GrafanakeyrotationServiceRoleDefaultPolicyC3B85DB3": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "secretsmanager:PutSecretValue",
+        "secretsmanager:UpdateSecret"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "GrafanaApiKeySecretF7DC9B63"
+       }
+      },
+      {
+       "Action": [
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:PutSecretValue",
+        "secretsmanager:UpdateSecretVersionStage"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "GrafanaApiKeySecretF7DC9B63"
+       }
+      },
+      {
+       "Action": "secretsmanager:GetRandomPassword",
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "GrafanakeyrotationServiceRoleDefaultPolicyC3B85DB3",
+    "Roles": [
+     {
+      "Ref": "GrafanakeyrotationServiceRole1E107046"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/key-rotation/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "Grafanakeyrotation94DDD9E1": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "b6781238fc3ace8ef655fd66333b964d3cca61f0c9c97e001fa9eb80953c3dd0.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "SECRET_NAME": {
+       "Fn::Join": [
+        "-",
+        [
+         {
+          "Fn::Select": [
+           0,
+           {
+            "Fn::Split": [
+             "-",
+             {
+              "Fn::Select": [
+               6,
+               {
+                "Fn::Split": [
+                 ":",
+                 {
+                  "Ref": "GrafanaApiKeySecretF7DC9B63"
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         },
+         {
+          "Fn::Select": [
+           1,
+           {
+            "Fn::Split": [
+             "-",
+             {
+              "Fn::Select": [
+               6,
+               {
+                "Fn::Split": [
+                 ":",
+                 {
+                  "Ref": "GrafanaApiKeySecretF7DC9B63"
+                 }
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       ]
+      },
+      "WORKSPACE_ID": {
+       "Fn::GetAtt": [
+        "GrafanaWorkspace8DF3C866",
+        "Id"
+       ]
+      },
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+     }
+    },
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "GrafanakeyrotationServiceRole1E107046",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs16.x"
+   },
+   "DependsOn": [
+    "GrafanakeyrotationServiceRoleDefaultPolicyC3B85DB3",
+    "GrafanakeyrotationServiceRole1E107046"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/key-rotation/Resource",
+    "aws:asset:path": "../asset.b6781238fc3ace8ef655fd66333b964d3cca61f0c9c97e001fa9eb80953c3dd0",
+    "aws:asset:is-bundled": true,
+    "aws:asset:property": "Code"
+   }
+  },
+  "GrafanakeyrotationInvokeN0a2GKfZP0JmDqDEVhhu6A0TUv3NyNbk4YMFKNcF48AD6D3": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "Grafanakeyrotation94DDD9E1",
+      "Arn"
+     ]
+    },
+    "Principal": "secretsmanager.amazonaws.com"
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/key-rotation/InvokeN0--a2GKfZP0JmDqDE--Vhhu6+A0TUv3NyNbk4YM+FKNc="
+   }
+  },
+  "GrafanaTimeStreamDataSourcehandlerServiceRoleCF020AA4": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/TimeStreamDataSource/handler/ServiceRole/Resource"
+   }
+  },
+  "GrafanaTimeStreamDataSourcehandlerServiceRoleDefaultPolicy6D9496E1": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:GetSecretValue"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "GrafanaApiKeySecretF7DC9B63"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "GrafanaTimeStreamDataSourcehandlerServiceRoleDefaultPolicy6D9496E1",
+    "Roles": [
+     {
+      "Ref": "GrafanaTimeStreamDataSourcehandlerServiceRoleCF020AA4"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/TimeStreamDataSource/handler/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "GrafanaTimeStreamDataSourcehandlerC13362E9": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "e6746a201904a70c66f08c29fa83492ae4f5f835dead2c2e7abb303367e33152.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+     }
+    },
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "GrafanaTimeStreamDataSourcehandlerServiceRoleCF020AA4",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs16.x"
+   },
+   "DependsOn": [
+    "GrafanaTimeStreamDataSourcehandlerServiceRoleDefaultPolicy6D9496E1",
+    "GrafanaTimeStreamDataSourcehandlerServiceRoleCF020AA4"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/TimeStreamDataSource/handler/Resource",
+    "aws:asset:path": "../asset.e6746a201904a70c66f08c29fa83492ae4f5f835dead2c2e7abb303367e33152",
+    "aws:asset:is-bundled": true,
+    "aws:asset:property": "Code"
+   }
+  },
+  "GrafanaTimeStreamDataSourceDataSourceProviderframeworkonEventServiceRole5DF5B5DF": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/TimeStreamDataSource/DataSourceProvider/framework-onEvent/ServiceRole/Resource"
+   }
+  },
+  "GrafanaTimeStreamDataSourceDataSourceProviderframeworkonEventServiceRoleDefaultPolicy87169C56": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "GrafanaTimeStreamDataSourcehandlerC13362E9",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "GrafanaTimeStreamDataSourcehandlerC13362E9",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "GrafanaTimeStreamDataSourceDataSourceProviderframeworkonEventServiceRoleDefaultPolicy87169C56",
+    "Roles": [
+     {
+      "Ref": "GrafanaTimeStreamDataSourceDataSourceProviderframeworkonEventServiceRole5DF5B5DF"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/TimeStreamDataSource/DataSourceProvider/framework-onEvent/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "GrafanaTimeStreamDataSourceDataSourceProviderframeworkonEventC3926246": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
+    },
+    "Description": "AWS CDK resource provider framework - onEvent (PipelineStack10/IotStage10-dev/IotStack10/Grafana/TimeStreamDataSource/DataSourceProvider)",
+    "Environment": {
+     "Variables": {
+      "USER_ON_EVENT_FUNCTION_ARN": {
+       "Fn::GetAtt": [
+        "GrafanaTimeStreamDataSourcehandlerC13362E9",
+        "Arn"
+       ]
+      }
+     }
+    },
+    "Handler": "framework.onEvent",
+    "Role": {
+     "Fn::GetAtt": [
+      "GrafanaTimeStreamDataSourceDataSourceProviderframeworkonEventServiceRole5DF5B5DF",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 900
+   },
+   "DependsOn": [
+    "GrafanaTimeStreamDataSourceDataSourceProviderframeworkonEventServiceRoleDefaultPolicy87169C56",
+    "GrafanaTimeStreamDataSourceDataSourceProviderframeworkonEventServiceRole5DF5B5DF"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/TimeStreamDataSource/DataSourceProvider/framework-onEvent/Resource",
+    "aws:asset:path": "../asset.7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "GrafanaTimeStreamDataSourceDataSourceCrBFD0F42C": {
+   "Type": "AWS::CloudFormation::CustomResource",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "GrafanaTimeStreamDataSourceDataSourceProviderframeworkonEventC3926246",
+      "Arn"
+     ]
+    },
+    "endpoint": {
+     "Fn::GetAtt": [
+      "GrafanaWorkspace8DF3C866",
+      "Endpoint"
+     ]
+    },
+    "apiKeySecretName": {
+     "Fn::Join": [
+      "-",
+      [
+       {
+        "Fn::Select": [
+         0,
+         {
+          "Fn::Split": [
+           "-",
+           {
+            "Fn::Select": [
+             6,
+             {
+              "Fn::Split": [
+               ":",
+               {
+                "Ref": "GrafanaApiKeySecretF7DC9B63"
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "Fn::Select": [
+         1,
+         {
+          "Fn::Split": [
+           "-",
+           {
+            "Fn::Select": [
+             6,
+             {
+              "Fn::Split": [
+               ":",
+               {
+                "Ref": "GrafanaApiKeySecretF7DC9B63"
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     ]
+    },
+    "payload": "{\"name\":\"Amazon Timestream\",\"type\":\"grafana-timestream-datasource\",\"typeName\":\"Amazon Timestream\",\"access\":\"proxy\",\"basicAuth\":false,\"isDefault\":true,\"jsonData\":{\"authType\":\"ec2_iam_role\",\"defaultDatabase\":\"PipelineStack10IotStage10devIotStack10TimeStream1AB6F374Sounds\",\"defaultMeasure\":\"class\",\"defaultRegion\":\"eu-central-1\",\"defaultTable\":\"PipelineStack10IotStage10devIotStack10TimeStream1AB6F374Telemetry\"}}"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/TimeStreamDataSource/DataSourceCr/Default"
+   }
+  },
+  "GrafanaDashboardhandlerServiceRole139A6F4D": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/Dashboard/handler/ServiceRole/Resource"
+   }
+  },
+  "GrafanaDashboardhandlerServiceRoleDefaultPolicyFF062EFA": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:GetSecretValue"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Ref": "GrafanaApiKeySecretF7DC9B63"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "GrafanaDashboardhandlerServiceRoleDefaultPolicyFF062EFA",
+    "Roles": [
+     {
+      "Ref": "GrafanaDashboardhandlerServiceRole139A6F4D"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/Dashboard/handler/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "GrafanaDashboardhandler35B1347D": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "c67cbac96870da027364dc14f3687a41cbe1aa5a6f5393e941f458726edd832b.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+     }
+    },
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "GrafanaDashboardhandlerServiceRole139A6F4D",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs16.x"
+   },
+   "DependsOn": [
+    "GrafanaDashboardhandlerServiceRoleDefaultPolicyFF062EFA",
+    "GrafanaDashboardhandlerServiceRole139A6F4D"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/Dashboard/handler/Resource",
+    "aws:asset:path": "../asset.c67cbac96870da027364dc14f3687a41cbe1aa5a6f5393e941f458726edd832b",
+    "aws:asset:is-bundled": true,
+    "aws:asset:property": "Code"
+   }
+  },
+  "GrafanaDashboardDashboardProviderframeworkonEventServiceRoleDAB318DB": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/Dashboard/DashboardProvider/framework-onEvent/ServiceRole/Resource"
+   }
+  },
+  "GrafanaDashboardDashboardProviderframeworkonEventServiceRoleDefaultPolicy81296BF7": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "GrafanaDashboardhandler35B1347D",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "GrafanaDashboardhandler35B1347D",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "GrafanaDashboardDashboardProviderframeworkonEventServiceRoleDefaultPolicy81296BF7",
+    "Roles": [
+     {
+      "Ref": "GrafanaDashboardDashboardProviderframeworkonEventServiceRoleDAB318DB"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/Dashboard/DashboardProvider/framework-onEvent/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "GrafanaDashboardDashboardProviderframeworkonEvent7A94DE30": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94.zip"
+    },
+    "Description": "AWS CDK resource provider framework - onEvent (PipelineStack10/IotStage10-dev/IotStack10/Grafana/Dashboard/DashboardProvider)",
+    "Environment": {
+     "Variables": {
+      "USER_ON_EVENT_FUNCTION_ARN": {
+       "Fn::GetAtt": [
+        "GrafanaDashboardhandler35B1347D",
+        "Arn"
+       ]
+      }
+     }
+    },
+    "Handler": "framework.onEvent",
+    "Role": {
+     "Fn::GetAtt": [
+      "GrafanaDashboardDashboardProviderframeworkonEventServiceRoleDAB318DB",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 900
+   },
+   "DependsOn": [
+    "GrafanaDashboardDashboardProviderframeworkonEventServiceRoleDefaultPolicy81296BF7",
+    "GrafanaDashboardDashboardProviderframeworkonEventServiceRoleDAB318DB"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/Dashboard/DashboardProvider/framework-onEvent/Resource",
+    "aws:asset:path": "../asset.7382a0addb9f34974a1ea6c6c9b063882af874828f366f5c93b2b7b64db15c94",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "GrafanaDashboardDashboardCr40DBF2DA": {
+   "Type": "AWS::CloudFormation::CustomResource",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "GrafanaDashboardDashboardProviderframeworkonEvent7A94DE30",
+      "Arn"
+     ]
+    },
+    "endpoint": {
+     "Fn::GetAtt": [
+      "GrafanaWorkspace8DF3C866",
+      "Endpoint"
+     ]
+    },
+    "apiKeySecretName": {
+     "Fn::Join": [
+      "-",
+      [
+       {
+        "Fn::Select": [
+         0,
+         {
+          "Fn::Split": [
+           "-",
+           {
+            "Fn::Select": [
+             6,
+             {
+              "Fn::Split": [
+               ":",
+               {
+                "Ref": "GrafanaApiKeySecretF7DC9B63"
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "Fn::Select": [
+         1,
+         {
+          "Fn::Split": [
+           "-",
+           {
+            "Fn::Select": [
+             6,
+             {
+              "Fn::Split": [
+               ":",
+               {
+                "Ref": "GrafanaApiKeySecretF7DC9B63"
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     ]
+    },
+    "payload": {
+     "Fn::Join": [
+      "",
+      [
+       "{\"dashboard\":{\"annotations\":{\"list\":[{\"builtIn\":1,\"datasource\":{\"type\":\"grafana\",\"uid\":\"-- Grafana --\"},\"enable\":true,\"hide\":true,\"iconColor\":\"rgba(0, 211, 255, 1)\",\"name\":\"Annotations & Alerts\",\"target\":{\"limit\":100,\"matchAny\":false,\"tags\":[],\"type\":\"dashboard\"},\"type\":\"dashboard\"}]},\"editable\":true,\"fiscalYearStartMonth\":0,\"graphTooltip\":0,\"links\":[],\"liveNow\":false,\"panels\":[{\"fieldConfig\":{\"defaults\":{\"color\":{\"mode\":\"thresholds\"},\"mappings\":[{\"options\":{\"Knock\":{\"index\":0,\"text\":\"Knock\"},\"Speech\":{\"index\":1,\"text\":\"Speech\"}},\"type\":\"value\"}],\"thresholds\":{\"mode\":\"absolute\",\"steps\":[{\"color\":\"green\",\"value\":null},{\"color\":\"red\",\"value\":80}]}},\"overrides\":[]},\"gridPos\":{\"h\":8,\"w\":11,\"x\":0,\"y\":7},\"id\":7,\"options\":{\"colorMode\":\"value\",\"graphMode\":\"area\",\"justifyMode\":\"auto\",\"orientation\":\"auto\",\"reduceOptions\":{\"calcs\":[\"lastNotNull\"],\"fields\":\"/^class$/\",\"values\":false},\"textMode\":\"auto\"},\"pluginVersion\":\"8.4.7\",\"targets\":[{\"database\":\"PipelineStack10IotStage10devIotStack10TimeStream1AB6F374Sounds\",\"datasource\":{\"type\":\"grafana-timestream-datasource\",\"id\":\"",
+       {
+        "Fn::GetAtt": [
+         "GrafanaTimeStreamDataSourceDataSourceCrBFD0F42C",
+         "id"
+        ]
+       },
+       "\"},\"measure\":\"class\",\"rawQuery\":\"SELECT * FROM $__database.$__table WHERE device_name = '$device' AND time BETWEEN from_milliseconds(${__from}) AND from_milliseconds(${__to}) ORDER BY time ASC\",\"refId\":\"A\",\"table\":\"PipelineStack10IotStage10devIotStack10TimeStream1AB6F374Telemetry\"}],\"title\":\"Class Detected\",\"type\":\"stat\"},{\"fieldConfig\":{\"defaults\":{\"color\":{\"mode\":\"thresholds\"},\"mappings\":[],\"thresholds\":{\"mode\":\"absolute\",\"steps\":[{\"color\":\"red\",\"value\":null},{\"color\":\"green\",\"value\":40}]},\"unit\":\"percent\"},\"overrides\":[]},\"gridPos\":{\"h\":8,\"w\":10,\"x\":11,\"y\":7},\"id\":3,\"options\":{\"orientation\":\"auto\",\"reduceOptions\":{\"calcs\":[\"last\"],\"fields\":\"/^confidence$/\",\"values\":false},\"showThresholdLabels\":false,\"showThresholdMarkers\":true,\"text\":{}},\"pluginVersion\":\"8.4.7\",\"targets\":[{\"database\":\"PipelineStack10IotStage10devIotStack10TimeStream1AB6F374Sounds\",\"datasource\":{\"type\":\"grafana-timestream-datasource\",\"id\":\"",
+       {
+        "Fn::GetAtt": [
+         "GrafanaTimeStreamDataSourceDataSourceCrBFD0F42C",
+         "id"
+        ]
+       },
+       "\"},\"measure\":\"confidence\",\"rawQuery\":\"SELECT * FROM $__database.$__table WHERE device_name = '$device' AND time BETWEEN from_milliseconds(${__from}) AND from_milliseconds(${__to}) ORDER BY time ASC\",\"refId\":\"A\",\"table\":\"PipelineStack10IotStage10devIotStack10TimeStream1AB6F374Telemetry\"}],\"title\":\"Confidence Score\",\"type\":\"gauge\"},{\"datasource\":{\"type\":\"grafana-timestream-datasource\",\"id\":\"",
+       {
+        "Fn::GetAtt": [
+         "GrafanaTimeStreamDataSourceDataSourceCrBFD0F42C",
+         "id"
+        ]
+       },
+       "\"},\"fieldConfig\":{\"defaults\":{\"color\":{\"mode\":\"continuous-GrYlRd\"},\"custom\":{\"fillOpacity\":70,\"lineWidth\":0,\"spanNulls\":false},\"mappings\":[{\"options\":{\"None\":{\"index\":0,\"color\":\"#fd06a1\"},\"Like\":{\"index\":1,\"color\":\"#7b6018\"},\"Dislike\":{\"index\":2,\"color\":\"#66f211\"},\"FlatHand\":{\"index\":3,\"color\":\"#64666e\"},\"Fist\":{\"index\":4,\"color\":\"#226bea\"},\"Love\":{\"index\":5,\"color\":\"#d37c8\"},\"BreakTime\":{\"index\":6,\"color\":\"#c5db69\"},\"CrossHands\":{\"index\":7,\"color\":\"#98b0da\"}},\"type\":\"value\"}],\"thresholds\":{\"mode\":\"absolute\",\"steps\":[{\"color\":\"green\",\"value\":null},{\"color\":\"red\",\"value\":80}]}},\"overrides\":[]},\"gridPos\":{\"h\":7,\"w\":21,\"x\":0,\"y\":0},\"id\":1,\"options\":{\"alignValue\":\"left\",\"legend\":{\"displayMode\":\"list\",\"placement\":\"bottom\",\"showLegend\":true},\"mergeValues\":true,\"rowHeight\":0.9,\"showValue\":\"auto\",\"tooltip\":{\"mode\":\"single\",\"sort\":\"none\"}},\"pluginVersion\":\"9.4.7\",\"targets\":[{\"database\":\"PipelineStack10IotStage10devIotStack10TimeStream1AB6F374Sounds\",\"datasource\":{\"type\":\"grafana-timestream-datasource\",\"id\":\"",
+       {
+        "Fn::GetAtt": [
+         "GrafanaTimeStreamDataSourceDataSourceCrBFD0F42C",
+         "id"
+        ]
+       },
+       "\"},\"measure\":\"class\",\"rawQuery\":\"SELECT class, time FROM $__database.$__table WHERE device_name = '$device' AND time BETWEEN from_milliseconds(${__from}) AND from_milliseconds(${__to}) ORDER BY time ASC\",\"refId\":\"A\",\"table\":\"PipelineStack10IotStage10devIotStack10TimeStream1AB6F374Telemetry\"}],\"title\":\"Visual\",\"type\":\"state-timeline\"},{\"fieldConfig\":{\"defaults\":{\"color\":{\"mode\":\"thresholds\"},\"custom\":{\"hideFrom\":{\"legend\":false,\"tooltip\":false,\"viz\":false}},\"mappings\":[],\"thresholds\":{\"mode\":\"absolute\",\"steps\":[{\"color\":\"green\",\"value\":null},{\"color\":\"red\",\"value\":80}]}},\"overrides\":[]},\"gridPos\":{\"h\":8,\"w\":21,\"x\":0,\"y\":15},\"id\":9,\"options\":{\"basemap\":{\"config\":{},\"name\":\"Layer 0\",\"type\":\"default\"},\"controls\":{\"mouseWheelZoom\":true,\"showAttribution\":true,\"showDebug\":false,\"showScale\":false,\"showZoom\":true},\"layers\":[{\"config\":{\"showLegend\":true,\"style\":{\"color\":{\"fixed\":\"dark-green\"},\"opacity\":0.5,\"rotation\":{\"fixed\":0,\"max\":360,\"min\":-360,\"mode\":\"mod\"},\"size\":{\"fixed\":7,\"max\":15,\"min\":2},\"symbol\":{\"fixed\":\"img/icons/marker/circle.svg\",\"mode\":\"fixed\"},\"textConfig\":{\"fontSize\":12,\"offsetX\":0,\"offsetY\":0,\"textAlign\":\"center\",\"textBaseline\":\"middle\"}}},\"location\":{\"latitude\":\"lattitude\",\"longitude\":\"longitude\",\"mode\":\"coords\"},\"name\":\"marker\",\"tooltip\":true,\"type\":\"markers\"}],\"view\":{\"id\":\"europe\",\"lat\":46,\"lon\":14,\"zoom\":4}},\"pluginVersion\":\"8.4.7\",\"targets\":[{\"database\":\"PipelineStack10IotStage10devIotStack10TimeStream1AB6F374Sounds\",\"datasource\":{\"type\":\"grafana-timestream-datasource\",\"id\":\"",
+       {
+        "Fn::GetAtt": [
+         "GrafanaTimeStreamDataSourceDataSourceCrBFD0F42C",
+         "id"
+        ]
+       },
+       "\"},\"measure\":\"class\",\"rawQuery\":\"SELECT CAST(latitude as DOUBLE) as lattitude, CAST(longitude as DOUBLE) as longitude, device_name, time FROM $__database.$__table WHERE device_name = '$device' AND time BETWEEN from_milliseconds(${__from}) AND from_milliseconds(${__to}) ORDER BY time ASC\",\"refId\":\"A\",\"table\":\"PipelineStack10IotStage10devIotStack10TimeStream1AB6F374Telemetry\"}],\"title\":\"Location\",\"type\":\"geomap\"},{\"datasource\":{\"type\":\"grafana-timestream-datasource\",\"id\":\"",
+       {
+        "Fn::GetAtt": [
+         "GrafanaTimeStreamDataSourceDataSourceCrBFD0F42C",
+         "id"
+        ]
+       },
+       "\"},\"fieldConfig\":{\"defaults\":{\"custom\":{\"align\":\"auto\",\"cellOptions\":{\"type\":\"auto\"},\"inspect\":false},\"mappings\":[],\"thresholds\":{\"mode\":\"absolute\",\"steps\":[{\"color\":\"green\",\"value\":null},{\"color\":\"red\",\"value\":80}]}},\"overrides\":[]},\"gridPos\":{\"h\":7,\"w\":21,\"x\":0,\"y\":15},\"id\":1,\"options\":{\"footer\":{\"countRows\":false,\"fields\":\"\",\"reducer\":[\"sum\"],\"show\":false},\"showHeader\":true},\"pluginVersion\":\"9.4.7\",\"targets\":[{\"database\":\"PipelineStack10IotStage10devIotStack10TimeStream1AB6F374Sounds\",\"datasource\":{\"type\":\"grafana-timestream-datasource\",\"id\":\"",
+       {
+        "Fn::GetAtt": [
+         "GrafanaTimeStreamDataSourceDataSourceCrBFD0F42C",
+         "id"
+        ]
+       },
+       "\"},\"key\":\"Q-3a3019c1-e8b4-4dbb-a19d-4cd2db00d5b9-0\",\"measure\":\"class\",\"rawQuery\":\"SELECT * FROM $__database.$__table WHERE device_name = '$device' AND time BETWEEN from_milliseconds(${__from}) AND from_milliseconds(${__to}) ORDER BY time ASC\",\"refId\":\"A\",\"table\":\"PipelineStack10IotStage10devIotStack10TimeStream1AB6F374Telemetry\",\"waitForResult\":true}],\"title\":\"History\",\"type\":\"table\"}],\"refresh\":\"5s\",\"revision\":1,\"schemaVersion\":38,\"style\":\"dark\",\"tags\":[],\"templating\":{\"list\":[{\"datasource\":{\"type\":\"grafana-timestream-datasource\",\"id\":\"",
+       {
+        "Fn::GetAtt": [
+         "GrafanaTimeStreamDataSourceDataSourceCrBFD0F42C",
+         "id"
+        ]
+       },
+       "\"},\"definition\":\"SELECT DISTINCT device_name FROM $__database.$__table\",\"hide\":0,\"includeAll\":false,\"label\":\"Choose Device\",\"multi\":false,\"name\":\"device\",\"options\":[],\"query\":\"SELECT DISTINCT device_name FROM $__database.$__table\",\"refresh\":1,\"regex\":\"\",\"skipUrlSync\":false,\"sort\":0,\"type\":\"query\"}]},\"time\":{\"from\":\"now-1m\",\"to\":\"now\"},\"timepicker\":{},\"timezone\":\"\",\"title\":\"Main\",\"version\":1,\"weekStart\":\"\"}}"
+      ]
+     ]
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/Grafana/Dashboard/DashboardCr/Default"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/11STY+bMBD9LbmbWZa99NgNVXup2giq9hgNZiBOjI08dqIV4r9XNpDs7um9N5+eGRfwXHyBKd/hjTPZXjKtGphqj/Ii8MbHSeEAU2U1ibIzCQ9WK/kW5cJmwS9HZCbP8BpB8AtM+yAv5PfIJBYaE1a2wKPOez0LjUPTIkxlZ74HI72yRtxJ7EpuUMxR1cr0mry9B27ZR2NbOjP8SnDP1rZnmH7a/oezYYzFNj4LaVtqgtItTAdnzyTTi1c6C68GYu8orqPszDf02MThys78wUbTLJT1EJUdlayCJtE77NBgNP6z7sIjShJM0pHnAQ325GCqk45lVlZZj/GxtTxRG7a9f7JVxDY4SY8dfrTM8z1EpJvUHntleiEDezsc3erkNOxVteTE643L5N0yZ/FRv2/zybUV2a8r+R38GPws8gz1eELId1/XD/YUcTlSNr75kzVryCGJxyHjBeHMT9cih+cCit2ZlcpcMPESUC0ocsgh341p6L+oVZv2BPEnXxdpXSY70wd07X+L7Plg7QIAAA=="
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/IotStage10-dev/IotStack10/CDKMetadata/Default"
+   }
+  }
+ },
+ "Outputs": {
+  "GrafanaUrl": {
+   "Description": "Grafana Url",
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "https://",
+      {
+       "Fn::GetAtt": [
+        "GrafanaWorkspace8DF3C866",
+        "Endpoint"
+       ]
+      }
+     ]
+    ]
+   }
+  },
+  "FirmwareBucket": {
+   "Description": "Firmware Bucket",
+   "Value": {
+    "Ref": "CodeFirmwares1A1D3FC7"
+   }
+  },
+  "ProvisionScript": {
+   "Description": "Provision device",
+   "Value": "python tools/provision.py --interactive --aws-region eu-central-1 --aws-profile <Profile> --thing-name IotStage10devIotStack10Code2726DACB-<Replace_With_Unique_Name>"
+  },
+  "PublicKey": {
+   "Description": "Public key used for signing firmware",
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "\n",
+      {
+       "Fn::GetAtt": [
+        "CodeCertificateCrB23083AB",
+        "publicKey"
+       ]
+      }
+     ]
+    ]
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/stmicro10/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

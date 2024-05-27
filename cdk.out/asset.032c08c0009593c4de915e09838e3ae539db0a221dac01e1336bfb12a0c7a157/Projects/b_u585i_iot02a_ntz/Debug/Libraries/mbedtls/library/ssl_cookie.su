@@ -1,0 +1,7 @@
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/mbedtls/library/ssl_cookie.c:124:12:ssl_cookie_hmac	48	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/mbedtls/library/ssl_cookie.c:69:6:mbedtls_ssl_cookie_init	8	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/mbedtls/library/ssl_cookie.c:82:6:mbedtls_ssl_cookie_set_timeout	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/mbedtls/library/ssl_cookie.c:87:6:mbedtls_ssl_cookie_free	8	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/mbedtls/library/ssl_cookie.c:98:5:mbedtls_ssl_cookie_setup	48	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/mbedtls/library/ssl_cookie.c:150:5:mbedtls_ssl_cookie_write	32	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/mbedtls/library/ssl_cookie.c:192:5:mbedtls_ssl_cookie_check	64	static

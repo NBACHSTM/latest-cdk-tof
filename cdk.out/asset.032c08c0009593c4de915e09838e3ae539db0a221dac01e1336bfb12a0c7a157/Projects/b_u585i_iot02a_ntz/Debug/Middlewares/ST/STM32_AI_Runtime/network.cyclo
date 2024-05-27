@@ -1,0 +1,11 @@
+network.c:476:9:ai_network_get_info	4
+network.c:522:9:ai_network_get_report	4
+network.c:568:10:ai_network_get_error	1
+network.c:574:10:ai_network_create	1
+network.c:618:12:ai_network_inputs_get	2
+network.c:628:12:ai_network_outputs_get	2
+network.c:638:11:ai_network_destroy	1
+network.c:644:9:ai_network_init	4
+network.c:584:10:ai_network_create_and_init	8
+network.c:661:8:ai_network_run	1
+network.c:668:8:ai_network_forward	1

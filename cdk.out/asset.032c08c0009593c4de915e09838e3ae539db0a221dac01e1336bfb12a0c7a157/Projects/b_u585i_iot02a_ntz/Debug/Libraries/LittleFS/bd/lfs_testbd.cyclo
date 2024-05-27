@@ -1,0 +1,13 @@
+lfs_testbd.c:106:12:lfs_testbd_rawread	2
+lfs_testbd.c:116:12:lfs_testbd_rawprog	2
+lfs_testbd.c:136:12:lfs_testbd_rawsync	2
+lfs_testbd.c:126:12:lfs_testbd_rawerase	2
+lfs_testbd.c:13:5:lfs_testbd_createcfg	5
+lfs_testbd.c:70:5:lfs_testbd_create	1
+lfs_testbd.c:87:5:lfs_testbd_destroy	4
+lfs_testbd.c:146:5:lfs_testbd_read	7
+lfs_testbd.c:171:5:lfs_testbd_prog	11
+lfs_testbd.c:220:5:lfs_testbd_erase	9
+lfs_testbd.c:267:5:lfs_testbd_sync	1
+lfs_testbd.c:276:20:lfs_testbd_getwear	3
+lfs_testbd.c:289:5:lfs_testbd_setwear	3

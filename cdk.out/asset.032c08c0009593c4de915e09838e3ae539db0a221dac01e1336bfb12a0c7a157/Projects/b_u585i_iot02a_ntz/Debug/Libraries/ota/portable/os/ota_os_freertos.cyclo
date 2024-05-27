@@ -1,0 +1,11 @@
+ota_os_freertos.c:174:13:selfTestTimerCallback	2
+ota_os_freertos.c:191:13:requestTimerCallback	2
+ota_os_freertos.c:65:15:OtaInitEvent_FreeRTOS	2
+ota_os_freertos.c:93:15:OtaSendEvent_FreeRTOS	2
+ota_os_freertos.c:123:15:OtaReceiveEvent_FreeRTOS	2
+ota_os_freertos.c:157:15:OtaDeinitEvent_FreeRTOS	2
+ota_os_freertos.c:208:15:OtaStartTimer_FreeRTOS	7
+ota_os_freertos.c:284:15:OtaStopTimer_FreeRTOS	3
+ota_os_freertos.c:316:15:OtaDeleteTimer_FreeRTOS	3
+ota_os_freertos.c:351:8:Malloc_FreeRTOS	1
+ota_os_freertos.c:356:6:Free_FreeRTOS	1

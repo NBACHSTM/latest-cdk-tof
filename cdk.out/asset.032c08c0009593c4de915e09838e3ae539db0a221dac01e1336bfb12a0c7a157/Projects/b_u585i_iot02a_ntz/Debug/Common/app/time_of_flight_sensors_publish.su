@@ -1,0 +1,6 @@
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/app/time_of_flight_sensors_publish.c:222:13:CRC_Init	48	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/app/time_of_flight_sensors_publish.c:239:19:xInitSensors	8	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/app/time_of_flight_sensors_publish.c:138:19:prvPublishAndWaitForAck	72	static,ignoring_inline_asm
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/app/time_of_flight_sensors_publish.c:115:13:prvPublishCommandCallback	16	static,ignoring_inline_asm
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/app/time_of_flight_sensors_publish.c:256:6:vMotionSensorsPublish	488	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/app/time_of_flight_sensors_publish.c:374:6:print_result	24	static

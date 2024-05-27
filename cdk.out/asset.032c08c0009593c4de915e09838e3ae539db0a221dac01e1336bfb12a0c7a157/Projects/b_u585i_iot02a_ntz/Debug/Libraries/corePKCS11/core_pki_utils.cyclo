@@ -1,0 +1,2 @@
+core_pki_utils.c:43:8:PKI_mbedTLSSignatureToPkcs11Signature	7
+core_pki_utils.c:131:8:PKI_pkcs11SignatureTombedTLSSignature	6

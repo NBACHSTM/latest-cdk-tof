@@ -1,0 +1,9 @@
+portasm.c:42:6:vRestoreContextOfFirstTask	1
+portasm.c:113:12:xIsPrivileged	1
+portasm.c:130:6:vRaisePrivilege	1
+portasm.c:143:6:vResetPrivilege	1
+portasm.c:156:6:vStartFirstTask	1
+portasm.c:178:10:ulSetInterruptMask	1
+portasm.c:193:6:vClearInterruptMask	1
+portasm.c:206:6:PendSV_Handler	1
+portasm.c:305:6:SVC_Handler	1

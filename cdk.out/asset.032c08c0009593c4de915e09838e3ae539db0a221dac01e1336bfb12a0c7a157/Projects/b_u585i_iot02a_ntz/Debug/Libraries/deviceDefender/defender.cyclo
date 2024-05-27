@@ -1,0 +1,8 @@
+defender.c:139:17:getTopicLength	6
+defender.c:183:13:writeFormatAndSuffix	6
+defender.c:275:25:extractThingNameLength	4
+defender.c:254:25:matchPrefix	3
+defender.c:305:25:matchBridge	3
+defender.c:326:25:matchApi	4
+defender.c:381:18:Defender_GetTopic	10
+defender.c:462:18:Defender_MatchTopic	13
