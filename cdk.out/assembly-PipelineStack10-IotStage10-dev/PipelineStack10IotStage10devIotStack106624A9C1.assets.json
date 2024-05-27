@@ -169,7 +169,7 @@
         }
       }
     },
-    "e69e0edb694845375c6a5b6449cbaf03fb25032664aeb564cd9db9139dcfdeca": {
+    "47152b1493603d7243979ab499f2d2f56c0f9d0660a0da7aae9fde177c6b0fed": {
       "source": {
         "path": "PipelineStack10IotStage10devIotStack106624A9C1.template.json",
         "packaging": "file"
@@ -177,7 +177,7 @@
       "destinations": {
         "958196000588-eu-central-1": {
           "bucketName": "cdk-stmicro10-assets-958196000588-eu-central-1",
-          "objectKey": "e69e0edb694845375c6a5b6449cbaf03fb25032664aeb564cd9db9139dcfdeca.json",
+          "objectKey": "47152b1493603d7243979ab499f2d2f56c0f9d0660a0da7aae9fde177c6b0fed.json",
           "region": "eu-central-1",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::958196000588:role/cdk-stmicro10-file-publishing-role-958196000588-eu-central-1"
         }
