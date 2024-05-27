@@ -1,0 +1,8 @@
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/STM32_AI_AudioPreprocessing_Library/Src/feature_extraction.c:40:6:buf_to_float	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/STM32_AI_AudioPreprocessing_Library/Src/feature_extraction.c:55:6:buf_to_float_normed	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/STM32_AI_AudioPreprocessing_Library/Src/feature_extraction.c:71:6:SpectrogramColumn	40	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/STM32_AI_AudioPreprocessing_Library/Src/feature_extraction.c:107:6:SpectrogramColumn_pad	32	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/STM32_AI_AudioPreprocessing_Library/Src/feature_extraction.c:147:6:MelSpectrogramColumn	16	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/STM32_AI_AudioPreprocessing_Library/Src/feature_extraction.c:166:6:LogMelSpectrogramColumn	32	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/STM32_AI_AudioPreprocessing_Library/Src/feature_extraction.c:210:6:LogMelSpectrogramColumn_q15_Q8	64	static,ignoring_inline_asm
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/STM32_AI_AudioPreprocessing_Library/Src/feature_extraction.c:295:6:MfccColumn	16	static

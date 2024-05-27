@@ -1,0 +1,11 @@
+cli_pki.c:121:13:vPrintDer	5
+cli_pki.c:506:13:vSubCommand_GenerateKey	8
+cli_pki.c:174:13:vSubCommand_GenerateCsr	27
+cli_pki.c:292:13:vSubCommand_GenerateCertificate	62
+cli_pki.c:567:19:xReadPemFromCliAsDer	23
+cli_pki.c:803:13:vSubCommand_ImportPubKey	10
+cli_pki.c:711:19:xReadPemFromCliToX509Crt	6
+cli_pki.c:741:13:vSubCommand_ImportCertificate	6
+cli_pki.c:919:13:vSubCommand_ExportKey	6
+cli_pki.c:885:13:vSubCommand_ExportCertificate	4
+cli_pki.c:981:13:vCommand_PKI	15

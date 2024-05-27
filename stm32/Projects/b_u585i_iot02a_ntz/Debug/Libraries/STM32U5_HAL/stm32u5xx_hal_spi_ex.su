@@ -1,0 +1,6 @@
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_spi_ex.c:75:19:HAL_SPIEx_FlushRxFifo	8	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_spi_ex.c:114:19:HAL_SPIEx_EnableLockConfiguration	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_spi_ex.c:163:19:HAL_SPIEx_ConfigureUnderrun	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_spi_ex.c:220:19:HAL_SPIEx_SetConfigAutonomousMode	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_spi_ex.c:262:19:HAL_SPIEx_GetConfigAutonomousMode	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_hal_spi_ex.c:288:19:HAL_SPIEx_ClearConfigAutonomousMode	4	static

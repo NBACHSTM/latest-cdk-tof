@@ -1,0 +1,6 @@
+lfs_port_internal_nor.c:137:12:lfs_port_sync	1
+lfs_port_internal_nor.c:142:13:vPopulateConfig	3
+lfs_port_internal_nor.c:115:12:lfs_port_erase	3
+lfs_port_internal_nor.c:78:12:lfs_port_prog	6
+lfs_port_internal_nor.c:61:12:lfs_port_read	3
+lfs_port_internal_nor.c:208:27:pxInitializeInternalFlashFs	4

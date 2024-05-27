@@ -1,0 +1,163 @@
+Neural Network Tools for STM32 family v1.7.0 (stm.ai v8.1.0-19520)
+Created date          : 2023-11-17 15:03:57
+Parameters            : generate --name network -m C:/Users/bachirin/Downloads/CNN2D_ST_HandPosture_8classes (1).h5 --type keras --compression none --verbosity 1 --workspace C:\Users\bachirin\AppData\Local\Temp\mxAI_workspace3630044899801009886662687636216797 --output C:\Users\bachirin\.stm32cubemx\network_output --allocate-inputs --series stm32u5 --allocate-outputs
+
+Exec/report summary (generate)
+---------------------------------------------------------------------------------------------------------------
+model file         :   C:\Users\bachirin\Downloads\CNN2D_ST_HandPosture_8classes (1).h5                        
+type               :   keras                                                                                   
+c_name             :   network                                                                                 
+compression        :   none                                                                                    
+options            :   allocate-inputs, allocate-outputs                                                       
+optimization       :   balanced                                                                                
+target/series      :   stm32u5                                                                                 
+workspace dir      :   C:\Users\bachirin\AppData\Local\Temp\mxAI_workspace3630044899801009886662687636216797   
+output dir         :   C:\Users\bachirin\.stm32cubemx\network_output                                           
+model_fmt          :   float                                                                                   
+model_name         :   CNN2D_ST_HandPosture_8classes_1                                                         
+model_hash         :   e287d85db94a1ef90ae42cda488f8a73                                                        
+params #           :   2,752 items (10.75 KiB)                                                                 
+---------------------------------------------------------------------------------------------------------------
+input 1/1          :   'input_1' (domain:activations/**default**)                                              
+                   :   128 items, 512 B, ai_float, float, (1,8,8,2)                                            
+output 1/1         :   'dense_1' (domain:activations/**default**)                                              
+                   :   8 items, 32 B, ai_float, float, (1,8)                                                   
+macc               :   8,520                                                                                   
+weights (ro)       :   11,008 B (10.75 KiB) (1 segment)                                                        
+activations (rw)   :   1,600 B (1.56 KiB) (1 segment) *                                                        
+ram (total)        :   1,600 B (1.56 KiB) = 1,600 + 0 + 0                                                      
+---------------------------------------------------------------------------------------------------------------
+(*) 'input'/'output' buffers can be used from the activations buffer
+
+Model name - CNN2D_ST_HandPosture_8classes_1 ['input_1'] ['dense_1']
+------ --------------------------------------- -------------------------- ------------- ------- --------------- --- -------- --------------- ----------------------------- 
+m_id   layer (type,original)                   oshape                     param/size       macc    connected to   | c_size   c_macc          c_type                        
+------ --------------------------------------- -------------------------- ------------- ------- --------------- --- -------- --------------- ----------------------------- 
+0      input_1 (Input, InputLayer)             [b:None,h:8,h:8,w:8,c:2]                                           |                          
+------ --------------------------------------- -------------------------- ------------- ------- --------------- --- -------- --------------- ----------------------------- 
+1      conv2d_conv2d (Conv2D, Conv2D)          [b:None,h:6,h:6,w:6,c:8]   152/608         5,192         input_1   |                          conv2d_of32[0]                
+------ --------------------------------------- -------------------------- ------------- ------- --------------- --- -------- --------------- ----------------------------- 
+2      activation (Nonlinearity, Activation)   [b:None,h:6,h:6,w:6,c:8]                     288   conv2d_conv2d   |                          nl_of32[1]                    
+------ --------------------------------------- -------------------------- ------------- ------- --------------- --- -------- --------------- ----------------------------- 
+3      max_pooling2d (Pool, MaxPooling2D)      [b:None,h:3,h:3,w:3,c:8]                     288      activation   |                          pool_of32[2]                  
+------ --------------------------------------- -------------------------- ------------- ------- --------------- --- -------- --------------- ----------------------------- 
+5      flatten (Reshape, Flatten)              [b:None,c:72]                                      max_pooling2d   |                          
+------ --------------------------------------- -------------------------- ------------- ------- --------------- --- -------- --------------- ----------------------------- 
+6      dense_dense (Dense, Dense)              [b:None,c:32]              2,336/9,344     2,336         flatten   |          +32(+1.4%)      dense_of32/nl_of32[3, 4]      
+       dense (Nonlinearity, Dense)             [b:None,c:32]                                 32     dense_dense   |          -32(-100.0%)    
+------ --------------------------------------- -------------------------- ------------- ------- --------------- --- -------- --------------- ----------------------------- 
+7      dense_1_dense (Dense, Dense)            [b:None,c:8]               264/1,056         264           dense   |          +120(+45.5%)    dense_of32/nl_of32[o][5, 6]   
+       dense_1 (Nonlinearity, Dense)           [b:None,c:8]                                 120   dense_1_dense   |          -120(-100.0%)   
+------ --------------------------------------- -------------------------- ------------- ------- --------------- --- -------- --------------- ----------------------------- 
+model/c-model: macc=8,520/8,520  weights=11,008/11,008  activations=--/1,600 io=--/0
+
+
+
+Generated C-graph summary
+------------------------------------------------------------------------------------------------------------------------
+model name            : cnn2d_st_handposture_8classes_1
+c-name                : network
+c-node #              : 7
+c-array #             : 14
+activations size      : 1600 (1 segment)
+weights size          : 11008 (1 segment)
+macc                  : 8520
+inputs                : ['input_1_output']
+outputs               : ['dense_1_output']
+
+C-Arrays (14)
+------ ----------------------- ----------- ------------------------- ------------- --------- --------- 
+c_id   name (*_array)          item/size   domain/mem-pool           c-type        fmt       comment   
+------ ----------------------- ----------- ------------------------- ------------- --------- --------- 
+0      dense_1_dense_bias      8/32        weights/weights           const float   float32             
+1      input_1_output          128/512     activations/**default**   float         float32   /input    
+2      conv2d_conv2d_output    288/1152    activations/**default**   float         float32             
+3      activation_output       288/1152    activations/**default**   float         float32             
+4      max_pooling2d_output    72/288      activations/**default**   float         float32             
+5      dense_dense_output      32/128      activations/**default**   float         float32             
+6      dense_output            32/128      activations/**default**   float         float32             
+7      dense_1_dense_output    8/32        activations/**default**   float         float32             
+8      dense_1_output          8/32        activations/**default**   float         float32   /output   
+9      conv2d_conv2d_weights   144/576     weights/weights           const float   float32             
+10     conv2d_conv2d_bias      8/32        weights/weights           const float   float32             
+11     dense_dense_weights     2304/9216   weights/weights           const float   float32             
+12     dense_dense_bias        32/128      weights/weights           const float   float32             
+13     dense_1_dense_weights   256/1024    weights/weights           const float   float32             
+------ ----------------------- ----------- ------------------------- ------------- --------- --------- 
+
+C-Layers (7)
+------ ---------------- ---- ------------ ------ ------ -------------------------- ------------------ 
+c_id   name (*_layer)   id   layer_type   macc   rom    tensors                    shape (array id)   
+------ ---------------- ---- ------------ ------ ------ -------------------------- ------------------ 
+0      conv2d_conv2d    1    conv2d       5192   608    I: input_1_output          (1,8,8,2) (1)      
+                                                        W: conv2d_conv2d_weights   (2,3,3,8) (9)      
+                                                        W: conv2d_conv2d_bias      (8,) (10)          
+                                                        O: conv2d_conv2d_output    (1,6,6,8) (2)      
+------ ---------------- ---- ------------ ------ ------ -------------------------- ------------------ 
+1      activation       2    nl           288    0      I: conv2d_conv2d_output    (1,6,6,8) (2)      
+                                                        O: activation_output       (1,6,6,8) (3)      
+------ ---------------- ---- ------------ ------ ------ -------------------------- ------------------ 
+2      max_pooling2d    3    pool         288    0      I: activation_output       (1,6,6,8) (3)      
+                                                        O: max_pooling2d_output    (1,3,3,8) (4)      
+------ ---------------- ---- ------------ ------ ------ -------------------------- ------------------ 
+3      dense_dense      6    dense        2336   9344   I: max_pooling2d_output0   (1,72) (4)         
+                                                        W: dense_dense_weights     (72,32) (11)       
+                                                        W: dense_dense_bias        (32,) (12)         
+                                                        O: dense_dense_output      (1,32) (5)         
+------ ---------------- ---- ------------ ------ ------ -------------------------- ------------------ 
+4      dense            6    nl           32     0      I: dense_dense_output      (1,32) (5)         
+                                                        O: dense_output            (1,32) (6)         
+------ ---------------- ---- ------------ ------ ------ -------------------------- ------------------ 
+5      dense_1_dense    7    dense        264    1056   I: dense_output            (1,32) (6)         
+                                                        W: dense_1_dense_weights   (32,8) (13)        
+                                                        W: dense_1_dense_bias      (8,) (0)           
+                                                        O: dense_1_dense_output    (1,8) (7)          
+------ ---------------- ---- ------------ ------ ------ -------------------------- ------------------ 
+6      dense_1          7    nl           120    0      I: dense_1_dense_output    (1,8) (7)          
+                                                        O: dense_1_output          (1,8) (8)          
+------ ---------------- ---- ------------ ------ ------ -------------------------- ------------------ 
+
+
+
+Number of operations per c-layer
+------- ------ ------------------------ ------- -------------- -------- ---------- 
+c_id    m_id   name (type)                  #op           type   #param   sparsity 
+------- ------ ------------------------ ------- -------------- -------- ---------- 
+0       1      conv2d_conv2d (conv2d)     5,192   smul_f32_f32      152     0.0000 
+1       2      activation (nl)              288     op_f32_f32          
+2       3      max_pooling2d (pool)         288     op_f32_f32          
+3       6      dense_dense (dense)        2,336   smul_f32_f32    2,336     0.0000 
+4       6      dense (nl)                    32     op_f32_f32          
+5       7      dense_1_dense (dense)        264   smul_f32_f32      264     0.0000 
+6       7      dense_1 (nl)                 120     op_f32_f32          
+------- ------ ------------------------ ------- -------------- -------- ---------- 
+total                                     8,520                   2,752     0.0000 
+
+Number of operation types
+---------------- ------- ----------- 
+operation type         #           % 
+---------------- ------- ----------- 
+smul_f32_f32       7,792       91.5% 
+op_f32_f32           728        8.5% 
+
+Complexity report (model)
+------ --------------- ------------------------- ------------------------- -------- 
+m_id   name            c_macc                    c_rom                     c_id     
+------ --------------- ------------------------- ------------------------- -------- 
+1      conv2d_conv2d   ||||||||||||||||  60.9%   |                  5.5%   [0]      
+2      activation      |                  3.4%   |                  0.0%   [1]      
+3      max_pooling2d   |                  3.4%   |                  0.0%   [2]      
+6      dense_dense     |||||||           27.8%   ||||||||||||||||  84.9%   [3, 4]   
+7      dense_1_dense   ||                 4.5%   ||                 9.6%   [5, 6]   
+------ --------------- ------------------------- ------------------------- -------- 
+macc=8,520 weights=11,008 act=1,600 ram_io=0
+
+Generated files (7)
+--------------------------------------------------------------------- 
+C:\Users\bachirin\.stm32cubemx\network_output\network_config.h        
+C:\Users\bachirin\.stm32cubemx\network_output\network.h               
+C:\Users\bachirin\.stm32cubemx\network_output\network.c               
+C:\Users\bachirin\.stm32cubemx\network_output\network_data_params.h   
+C:\Users\bachirin\.stm32cubemx\network_output\network_data_params.c   
+C:\Users\bachirin\.stm32cubemx\network_output\network_data.h          
+C:\Users\bachirin\.stm32cubemx\network_output\network_data.c          

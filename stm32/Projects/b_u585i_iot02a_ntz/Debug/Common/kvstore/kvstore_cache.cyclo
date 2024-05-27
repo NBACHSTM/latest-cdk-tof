@@ -1,0 +1,6 @@
+kvstore_cache.c:137:6:vprvCacheInit	7
+kvstore_cache.c:170:8:prvGetCacheEntryLength	2
+kvstore_cache.c:181:20:prvGetCacheEntryType	2
+kvstore_cache.c:195:12:xprvWriteCacheEntry	22
+kvstore_cache.c:251:12:xprvCopyValueFromCache	9
+kvstore_cache.c:292:12:KVStore_xCommitChanges	5

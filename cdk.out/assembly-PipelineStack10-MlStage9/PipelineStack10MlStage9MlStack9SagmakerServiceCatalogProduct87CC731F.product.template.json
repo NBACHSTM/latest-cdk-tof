@@ -1,0 +1,23 @@
+{
+  "Parameters": {
+    "SageMakerProjectName": {
+      "Type": "String",
+      "Description": "Name of Project"
+    },
+    "SageMakerProjectId": {
+      "Type": "String",
+      "Description": "Service generated Id of the project"
+    }
+  },
+  "Resources": {
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/yXNMQ6DMAxA0bOwEzdk6t4LICp1rVzHIENIKicBVVXvXiGmrzd9B527gm1wz4b8YoK84It7fmbWTYgJC4Y0Qa/JVyr3grS0tzH2qLhyYT0wcE5ViX9tTJ5hzpfNWegcuGbOIkZrLLIyDGdbCxZs805B6PPAIB6LpAjHfzuZ1NAYp4rq/4iXcLyiAAAA"
+      },
+      "Metadata": {
+        "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/Sagmaker/ServiceCatalogProduct/CDKMetadata/Default"
+      }
+    }
+  }
+}

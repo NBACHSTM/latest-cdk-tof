@@ -1,0 +1,5 @@
+rsa_alt_helpers.c:62:5:mbedtls_rsa_deduce_primes	29
+rsa_alt_helpers.c:197:5:mbedtls_rsa_deduce_private_exponent	11
+rsa_alt_helpers.c:240:5:mbedtls_rsa_deduce_crt	8
+rsa_alt_helpers.c:277:5:mbedtls_rsa_validate_params	38
+rsa_alt_helpers.c:401:5:mbedtls_rsa_validate_crt	23

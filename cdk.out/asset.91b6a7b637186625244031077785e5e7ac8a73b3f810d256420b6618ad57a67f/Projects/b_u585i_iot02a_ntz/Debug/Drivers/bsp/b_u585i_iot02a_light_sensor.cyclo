@@ -1,0 +1,17 @@
+b_u585i_iot02a_light_sensor.c:507:16:VEML6030_Probe	4
+b_u585i_iot02a_light_sensor.c:75:9:BSP_LIGHT_SENSOR_Init	3
+b_u585i_iot02a_light_sensor.c:104:9:BSP_LIGHT_SENSOR_DeInit	3
+b_u585i_iot02a_light_sensor.c:128:9:BSP_LIGHT_SENSOR_ReadID	3
+b_u585i_iot02a_light_sensor.c:154:9:BSP_LIGHT_SENSOR_GetCapabilities	3
+b_u585i_iot02a_light_sensor.c:179:9:BSP_LIGHT_SENSOR_SetGain	3
+b_u585i_iot02a_light_sensor.c:205:9:BSP_LIGHT_SENSOR_GetGain	3
+b_u585i_iot02a_light_sensor.c:232:9:BSP_LIGHT_SENSOR_SetExposureTime	3
+b_u585i_iot02a_light_sensor.c:259:9:BSP_LIGHT_SENSOR_GetExposureTime	3
+b_u585i_iot02a_light_sensor.c:288:9:BSP_LIGHT_SENSOR_SetInterMeasurementTime	3
+b_u585i_iot02a_light_sensor.c:314:9:BSP_LIGHT_SENSOR_GetInterMeasurementTime	3
+b_u585i_iot02a_light_sensor.c:340:9:BSP_LIGHT_SENSOR_Start	3
+b_u585i_iot02a_light_sensor.c:365:9:BSP_LIGHT_SENSOR_Stop	3
+b_u585i_iot02a_light_sensor.c:395:9:BSP_LIGHT_SENSOR_StartFlicker	3
+b_u585i_iot02a_light_sensor.c:420:9:BSP_LIGHT_SENSOR_StopFlicker	3
+b_u585i_iot02a_light_sensor.c:448:9:BSP_LIGHT_SENSOR_GetValues	3
+b_u585i_iot02a_light_sensor.c:476:9:BSP_LIGHT_SENSOR_SetControlMode	3

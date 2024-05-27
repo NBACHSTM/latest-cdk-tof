@@ -13,7 +13,7 @@ export class PipelineStack extends Stack {
     const config = this.node.tryGetContext('config');
 
     const pipeline = new pipelines.CodePipeline(this, 'Pipeline', {
-      pipelineName: 'StMicroPipeline9',
+      pipelineName: 'StMicroPipeline10',
       synth: new pipelines.ShellStep('SynthStep', {
         input: pipelines.CodePipelineSource.connection(config.repo.name, config.repo.branch, {
           connectionArn: config.repo.connectionArn,
@@ -23,7 +23,7 @@ export class PipelineStack extends Stack {
       codeBuildDefaults: {
         logging: {
           cloudWatch: {
-            logGroup: new aws_logs.LogGroup(this, `PipelineLogGroup9`),
+            logGroup: new aws_logs.LogGroup(this, `PipelineLogGroup10`),
           },
         },
       },
@@ -32,12 +32,12 @@ export class PipelineStack extends Stack {
       enableKeyRotation: true,
     });
 
-    const mlStage = new MlStage(this, 'MlStage9', { env: { ...config.envs.ml } });
+    const mlStage = new MlStage(this, 'MlStage10', { env: { ...config.envs.ml } });
     pipeline.addStage(mlStage);
 
     for (const env of config.envs.iot) {
       const { name, account, region } = env;
-      const iotStage = new IotStage(this, 'IotStage9-' + name, { env: { account, region } });
+      const iotStage = new IotStage(this, 'IotStage10-' + name, { env: { account, region } });
       const stage = pipeline.addStage(iotStage);
       if (name === 'prod') {
         stage.addPre(new pipelines.ManualApprovalStep('Approve'));
@@ -49,13 +49,13 @@ export class PipelineStack extends Stack {
 export class MlStage extends Stage {
   constructor(scope: Construct, id: string, props?: StageProps) {
     super(scope, id, props);
-    new MlStack(this, 'MlStack9');
+    new MlStack(this, 'MlStack10');
   }
 }
 
 export class IotStage extends Stage {
   constructor(scope: Construct, id: string, props?: StageProps) {
     super(scope, id, props);
-    new IotStack(this, 'IotStack9');
+    new IotStack(this, 'IotStack10');
   }
 }

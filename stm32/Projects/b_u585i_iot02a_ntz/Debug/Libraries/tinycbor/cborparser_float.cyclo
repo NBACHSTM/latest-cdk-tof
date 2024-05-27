@@ -1,0 +1,1 @@
+cborparser_float.c:44:11:cbor_value_get_half_float_as_float	5

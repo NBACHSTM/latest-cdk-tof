@@ -1,0 +1,4 @@
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/kvstore/kvstore_nv_littlefs.c:84:8:xprvGetValueLengthFromImpl	304	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/kvstore/kvstore_nv_littlefs.c:102:12:xprvReadValueFromImpl	328	static,ignoring_inline_asm
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/kvstore/kvstore_nv_littlefs.c:190:12:xprvWriteValueToImpl	160	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/kvstore/kvstore_nv_littlefs.c:264:6:vprvNvImplInit	0	static

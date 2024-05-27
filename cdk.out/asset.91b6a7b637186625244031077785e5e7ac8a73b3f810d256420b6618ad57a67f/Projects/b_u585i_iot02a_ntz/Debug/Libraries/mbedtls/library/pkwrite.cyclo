@@ -1,0 +1,9 @@
+pkwrite.c:72:12:pk_write_rsa_pubkey	8
+pkwrite.c:111:12:pk_write_ec_pubkey	4
+pkwrite.c:139:12:pk_write_ec_param	2
+pkwrite.c:158:12:pk_write_ec_private	2
+pkwrite.c:176:5:mbedtls_pk_write_pubkey	3
+pkwrite.c:225:5:mbedtls_pk_write_pubkey_der	12
+pkwrite.c:313:5:mbedtls_pk_write_key_der	37
+pkwrite.c:556:5:mbedtls_pk_write_pubkey_pem	2
+pkwrite.c:581:5:mbedtls_pk_write_key_pem	4

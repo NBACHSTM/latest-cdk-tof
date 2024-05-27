@@ -1,0 +1,413 @@
+{
+  "version": "36.0.0",
+  "artifacts": {
+    "PipelineStack10MlStage9MlStack98806942F.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "PipelineStack10MlStage9MlStack98806942F.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/stmicro10/version"
+      }
+    },
+    "PipelineStack10MlStage9MlStack98806942F": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://958196000588/eu-central-1",
+      "properties": {
+        "templateFile": "PipelineStack10MlStage9MlStack98806942F.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": true,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::958196000588:role/cdk-stmicro10-deploy-role-958196000588-eu-central-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::958196000588:role/cdk-stmicro10-cfn-exec-role-958196000588-eu-central-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-stmicro10-assets-958196000588-eu-central-1/fbbd3b285c69443c2885b95194617f4f1951e1d23f9e1f38316b77f574bbf822.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/stmicro10/version",
+        "additionalDependencies": [
+          "PipelineStack10MlStage9MlStack98806942F.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::958196000588:role/cdk-stmicro10-lookup-role-958196000588-eu-central-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/stmicro10/version"
+        },
+        "stackName": "MlStage9-MlStack9"
+      },
+      "dependencies": [
+        "PipelineStack10MlStage9MlStack98806942F.assets"
+      ],
+      "metadata": {
+        "/PipelineStack10/MlStage9/MlStack9/Sagmaker/ServiceCatalogLaunchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagmakerServiceCatalogLaunchRole775FB8E6"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/Sagmaker/Portfolio/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagmakerPortfolioEBC18671"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/Sagmaker/Portfolio/PortolioPrincipalAssociation11464cb72a39": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagmakerPortfolioPortolioPrincipalAssociation11464cb72a39299A13EF"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/Sagmaker/Portfolio/PortfolioProductAssociation6a3ae9cac391": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagmakerPortfolioPortfolioProductAssociation6a3ae9cac39165C29D9C"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/Sagmaker/Portfolio/LaunchRoleConstraint6a3ae9cac391": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagmakerPortfolioLaunchRoleConstraint6a3ae9cac391372AE683"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/Sagmaker/Portfolio/PortolioPrincipalAssociation8931dc2c1b23": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagmakerPortfolioPortolioPrincipalAssociation8931dc2c1b234588FD19"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/Sagmaker/Product/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagmakerProduct17CAE0EA"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/Sagmaker/SagemakerDomainRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagmakerSagemakerDomainRole4CCF5D3B"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/Sagmaker/SagemakerDomain9": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagmakerSagemakerDomain9DCD6EFD0"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/Sagmaker/UserProfile9": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagmakerUserProfile93520CA68"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/Sagmaker/StmProject/CrRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagmakerStmProjectCrRoleE1EFC519"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/Sagmaker/StmProject/PutNameCr/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagmakerStmProjectPutNameCr74B111FB"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/Sagmaker/StmProject/GetNameCr/Resource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagmakerStmProjectGetNameCrC74D4321"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/Sagmaker/Project": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagmakerProject9DB5E616"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/Sagmaker/SagemakerApp9": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagmakerSagemakerApp9842827CA"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/AWS679f53fac002430cb0da5b7982bd2287/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AWS679f53fac002430cb0da5b7982bd22872D164C4C"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlOutputAccessLog9/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10MlOutputAccessLog9860FAD36"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlOutputAccessLog9/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10MlOutputAccessLog9Policy8D6243C6"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlOutputAccessLog9/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10MlOutputAccessLog9AutoDeleteObjectsCustomResourceF23A572A"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlOutput9/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10MlOutput9C5D7F628"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlOutput9/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10MlOutput9PolicyB35FBFA6"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlOutput9/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10MlOutput9AutoDeleteObjectsCustomResource305BA361"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/DataSetsAccessLog9/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10DataSetsAccessLog91C289D4C"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/DataSetsAccessLog9/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10DataSetsAccessLog9Policy6204BEBD"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/DataSetsAccessLog9/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10DataSetsAccessLog9AutoDeleteObjectsCustomResource5353F526"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/DataSetsBucket9/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10DataSetsBucket9FB709E30"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/DataSetsBucket9/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10DataSetsBucket9PolicyCCEA07F3"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/DataSetsBucket9/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10DataSetsBucket9AutoDeleteObjectsCustomResource4E90B676"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/ServiceCatalogProductRole9/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10ServiceCatalogProductRole989260F94"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/ServiceCatalogProductRole9/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10ServiceCatalogProductRole9DefaultPolicyC60B5A9A"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/BuildEncryptionKey/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10BuildEncryptionKeyC8C6CB8F"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlBuildLogGroup9/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10MlBuildLogGroup9538EBEDD"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlBuild9/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10MlBuild9Role408562F2"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlBuild9/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10MlBuild9RoleDefaultPolicy950E3B50"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlBuild9/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10MlBuild991D07A01"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlBuild9/BuildSucceed/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10MlBuild9BuildSucceed62D57321"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlBuild9/BuildSucceed/AllowEventRulePipelineStack10MlStage9MlStack9SagemakerPipeline10waithandler97EBB9EB": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10MlBuild9BuildSucceedAllowEventRulePipelineStack10MlStage9MlStack9SagemakerPipeline10waithandler97EBB9EB044FF56C"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlBuild9/BuildFail/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10MlBuild9BuildFail23F0E394"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlBuild9/BuildFail/AllowEventRulePipelineStack10MlStage9MlStack9SagemakerPipeline10waithandler97EBB9EB": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10MlBuild9BuildFailAllowEventRulePipelineStack10MlStage9MlStack9SagemakerPipeline10waithandler97EBB9EB1050A615"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/StringParameter/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10StringParameterB1157F52"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/FnRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10FnRole1FB0BF11"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/CfnWaitConditionHandle1716817510993": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10CfnWaitConditionHandle1716817510993F4CC21D7"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/wait-handler": [
+          {
+            "type": "aws:cdk:warning",
+            "data": "AWS Lambda has changed their authorization strategy, which may cause client invocations using the 'Qualifier' parameter of the lambda function to fail with Access Denied errors.\nIf you are using a lambda Version or Alias, make sure to call 'grantInvoke' or 'addPermission' on the Version or Alias, not the underlying Function\nSee: https://github.com/aws/aws-cdk/issues/19273 [ack: @aws-cdk/aws-lambda:addPermissionsToVersionOrAlias]",
+            "trace": [
+              "Annotations.addMessage (/home/ec2-user/environment/latest-cdk-tof/node_modules/aws-cdk-lib/core/lib/annotations.js:1:1608)",
+              "Annotations.addWarningV2 (/home/ec2-user/environment/latest-cdk-tof/node_modules/aws-cdk-lib/core/lib/annotations.js:1:825)",
+              "NodejsFunction.warnInvokeFunctionPermissions (/home/ec2-user/environment/latest-cdk-tof/node_modules/aws-cdk-lib/aws-lambda/lib/function-base.js:1:1489)",
+              "NodejsFunction.get currentVersion [as currentVersion] (/home/ec2-user/environment/latest-cdk-tof/node_modules/aws-cdk-lib/aws-lambda/lib/function.js:1:3103)",
+              "new Trigger (/home/ec2-user/environment/latest-cdk-tof/node_modules/aws-cdk-lib/triggers/lib/trigger.js:1:1549)",
+              "new SagmakerPipeline (/home/ec2-user/environment/latest-cdk-tof/lib/ml/sagemaker-pipeline.ts:172:5)",
+              "new MlStack (/home/ec2-user/environment/latest-cdk-tof/lib/ml/ml-stack.ts:14:5)",
+              "new MlStage (/home/ec2-user/environment/latest-cdk-tof/lib/pipeline-stack.ts:52:5)",
+              "new PipelineStack (/home/ec2-user/environment/latest-cdk-tof/lib/pipeline-stack.ts:35:21)",
+              "Object.<anonymous> (/home/ec2-user/environment/latest-cdk-tof/bin/aws-stm32-ml-at-edge-accelerator.ts:26:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1369:14)",
+              "Module.m._compile (/home/ec2-user/environment/latest-cdk-tof/node_modules/ts-node/src/index.ts:1618:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1427:10)",
+              "Object.require.extensions.<computed> [as .ts] (/home/ec2-user/environment/latest-cdk-tof/node_modules/ts-node/src/index.ts:1621:12)",
+              "Module.load (node:internal/modules/cjs/loader:1206:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:1022:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:135:12)",
+              "phase4 (/home/ec2-user/environment/latest-cdk-tof/node_modules/ts-node/src/bin.ts:649:14)",
+              "bootstrap (/home/ec2-user/environment/latest-cdk-tof/node_modules/ts-node/src/bin.ts:95:10)",
+              "main (/home/ec2-user/environment/latest-cdk-tof/node_modules/ts-node/src/bin.ts:55:10)",
+              "Object.<anonymous> (/home/ec2-user/environment/latest-cdk-tof/node_modules/ts-node/src/bin.ts:800:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1369:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1427:10)",
+              "Module.load (node:internal/modules/cjs/loader:1206:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:1022:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:135:12)",
+              "node:internal/main/run_main_module:28:49"
+            ]
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/wait-handler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10waithandler64B0AA3B"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/wait-handler/CurrentVersion/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10waithandlerCurrentVersionF3334EB1dd3a2f161807147c1a5fb5f724b654fb"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/CfnWaitCondition1716817513120": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10CfnWaitCondition17168175131209D4F7385"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/BuildTrigger9/Default/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10BuildTrigger9597F88BE"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/KMS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10KMS4996059D"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlOutputSecret9/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10MlOutputSecret9A461FDE9"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlOutputSecret9/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SagemakerPipeline10MlOutputSecret9PolicyEF335F30"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/AWSCDK.TriggerCustomResourceProviderCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AWSCDKTriggerCustomResourceProviderCustomResourceProviderRoleE18FAF0A"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/AWSCDK.TriggerCustomResourceProviderCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AWSCDKTriggerCustomResourceProviderCustomResourceProviderHandler97BECD91"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/PipelineStack10/MlStage9/MlStack9/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "PipelineStack10/MlStage9/MlStack9"
+    }
+  }
+}

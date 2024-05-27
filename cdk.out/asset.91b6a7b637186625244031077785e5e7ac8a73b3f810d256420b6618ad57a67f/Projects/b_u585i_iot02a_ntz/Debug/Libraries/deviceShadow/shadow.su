@@ -1,0 +1,7 @@
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/AWS/IoTDeviceShadow/source/shadow.c:201:23:validateThingName	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/AWS/IoTDeviceShadow/source/shadow.c:312:21:getShadowOperationString	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/AWS/IoTDeviceShadow/source/shadow.c:370:17:getShadowOperationLength	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/AWS/IoTDeviceShadow/source/shadow.c:178:23:containsSubString	8	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/AWS/IoTDeviceShadow/source/shadow.c:233:23:extractShadowMessageType	32	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/AWS/IoTDeviceShadow/source/shadow.c:430:16:Shadow_MatchTopic	32	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/AWS/IoTDeviceShadow/source/shadow.c:536:16:Shadow_GetTopicString	32	static

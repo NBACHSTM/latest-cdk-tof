@@ -1,0 +1,8 @@
+poly1305.c:94:13:poly1305_process	2
+poly1305.c:202:13:poly1305_compute_mac	1
+poly1305.c:259:6:mbedtls_poly1305_init	1
+poly1305.c:266:6:mbedtls_poly1305_free	2
+poly1305.c:274:5:mbedtls_poly1305_starts	1
+poly1305.c:305:5:mbedtls_poly1305_update	6
+poly1305.c:369:5:mbedtls_poly1305_finish	2
+poly1305.c:396:5:mbedtls_poly1305_mac	3

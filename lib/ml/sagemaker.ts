@@ -66,16 +66,16 @@ export class Sagmaker extends Construct {
         aws_iam.ManagedPolicy.fromAwsManagedPolicyName('AmazonSageMakerFullAccess'),
       ],
     });
-    const sagemakerDomain = new aws_sagemaker.CfnDomain(this, 'SagemakerDomain9', {
+    const sagemakerDomain = new aws_sagemaker.CfnDomain(this, 'SagemakerDomain10', {
       authMode: 'IAM',
       defaultUserSettings: { executionRole: sagemakerDomainRole.roleArn },
-      domainName: 'stmicro9',
+      domainName: 'stmicro10',
       vpcId: vpc.vpcId,
       subnetIds: [vpc.publicSubnets[0].subnetId],
     });
     portfolio.giveAccessToRole(sagemakerDomainRole);
 
-    const userProfile = new aws_sagemaker.CfnUserProfile(this, 'UserProfile9', {
+    const userProfile = new aws_sagemaker.CfnUserProfile(this, 'UserProfile10', {
       domainId: sagemakerDomain.attrDomainId,
       userProfileName: Names.uniqueResourceName(this, {}),
     });
@@ -91,7 +91,7 @@ export class Sagmaker extends Construct {
     project.node.addDependency(sagemakerDomain);
     project.node.addDependency(sagemakerDomainRole);
 
-    const sagemakerApp = new aws_sagemaker.CfnApp(this, 'SagemakerApp9', {
+    const sagemakerApp = new aws_sagemaker.CfnApp(this, 'SagemakerApp10', {
       appName: 'default',
       appType: 'JupyterServer',
       domainId: sagemakerDomain.attrDomainId,

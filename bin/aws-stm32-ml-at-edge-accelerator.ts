@@ -23,7 +23,7 @@ const app = new cdk.App({
   ],
 });
 const config = app.node.tryGetContext('config');
-new PipelineStack(app, 'PipelineStack9', {
+new PipelineStack(app, 'PipelineStack10', {
   env: config.envs.cicd,
   description: 'AWS STM32 ML at Edge Accelerator (uksb-1tupboc18)',
 });

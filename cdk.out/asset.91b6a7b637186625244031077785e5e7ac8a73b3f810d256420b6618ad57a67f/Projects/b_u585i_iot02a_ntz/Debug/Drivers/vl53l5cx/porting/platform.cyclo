@@ -1,0 +1,6 @@
+platform.c:21:9:RdByte	1
+platform.c:29:9:WrByte	1
+platform.c:37:9:WrMulti	1
+platform.c:46:9:RdMulti	1
+platform.c:55:6:SwapBuffer	3
+platform.c:74:9:WaitMs	2

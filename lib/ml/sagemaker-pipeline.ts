@@ -36,14 +36,14 @@ export class SagmakerPipeline extends Construct {
     const config = this.node.tryGetContext('config');
     const { region } = Stack.of(this);
 
-    const mlOutputBucket = new aws_s3.Bucket(this, 'MlOutput9', {
+    const mlOutputBucket = new aws_s3.Bucket(this, 'MlOutput10', {
       versioned: true,
       enforceSSL: true,
       encryption: aws_s3.BucketEncryption.S3_MANAGED,
       blockPublicAccess: aws_s3.BlockPublicAccess.BLOCK_ALL,
       removalPolicy: RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
-      serverAccessLogsBucket: new aws_s3.Bucket(this, 'MlOutputAccessLog9', {
+      serverAccessLogsBucket: new aws_s3.Bucket(this, 'MlOutputAccessLog10', {
         versioned: true,
         enforceSSL: true,
         encryption: aws_s3.BucketEncryption.S3_MANAGED,
@@ -53,18 +53,18 @@ export class SagmakerPipeline extends Construct {
       }),
     });
 
-    const mlOpsCode = new aws_s3_assets.Asset(this, 'MlOpsAsset9', {
+    const mlOpsCode = new aws_s3_assets.Asset(this, 'MlOpsAsset10', {
       path: 'mlops',
     });
 
-    const dataSetsBucket = new aws_s3.Bucket(this, 'DataSetsBucket9', {
+    const dataSetsBucket = new aws_s3.Bucket(this, 'DataSetsBucket10', {
       versioned: true,
       enforceSSL: true,
       encryption: aws_s3.BucketEncryption.S3_MANAGED,
       blockPublicAccess: aws_s3.BlockPublicAccess.BLOCK_ALL,
       removalPolicy: RemovalPolicy.DESTROY,
       autoDeleteObjects: true,
-      serverAccessLogsBucket: new aws_s3.Bucket(this, 'DataSetsAccessLog9', {
+      serverAccessLogsBucket: new aws_s3.Bucket(this, 'DataSetsAccessLog10', {
         versioned: true,
         enforceSSL: true,
         encryption: aws_s3.BucketEncryption.S3_MANAGED,
@@ -74,7 +74,7 @@ export class SagmakerPipeline extends Construct {
       }),
     });
 
-    const sageMakerPipelineRole = new aws_iam.Role(this, 'ServiceCatalogProductRole9', {
+    const sageMakerPipelineRole = new aws_iam.Role(this, 'ServiceCatalogProductRole10', {
       assumedBy: new aws_iam.CompositePrincipal(
         new aws_iam.ServicePrincipal('sagemaker.amazonaws.com')
       ),
@@ -90,7 +90,7 @@ export class SagmakerPipeline extends Construct {
       enableKeyRotation: true,
     });
 
-    const build = new aws_codebuild.Project(this, 'MlBuild9', {
+    const build = new aws_codebuild.Project(this, 'MlBuild10', {
       environment: { computeType: ComputeType.X2_LARGE },
       timeout: Duration.minutes(120),
       encryptionKey: buildEncryptionKey,
@@ -117,7 +117,7 @@ export class SagmakerPipeline extends Construct {
       buildSpec: aws_codebuild.BuildSpec.fromAsset('lib/ml/buildspec.yml'),
       logging: {
         cloudWatch: {
-          logGroup: new aws_logs.LogGroup(this, `MlBuildLogGroup9`),
+          logGroup: new aws_logs.LogGroup(this, `MlBuildLogGroup10`),
         },
       },
     });
@@ -169,7 +169,7 @@ export class SagmakerPipeline extends Construct {
       target: new aws_events_targets.LambdaFunction(fn),
     });
 
-    new triggers.Trigger(this, 'BuildTrigger9', {
+    new triggers.Trigger(this, 'BuildTrigger10', {
       handler: fn,
       invocationType: triggers.InvocationType.EVENT,
       executeAfter: [build],
@@ -179,8 +179,8 @@ export class SagmakerPipeline extends Construct {
       removalPolicy: RemovalPolicy.DESTROY,
       enableKeyRotation: true,
     });
-    const mlBucketSecret = new aws_secretsmanager.Secret(this, 'MlOutputSecret9', {
-      secretName: 'MlBucketArn9',
+    const mlBucketSecret = new aws_secretsmanager.Secret(this, 'MlOutputSecret10', {
+      secretName: 'MlBucketArn10',
       secretStringValue: SecretValue.unsafePlainText(mlOutputBucket.bucketArn),
       encryptionKey: key,
     });

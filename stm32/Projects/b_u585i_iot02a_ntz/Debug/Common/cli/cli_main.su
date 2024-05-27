@@ -1,0 +1,7 @@
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_main.c:311:17:prvGetNumberOfArgs	0	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_main.c:261:13:prvHelpCommand	24	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_main.c:129:43:prvFindMatchingCommand	24	static
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_main.c:87:12:FreeRTOS_CLIRegisterCommand	16	static,ignoring_inline_asm
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_main.c:156:6:FreeRTOS_CLIProcessCommand	40	dynamic,ignoring_inline_asm
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_main.c:198:14:FreeRTOS_CLIGetParameter	8	static,ignoring_inline_asm
+C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/cli/cli_main.c:337:6:Task_CLI	16	static

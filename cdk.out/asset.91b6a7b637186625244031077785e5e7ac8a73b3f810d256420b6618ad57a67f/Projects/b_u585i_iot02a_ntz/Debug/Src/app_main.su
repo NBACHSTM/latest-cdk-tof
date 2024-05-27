@@ -1,0 +1,15 @@
+../Src/app_main.c:259:13:vDetermineResetSource	16	static
+../Src/app_main.c:162:13:vHeartbeatTask	8	static
+../Src/app_main.c:68:12:fs_init	280	static
+../Src/app_main.c:187:6:vInitTask	16	static,ignoring_inline_asm
+../Src/app_main.c:137:13:vRelocateVectorTable	16	static,ignoring_inline_asm
+../Src/app_main.c:55:9:pxGetDefaultFsCtx	8	static
+../Src/app_main.c:304:10:ulGetResetSource	0	static
+../Src/app_main.c:309:5:main	16	static,ignoring_inline_asm
+../Src/app_main.c:345:13:uxRand	0	static
+../Src/app_main.c:355:6:vApplicationGetIdleTaskMemory	0	static
+../Src/app_main.c:382:6:vApplicationGetTimerTaskMemory	0	static
+../Src/app_main.c:408:6:vApplicationMallocFailedHook	8	static,ignoring_inline_asm
+../Src/app_main.c:420:6:vApplicationStackOverflowHook	24	static,ignoring_inline_asm
+../Src/app_main.c:441:6:vApplicationIdleHook	8	static
+../Src/app_main.c:449:6:vDoSystemReset	8	static,ignoring_inline_asm

@@ -11,6 +11,6 @@ export class MlStack extends Stack {
     super(scope, id, props);
 
     const { project } = new Sagmaker(this, 'Sagmaker');
-    new SagmakerPipeline(this, 'SagemakerPipeline9', { project });
+    new SagmakerPipeline(this, 'SagemakerPipeline10', { project });
   }
 }

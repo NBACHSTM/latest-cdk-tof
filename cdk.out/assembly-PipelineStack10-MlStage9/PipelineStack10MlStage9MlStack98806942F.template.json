@@ -1,0 +1,2120 @@
+{
+ "Resources": {
+  "SagmakerServiceCatalogLaunchRole775FB8E6": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "servicecatalog.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/AmazonSageMakerAdmin-ServiceCatalogProductsServiceRolePolicy"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/Sagmaker/ServiceCatalogLaunchRole/Resource"
+   }
+  },
+  "SagmakerPortfolioEBC18671": {
+   "Type": "AWS::ServiceCatalog::Portfolio",
+   "Properties": {
+    "DisplayName": "MlStage9MlStack9Sagmaker31617F58",
+    "ProviderName": "Providor"
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/Sagmaker/Portfolio/Resource"
+   }
+  },
+  "SagmakerPortfolioPortolioPrincipalAssociation11464cb72a39299A13EF": {
+   "Type": "AWS::ServiceCatalog::PortfolioPrincipalAssociation",
+   "Properties": {
+    "PortfolioId": {
+     "Ref": "SagmakerPortfolioEBC18671"
+    },
+    "PrincipalARN": "arn:aws:iam::958196000588:role/cdk-stmicro10-cfn-exec-role-958196000588-eu-central-1",
+    "PrincipalType": "IAM"
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/Sagmaker/Portfolio/PortolioPrincipalAssociation11464cb72a39"
+   }
+  },
+  "SagmakerPortfolioPortfolioProductAssociation6a3ae9cac39165C29D9C": {
+   "Type": "AWS::ServiceCatalog::PortfolioProductAssociation",
+   "Properties": {
+    "PortfolioId": {
+     "Ref": "SagmakerPortfolioEBC18671"
+    },
+    "ProductId": {
+     "Ref": "SagmakerProduct17CAE0EA"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/Sagmaker/Portfolio/PortfolioProductAssociation6a3ae9cac391"
+   }
+  },
+  "SagmakerPortfolioLaunchRoleConstraint6a3ae9cac391372AE683": {
+   "Type": "AWS::ServiceCatalog::LaunchRoleConstraint",
+   "Properties": {
+    "PortfolioId": {
+     "Ref": "SagmakerPortfolioEBC18671"
+    },
+    "ProductId": {
+     "Ref": "SagmakerProduct17CAE0EA"
+    },
+    "RoleArn": {
+     "Fn::GetAtt": [
+      "SagmakerServiceCatalogLaunchRole775FB8E6",
+      "Arn"
+     ]
+    }
+   },
+   "DependsOn": [
+    "SagmakerPortfolioPortfolioProductAssociation6a3ae9cac39165C29D9C"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/Sagmaker/Portfolio/LaunchRoleConstraint6a3ae9cac391"
+   }
+  },
+  "SagmakerPortfolioPortolioPrincipalAssociation8931dc2c1b234588FD19": {
+   "Type": "AWS::ServiceCatalog::PortfolioPrincipalAssociation",
+   "Properties": {
+    "PortfolioId": {
+     "Ref": "SagmakerPortfolioEBC18671"
+    },
+    "PrincipalARN": {
+     "Fn::GetAtt": [
+      "SagmakerSagemakerDomainRole4CCF5D3B",
+      "Arn"
+     ]
+    },
+    "PrincipalType": "IAM"
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/Sagmaker/Portfolio/PortolioPrincipalAssociation8931dc2c1b23"
+   }
+  },
+  "SagmakerProduct17CAE0EA": {
+   "Type": "AWS::ServiceCatalog::CloudFormationProduct",
+   "Properties": {
+    "Name": "MlStage9MlStack9Sagmaker31617F58",
+    "Owner": "Owner",
+    "ProvisioningArtifactParameters": [
+     {
+      "DisableTemplateValidation": false,
+      "Info": {
+       "LoadTemplateFromURL": {
+        "Fn::Sub": "https://s3.eu-central-1.${AWS::URLSuffix}/cdk-stmicro10-assets-958196000588-eu-central-1/62e5d16252a1963a543dae523e59c46e1a4c81136d25c2e74ff108e59aadd8a4.json"
+       }
+      },
+      "Name": "v1"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/Sagmaker/Product/Resource"
+   }
+  },
+  "SagmakerSagemakerDomainRole4CCF5D3B": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "sagemaker.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/AmazonSageMakerFullAccess"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/Sagmaker/SagemakerDomainRole/Resource"
+   }
+  },
+  "SagmakerSagemakerDomain9DCD6EFD0": {
+   "Type": "AWS::SageMaker::Domain",
+   "Properties": {
+    "AuthMode": "IAM",
+    "DefaultUserSettings": {
+     "ExecutionRole": {
+      "Fn::GetAtt": [
+       "SagmakerSagemakerDomainRole4CCF5D3B",
+       "Arn"
+      ]
+     }
+    },
+    "DomainName": "stmicro9",
+    "SubnetIds": [
+     "subnet-0870e73cf696ac4ad"
+    ],
+    "VpcId": "vpc-004d5006f12fff446"
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/Sagmaker/SagemakerDomain9"
+   }
+  },
+  "SagmakerUserProfile93520CA68": {
+   "Type": "AWS::SageMaker::UserProfile",
+   "Properties": {
+    "DomainId": {
+     "Fn::GetAtt": [
+      "SagmakerSagemakerDomain9DCD6EFD0",
+      "DomainId"
+     ]
+    },
+    "UserProfileName": "MlStage9MlStack9Sagmaker31617F58"
+   },
+   "DependsOn": [
+    "SagmakerSagemakerDomain9DCD6EFD0"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/Sagmaker/UserProfile9"
+   }
+  },
+  "SagmakerStmProjectCrRoleE1EFC519": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/AmazonSSMFullAccess"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/Sagmaker/StmProject/CrRole/Resource"
+   }
+  },
+  "SagmakerStmProjectPutNameCr74B111FB": {
+   "Type": "Custom::AWS",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
+      "Arn"
+     ]
+    },
+    "Create": "{\"service\":\"SSM\",\"action\":\"putParameter\",\"parameters\":{\"Name\":\"MlStage9MlStack9SagmakerStmProject95745AFF\",\"Value\":\"StmProject-1716817510787\",\"Type\":\"String\",\"Overwrite\":false},\"physicalResourceId\":{\"id\":\"PutName\"}}",
+    "Delete": "{\"service\":\"SSM\",\"action\":\"deleteParameter\",\"parameters\":{\"Name\":\"MlStage9MlStack9SagmakerStmProject95745AFF\"}}",
+    "InstallLatestAwsSdk": false
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/Sagmaker/StmProject/PutNameCr/Resource/Default"
+   }
+  },
+  "SagmakerStmProjectGetNameCrC74D4321": {
+   "Type": "Custom::AWS",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "AWS679f53fac002430cb0da5b7982bd22872D164C4C",
+      "Arn"
+     ]
+    },
+    "Create": "{\"service\":\"SSM\",\"action\":\"getParameter\",\"parameters\":{\"Name\":\"MlStage9MlStack9SagmakerStmProject95745AFF\"},\"physicalResourceId\":{\"id\":\"GetName\"}}",
+    "Update": "{\"service\":\"SSM\",\"action\":\"getParameter\",\"parameters\":{\"Name\":\"MlStage9MlStack9SagmakerStmProject95745AFF\"},\"physicalResourceId\":{\"id\":\"GetName\"}}",
+    "InstallLatestAwsSdk": false
+   },
+   "DependsOn": [
+    "SagmakerStmProjectPutNameCr74B111FB"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/Sagmaker/StmProject/GetNameCr/Resource/Default"
+   }
+  },
+  "SagmakerProject9DB5E616": {
+   "Type": "AWS::SageMaker::Project",
+   "Properties": {
+    "ProjectName": {
+     "Fn::GetAtt": [
+      "SagmakerStmProjectGetNameCrC74D4321",
+      "Parameter.Value"
+     ]
+    },
+    "ServiceCatalogProvisioningDetails": {
+     "ProductId": {
+      "Ref": "SagmakerProduct17CAE0EA"
+     }
+    }
+   },
+   "DependsOn": [
+    "SagmakerPortfolioLaunchRoleConstraint6a3ae9cac391372AE683",
+    "SagmakerPortfolioPortfolioProductAssociation6a3ae9cac39165C29D9C",
+    "SagmakerPortfolioPortolioPrincipalAssociation11464cb72a39299A13EF",
+    "SagmakerPortfolioPortolioPrincipalAssociation8931dc2c1b234588FD19",
+    "SagmakerPortfolioEBC18671",
+    "SagmakerProduct17CAE0EA",
+    "SagmakerSagemakerDomain9DCD6EFD0",
+    "SagmakerSagemakerDomainRole4CCF5D3B",
+    "SagmakerUserProfile93520CA68"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/Sagmaker/Project"
+   }
+  },
+  "SagmakerSagemakerApp9842827CA": {
+   "Type": "AWS::SageMaker::App",
+   "Properties": {
+    "AppName": "default",
+    "AppType": "JupyterServer",
+    "DomainId": {
+     "Fn::GetAtt": [
+      "SagmakerSagemakerDomain9DCD6EFD0",
+      "DomainId"
+     ]
+    },
+    "UserProfileName": "MlStage9MlStack9Sagmaker31617F58"
+   },
+   "DependsOn": [
+    "SagmakerSagemakerDomain9DCD6EFD0",
+    "SagmakerUserProfile93520CA68"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/Sagmaker/SagemakerApp9"
+   }
+  },
+  "AWS679f53fac002430cb0da5b7982bd22872D164C4C": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "ed6cd104ff5f101d06dae8cb2b87cc6e6d69b9a22055b467ea6cae10ff023023.zip"
+    },
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "SagmakerStmProjectCrRoleE1EFC519",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 120
+   },
+   "DependsOn": [
+    "SagmakerStmProjectCrRoleE1EFC519"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/AWS679f53fac002430cb0da5b7982bd2287/Resource",
+    "aws:asset:path": "../asset.ed6cd104ff5f101d06dae8cb2b87cc6e6d69b9a22055b467ea6cae10ff023023",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "SagemakerPipeline10MlOutputAccessLog9860FAD36": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketEncryption": {
+     "ServerSideEncryptionConfiguration": [
+      {
+       "ServerSideEncryptionByDefault": {
+        "SSEAlgorithm": "AES256"
+       }
+      }
+     ]
+    },
+    "PublicAccessBlockConfiguration": {
+     "BlockPublicAcls": true,
+     "BlockPublicPolicy": true,
+     "IgnorePublicAcls": true,
+     "RestrictPublicBuckets": true
+    },
+    "Tags": [
+     {
+      "Key": "aws-cdk:auto-delete-objects",
+      "Value": "true"
+     }
+    ],
+    "VersioningConfiguration": {
+     "Status": "Enabled"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlOutputAccessLog9/Resource"
+   }
+  },
+  "SagemakerPipeline10MlOutputAccessLog9Policy8D6243C6": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "SagemakerPipeline10MlOutputAccessLog9860FAD36"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "s3:*",
+       "Condition": {
+        "Bool": {
+         "aws:SecureTransport": "false"
+        }
+       },
+       "Effect": "Deny",
+       "Principal": {
+        "AWS": "*"
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "SagemakerPipeline10MlOutputAccessLog9860FAD36",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "SagemakerPipeline10MlOutputAccessLog9860FAD36",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "s3:DeleteObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:PutBucketPolicy"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::GetAtt": [
+          "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+          "Arn"
+         ]
+        }
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "SagemakerPipeline10MlOutputAccessLog9860FAD36",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "SagemakerPipeline10MlOutputAccessLog9860FAD36",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": "s3:PutObject",
+       "Condition": {
+        "ArnLike": {
+         "aws:SourceArn": {
+          "Fn::GetAtt": [
+           "SagemakerPipeline10MlOutput9C5D7F628",
+           "Arn"
+          ]
+         }
+        },
+        "StringEquals": {
+         "aws:SourceAccount": "958196000588"
+        }
+       },
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "logging.s3.amazonaws.com"
+       },
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::GetAtt": [
+            "SagemakerPipeline10MlOutputAccessLog9860FAD36",
+            "Arn"
+           ]
+          },
+          "/*"
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlOutputAccessLog9/Policy/Resource"
+   }
+  },
+  "SagemakerPipeline10MlOutputAccessLog9AutoDeleteObjectsCustomResourceF23A572A": {
+   "Type": "Custom::S3AutoDeleteObjects",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
+      "Arn"
+     ]
+    },
+    "BucketName": {
+     "Ref": "SagemakerPipeline10MlOutputAccessLog9860FAD36"
+    }
+   },
+   "DependsOn": [
+    "SagemakerPipeline10MlOutputAccessLog9Policy8D6243C6"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlOutputAccessLog9/AutoDeleteObjectsCustomResource/Default"
+   }
+  },
+  "SagemakerPipeline10MlOutput9C5D7F628": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketEncryption": {
+     "ServerSideEncryptionConfiguration": [
+      {
+       "ServerSideEncryptionByDefault": {
+        "SSEAlgorithm": "AES256"
+       }
+      }
+     ]
+    },
+    "LoggingConfiguration": {
+     "DestinationBucketName": {
+      "Ref": "SagemakerPipeline10MlOutputAccessLog9860FAD36"
+     }
+    },
+    "PublicAccessBlockConfiguration": {
+     "BlockPublicAcls": true,
+     "BlockPublicPolicy": true,
+     "IgnorePublicAcls": true,
+     "RestrictPublicBuckets": true
+    },
+    "Tags": [
+     {
+      "Key": "aws-cdk:auto-delete-objects",
+      "Value": "true"
+     }
+    ],
+    "VersioningConfiguration": {
+     "Status": "Enabled"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlOutput9/Resource"
+   }
+  },
+  "SagemakerPipeline10MlOutput9PolicyB35FBFA6": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "SagemakerPipeline10MlOutput9C5D7F628"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "s3:*",
+       "Condition": {
+        "Bool": {
+         "aws:SecureTransport": "false"
+        }
+       },
+       "Effect": "Deny",
+       "Principal": {
+        "AWS": "*"
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "SagemakerPipeline10MlOutput9C5D7F628",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "SagemakerPipeline10MlOutput9C5D7F628",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "s3:DeleteObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:PutBucketPolicy"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::GetAtt": [
+          "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+          "Arn"
+         ]
+        }
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "SagemakerPipeline10MlOutput9C5D7F628",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "SagemakerPipeline10MlOutput9C5D7F628",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "s3:GetBucket*",
+        "s3:GetObject*",
+        "s3:List*"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": "arn:aws:iam::958196000588:root"
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "SagemakerPipeline10MlOutput9C5D7F628",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "SagemakerPipeline10MlOutput9C5D7F628",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlOutput9/Policy/Resource"
+   }
+  },
+  "SagemakerPipeline10MlOutput9AutoDeleteObjectsCustomResource305BA361": {
+   "Type": "Custom::S3AutoDeleteObjects",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
+      "Arn"
+     ]
+    },
+    "BucketName": {
+     "Ref": "SagemakerPipeline10MlOutput9C5D7F628"
+    }
+   },
+   "DependsOn": [
+    "SagemakerPipeline10MlOutput9PolicyB35FBFA6"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlOutput9/AutoDeleteObjectsCustomResource/Default"
+   }
+  },
+  "SagemakerPipeline10DataSetsAccessLog91C289D4C": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketEncryption": {
+     "ServerSideEncryptionConfiguration": [
+      {
+       "ServerSideEncryptionByDefault": {
+        "SSEAlgorithm": "AES256"
+       }
+      }
+     ]
+    },
+    "PublicAccessBlockConfiguration": {
+     "BlockPublicAcls": true,
+     "BlockPublicPolicy": true,
+     "IgnorePublicAcls": true,
+     "RestrictPublicBuckets": true
+    },
+    "Tags": [
+     {
+      "Key": "aws-cdk:auto-delete-objects",
+      "Value": "true"
+     }
+    ],
+    "VersioningConfiguration": {
+     "Status": "Enabled"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/DataSetsAccessLog9/Resource"
+   }
+  },
+  "SagemakerPipeline10DataSetsAccessLog9Policy6204BEBD": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "SagemakerPipeline10DataSetsAccessLog91C289D4C"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "s3:*",
+       "Condition": {
+        "Bool": {
+         "aws:SecureTransport": "false"
+        }
+       },
+       "Effect": "Deny",
+       "Principal": {
+        "AWS": "*"
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "SagemakerPipeline10DataSetsAccessLog91C289D4C",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "SagemakerPipeline10DataSetsAccessLog91C289D4C",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "s3:DeleteObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:PutBucketPolicy"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::GetAtt": [
+          "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+          "Arn"
+         ]
+        }
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "SagemakerPipeline10DataSetsAccessLog91C289D4C",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "SagemakerPipeline10DataSetsAccessLog91C289D4C",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": "s3:PutObject",
+       "Condition": {
+        "ArnLike": {
+         "aws:SourceArn": {
+          "Fn::GetAtt": [
+           "SagemakerPipeline10DataSetsBucket9FB709E30",
+           "Arn"
+          ]
+         }
+        },
+        "StringEquals": {
+         "aws:SourceAccount": "958196000588"
+        }
+       },
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "logging.s3.amazonaws.com"
+       },
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          {
+           "Fn::GetAtt": [
+            "SagemakerPipeline10DataSetsAccessLog91C289D4C",
+            "Arn"
+           ]
+          },
+          "/*"
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/DataSetsAccessLog9/Policy/Resource"
+   }
+  },
+  "SagemakerPipeline10DataSetsAccessLog9AutoDeleteObjectsCustomResource5353F526": {
+   "Type": "Custom::S3AutoDeleteObjects",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
+      "Arn"
+     ]
+    },
+    "BucketName": {
+     "Ref": "SagemakerPipeline10DataSetsAccessLog91C289D4C"
+    }
+   },
+   "DependsOn": [
+    "SagemakerPipeline10DataSetsAccessLog9Policy6204BEBD"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/DataSetsAccessLog9/AutoDeleteObjectsCustomResource/Default"
+   }
+  },
+  "SagemakerPipeline10DataSetsBucket9FB709E30": {
+   "Type": "AWS::S3::Bucket",
+   "Properties": {
+    "BucketEncryption": {
+     "ServerSideEncryptionConfiguration": [
+      {
+       "ServerSideEncryptionByDefault": {
+        "SSEAlgorithm": "AES256"
+       }
+      }
+     ]
+    },
+    "LoggingConfiguration": {
+     "DestinationBucketName": {
+      "Ref": "SagemakerPipeline10DataSetsAccessLog91C289D4C"
+     }
+    },
+    "PublicAccessBlockConfiguration": {
+     "BlockPublicAcls": true,
+     "BlockPublicPolicy": true,
+     "IgnorePublicAcls": true,
+     "RestrictPublicBuckets": true
+    },
+    "Tags": [
+     {
+      "Key": "aws-cdk:auto-delete-objects",
+      "Value": "true"
+     }
+    ],
+    "VersioningConfiguration": {
+     "Status": "Enabled"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/DataSetsBucket9/Resource"
+   }
+  },
+  "SagemakerPipeline10DataSetsBucket9PolicyCCEA07F3": {
+   "Type": "AWS::S3::BucketPolicy",
+   "Properties": {
+    "Bucket": {
+     "Ref": "SagemakerPipeline10DataSetsBucket9FB709E30"
+    },
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "s3:*",
+       "Condition": {
+        "Bool": {
+         "aws:SecureTransport": "false"
+        }
+       },
+       "Effect": "Deny",
+       "Principal": {
+        "AWS": "*"
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "SagemakerPipeline10DataSetsBucket9FB709E30",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "SagemakerPipeline10DataSetsBucket9FB709E30",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "s3:DeleteObject*",
+        "s3:GetBucket*",
+        "s3:List*",
+        "s3:PutBucketPolicy"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": {
+         "Fn::GetAtt": [
+          "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+          "Arn"
+         ]
+        }
+       },
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "SagemakerPipeline10DataSetsBucket9FB709E30",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "SagemakerPipeline10DataSetsBucket9FB709E30",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/DataSetsBucket9/Policy/Resource"
+   }
+  },
+  "SagemakerPipeline10DataSetsBucket9AutoDeleteObjectsCustomResource4E90B676": {
+   "Type": "Custom::S3AutoDeleteObjects",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F",
+      "Arn"
+     ]
+    },
+    "BucketName": {
+     "Ref": "SagemakerPipeline10DataSetsBucket9FB709E30"
+    }
+   },
+   "DependsOn": [
+    "SagemakerPipeline10DataSetsBucket9PolicyCCEA07F3"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/DataSetsBucket9/AutoDeleteObjectsCustomResource/Default"
+   }
+  },
+  "SagemakerPipeline10ServiceCatalogProductRole989260F94": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "sagemaker.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/AmazonSageMakerFullAccess"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/SecretsManagerReadWrite"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/ServiceCatalogProductRole9/Resource"
+   }
+  },
+  "SagemakerPipeline10ServiceCatalogProductRole9DefaultPolicyC60B5A9A": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "s3:Abort*",
+        "s3:DeleteObject*",
+        "s3:GetBucket*",
+        "s3:GetObject*",
+        "s3:List*",
+        "s3:PutObject",
+        "s3:PutObjectLegalHold",
+        "s3:PutObjectRetention",
+        "s3:PutObjectTagging",
+        "s3:PutObjectVersionTagging"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "SagemakerPipeline10DataSetsBucket9FB709E30",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "SagemakerPipeline10DataSetsBucket9FB709E30",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "SagemakerPipeline10ServiceCatalogProductRole9DefaultPolicyC60B5A9A",
+    "Roles": [
+     {
+      "Ref": "SagemakerPipeline10ServiceCatalogProductRole989260F94"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/ServiceCatalogProductRole9/DefaultPolicy/Resource"
+   }
+  },
+  "SagemakerPipeline10BuildEncryptionKeyC8C6CB8F": {
+   "Type": "AWS::KMS::Key",
+   "Properties": {
+    "EnableKeyRotation": true,
+    "KeyPolicy": {
+     "Statement": [
+      {
+       "Action": "kms:*",
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": "arn:aws:iam::958196000588:root"
+       },
+       "Resource": "*"
+      },
+      {
+       "Action": "kms:Decrypt",
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": "arn:aws:iam::958196000588:root"
+       },
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/BuildEncryptionKey/Resource"
+   }
+  },
+  "SagemakerPipeline10MlBuildLogGroup9538EBEDD": {
+   "Type": "AWS::Logs::LogGroup",
+   "Properties": {
+    "RetentionInDays": 731
+   },
+   "UpdateReplacePolicy": "Retain",
+   "DeletionPolicy": "Retain",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlBuildLogGroup9/Resource"
+   }
+  },
+  "SagemakerPipeline10MlBuild9Role408562F2": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "codebuild.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/AmazonSageMakerFullAccess"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlBuild9/Role/Resource"
+   }
+  },
+  "SagemakerPipeline10MlBuild9RoleDefaultPolicy950E3B50": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "s3:GetBucket*",
+        "s3:GetObject*",
+        "s3:List*"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        "arn:aws:s3:::cdk-stmicro10-assets-958196000588-eu-central-1",
+        "arn:aws:s3:::cdk-stmicro10-assets-958196000588-eu-central-1/*",
+        "arn:aws:s3:::cdk-stmicro10-assets-958196000588-eu-central-1/03899ebd2d93c31a82d3bcbe702261d822e0e57ebe119aa68b265726c39c9739.zip"
+       ]
+      },
+      {
+       "Action": [
+        "s3:Abort*",
+        "s3:DeleteObject*",
+        "s3:GetBucket*",
+        "s3:GetObject*",
+        "s3:List*",
+        "s3:PutObject",
+        "s3:PutObjectLegalHold",
+        "s3:PutObjectRetention",
+        "s3:PutObjectTagging",
+        "s3:PutObjectVersionTagging"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        "arn:aws:s3:::cdk-stmicro10-assets-958196000588-eu-central-1",
+        "arn:aws:s3:::cdk-stmicro10-assets-958196000588-eu-central-1/*",
+        {
+         "Fn::GetAtt": [
+          "SagemakerPipeline10DataSetsBucket9FB709E30",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::GetAtt": [
+          "SagemakerPipeline10MlOutput9C5D7F628",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "SagemakerPipeline10DataSetsBucket9FB709E30",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "SagemakerPipeline10MlOutput9C5D7F628",
+             "Arn"
+            ]
+           },
+           "/*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "SagemakerPipeline10MlBuildLogGroup9538EBEDD",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:aws:logs:eu-central-1:958196000588:log-group:/aws/codebuild/",
+           {
+            "Ref": "SagemakerPipeline10MlBuild991D07A01"
+           },
+           ":*"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:aws:logs:eu-central-1:958196000588:log-group:/aws/codebuild/",
+           {
+            "Ref": "SagemakerPipeline10MlBuild991D07A01"
+           }
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "codebuild:BatchPutCodeCoverages",
+        "codebuild:BatchPutTestCases",
+        "codebuild:CreateReport",
+        "codebuild:CreateReportGroup",
+        "codebuild:UpdateReport"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:aws:codebuild:eu-central-1:958196000588:report-group/",
+          {
+           "Ref": "SagemakerPipeline10MlBuild991D07A01"
+          },
+          "-*"
+         ]
+        ]
+       }
+      },
+      {
+       "Action": [
+        "kms:Decrypt",
+        "kms:Encrypt",
+        "kms:GenerateDataKey*",
+        "kms:ReEncrypt*"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::GetAtt": [
+         "SagemakerPipeline10BuildEncryptionKeyC8C6CB8F",
+         "Arn"
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "SagemakerPipeline10MlBuild9RoleDefaultPolicy950E3B50",
+    "Roles": [
+     {
+      "Ref": "SagemakerPipeline10MlBuild9Role408562F2"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlBuild9/Role/DefaultPolicy/Resource"
+   }
+  },
+  "SagemakerPipeline10MlBuild991D07A01": {
+   "Type": "AWS::CodeBuild::Project",
+   "Properties": {
+    "Artifacts": {
+     "Location": {
+      "Ref": "SagemakerPipeline10MlOutput9C5D7F628"
+     },
+     "NamespaceType": "NONE",
+     "OverrideArtifactName": true,
+     "Packaging": "NONE",
+     "Type": "S3"
+    },
+    "Cache": {
+     "Type": "NO_CACHE"
+    },
+    "EncryptionKey": {
+     "Fn::GetAtt": [
+      "SagemakerPipeline10BuildEncryptionKeyC8C6CB8F",
+      "Arn"
+     ]
+    },
+    "Environment": {
+     "ComputeType": "BUILD_GENERAL1_2XLARGE",
+     "EnvironmentVariables": [
+      {
+       "Name": "SAGEMAKER_PROJECT_NAME",
+       "Type": "PLAINTEXT",
+       "Value": {
+        "Fn::GetAtt": [
+         "SagmakerStmProjectGetNameCrC74D4321",
+         "Parameter.Value"
+        ]
+       }
+      },
+      {
+       "Name": "SAGEMAKER_PROJECT_ID",
+       "Type": "PLAINTEXT",
+       "Value": {
+        "Fn::GetAtt": [
+         "SagmakerProject9DB5E616",
+         "ProjectId"
+        ]
+       }
+      },
+      {
+       "Name": "ARTIFACT_BUCKET",
+       "Type": "PLAINTEXT",
+       "Value": {
+        "Ref": "SagemakerPipeline10DataSetsBucket9FB709E30"
+       }
+      },
+      {
+       "Name": "SAGEMAKER_PIPELINE_NAME",
+       "Type": "PLAINTEXT",
+       "Value": {
+        "Fn::Join": [
+         "",
+         [
+          "sagemaker-",
+          {
+           "Fn::GetAtt": [
+            "SagmakerStmProjectGetNameCrC74D4321",
+            "Parameter.Value"
+           ]
+          }
+         ]
+        ]
+       }
+      },
+      {
+       "Name": "SAGEMAKER_PIPELINE_ROLE_ARN",
+       "Type": "PLAINTEXT",
+       "Value": {
+        "Fn::GetAtt": [
+         "SagemakerPipeline10ServiceCatalogProductRole989260F94",
+         "Arn"
+        ]
+       }
+      },
+      {
+       "Name": "AWS_REGION",
+       "Type": "PLAINTEXT",
+       "Value": "eu-central-1"
+      },
+      {
+       "Name": "STDEVCLOUD_USERNAME_SECRET",
+       "Type": "PLAINTEXT",
+       "Value": "STDEVCLOUD_USERNAME_SECRET"
+      },
+      {
+       "Name": "STDEVCLOUD_PASSWORD_SECRET",
+       "Type": "PLAINTEXT",
+       "Value": "STDEVCLOUD_PASSWORD_SECRET"
+      }
+     ],
+     "Image": "aws/codebuild/standard:1.0",
+     "ImagePullCredentialsType": "CODEBUILD",
+     "PrivilegedMode": false,
+     "Type": "LINUX_CONTAINER"
+    },
+    "LogsConfig": {
+     "CloudWatchLogs": {
+      "GroupName": {
+       "Ref": "SagemakerPipeline10MlBuildLogGroup9538EBEDD"
+      },
+      "Status": "ENABLED"
+     }
+    },
+    "ServiceRole": {
+     "Fn::GetAtt": [
+      "SagemakerPipeline10MlBuild9Role408562F2",
+      "Arn"
+     ]
+    },
+    "Source": {
+     "BuildSpec": "arn:aws:s3:::cdk-stmicro10-assets-958196000588-eu-central-1/e6b89e9d9af9983a2efa065dc643ea9fcc177c808e33112c38ad4c583c91dc53.yml",
+     "Location": "cdk-stmicro10-assets-958196000588-eu-central-1/03899ebd2d93c31a82d3bcbe702261d822e0e57ebe119aa68b265726c39c9739.zip",
+     "Type": "S3"
+    },
+    "TimeoutInMinutes": 120
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlBuild9/Resource"
+   }
+  },
+  "SagemakerPipeline10MlBuild9BuildSucceed62D57321": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "EventPattern": {
+     "source": [
+      "aws.codebuild"
+     ],
+     "detail": {
+      "project-name": [
+       {
+        "Ref": "SagemakerPipeline10MlBuild991D07A01"
+       }
+      ],
+      "build-status": [
+       "SUCCEEDED"
+      ]
+     },
+     "detail-type": [
+      "CodeBuild Build State Change"
+     ]
+    },
+    "State": "ENABLED",
+    "Targets": [
+     {
+      "Arn": {
+       "Fn::GetAtt": [
+        "SagemakerPipeline10waithandler64B0AA3B",
+        "Arn"
+       ]
+      },
+      "Id": "Target0"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlBuild9/BuildSucceed/Resource"
+   }
+  },
+  "SagemakerPipeline10MlBuild9BuildSucceedAllowEventRulePipelineStack10MlStage9MlStack9SagemakerPipeline10waithandler97EBB9EB044FF56C": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "SagemakerPipeline10waithandler64B0AA3B",
+      "Arn"
+     ]
+    },
+    "Principal": "events.amazonaws.com",
+    "SourceArn": {
+     "Fn::GetAtt": [
+      "SagemakerPipeline10MlBuild9BuildSucceed62D57321",
+      "Arn"
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlBuild9/BuildSucceed/AllowEventRulePipelineStack10MlStage9MlStack9SagemakerPipeline10waithandler97EBB9EB"
+   }
+  },
+  "SagemakerPipeline10MlBuild9BuildFail23F0E394": {
+   "Type": "AWS::Events::Rule",
+   "Properties": {
+    "EventPattern": {
+     "source": [
+      "aws.codebuild"
+     ],
+     "detail": {
+      "project-name": [
+       {
+        "Ref": "SagemakerPipeline10MlBuild991D07A01"
+       }
+      ],
+      "build-status": [
+       "FAILED"
+      ]
+     },
+     "detail-type": [
+      "CodeBuild Build State Change"
+     ]
+    },
+    "State": "ENABLED",
+    "Targets": [
+     {
+      "Arn": {
+       "Fn::GetAtt": [
+        "SagemakerPipeline10waithandler64B0AA3B",
+        "Arn"
+       ]
+      },
+      "Id": "Target0"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlBuild9/BuildFail/Resource"
+   }
+  },
+  "SagemakerPipeline10MlBuild9BuildFailAllowEventRulePipelineStack10MlStage9MlStack9SagemakerPipeline10waithandler97EBB9EB1050A615": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "SagemakerPipeline10waithandler64B0AA3B",
+      "Arn"
+     ]
+    },
+    "Principal": "events.amazonaws.com",
+    "SourceArn": {
+     "Fn::GetAtt": [
+      "SagemakerPipeline10MlBuild9BuildFail23F0E394",
+      "Arn"
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlBuild9/BuildFail/AllowEventRulePipelineStack10MlStage9MlStack9SagemakerPipeline10waithandler97EBB9EB"
+   }
+  },
+  "SagemakerPipeline10StringParameterB1157F52": {
+   "Type": "AWS::SSM::Parameter",
+   "Properties": {
+    "Type": "String",
+    "Value": "0"
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/StringParameter/Resource"
+   }
+  },
+  "SagemakerPipeline10FnRole1FB0BF11": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/AmazonSSMFullAccess"
+       ]
+      ]
+     },
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/AWSCodeBuildAdminAccess"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/FnRole/Resource"
+   }
+  },
+  "SagemakerPipeline10CfnWaitConditionHandle1716817510993F4CC21D7": {
+   "Type": "AWS::CloudFormation::WaitConditionHandle",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/CfnWaitConditionHandle1716817510993"
+   }
+  },
+  "SagemakerPipeline10waithandler64B0AA3B": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "c53555fd05f6fc6e7a4e6be6da16b51281898483e639bd32a3e5975c406e8941.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+      "assetHash": "03899ebd2d93c31a82d3bcbe702261d822e0e57ebe119aa68b265726c39c9739",
+      "paramName": {
+       "Ref": "SagemakerPipeline10StringParameterB1157F52"
+      },
+      "projectName": {
+       "Ref": "SagemakerPipeline10MlBuild991D07A01"
+      },
+      "runEveryTime": "1716817510996",
+      "waitCompletionUrl": {
+       "Ref": "SagemakerPipeline10CfnWaitConditionHandle1716817510993F4CC21D7"
+      }
+     }
+    },
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "SagemakerPipeline10FnRole1FB0BF11",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x"
+   },
+   "DependsOn": [
+    "SagemakerPipeline10FnRole1FB0BF11"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/wait-handler/Resource",
+    "aws:asset:path": "../asset.c53555fd05f6fc6e7a4e6be6da16b51281898483e639bd32a3e5975c406e8941",
+    "aws:asset:is-bundled": true,
+    "aws:asset:property": "Code"
+   }
+  },
+  "SagemakerPipeline10waithandlerCurrentVersionF3334EB1dd3a2f161807147c1a5fb5f724b654fb": {
+   "Type": "AWS::Lambda::Version",
+   "Properties": {
+    "FunctionName": {
+     "Ref": "SagemakerPipeline10waithandler64B0AA3B"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/wait-handler/CurrentVersion/Resource"
+   }
+  },
+  "SagemakerPipeline10CfnWaitCondition17168175131209D4F7385": {
+   "Type": "AWS::CloudFormation::WaitCondition",
+   "Properties": {
+    "Count": 1,
+    "Handle": {
+     "Ref": "SagemakerPipeline10CfnWaitConditionHandle1716817510993F4CC21D7"
+    },
+    "Timeout": "7200"
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/CfnWaitCondition1716817513120"
+   }
+  },
+  "SagemakerPipeline10BuildTrigger9597F88BE": {
+   "Type": "Custom::Trigger",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "AWSCDKTriggerCustomResourceProviderCustomResourceProviderHandler97BECD91",
+      "Arn"
+     ]
+    },
+    "HandlerArn": {
+     "Ref": "SagemakerPipeline10waithandlerCurrentVersionF3334EB1dd3a2f161807147c1a5fb5f724b654fb"
+    },
+    "InvocationType": "Event",
+    "Timeout": "120000",
+    "ExecuteOnHandlerChange": true
+   },
+   "DependsOn": [
+    "SagemakerPipeline10MlBuild9BuildFailAllowEventRulePipelineStack10MlStage9MlStack9SagemakerPipeline10waithandler97EBB9EB1050A615",
+    "SagemakerPipeline10MlBuild9BuildFail23F0E394",
+    "SagemakerPipeline10MlBuild9BuildSucceedAllowEventRulePipelineStack10MlStage9MlStack9SagemakerPipeline10waithandler97EBB9EB044FF56C",
+    "SagemakerPipeline10MlBuild9BuildSucceed62D57321",
+    "SagemakerPipeline10MlBuild991D07A01",
+    "SagemakerPipeline10MlBuild9RoleDefaultPolicy950E3B50",
+    "SagemakerPipeline10MlBuild9Role408562F2"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/BuildTrigger9/Default/Default"
+   }
+  },
+  "SagemakerPipeline10KMS4996059D": {
+   "Type": "AWS::KMS::Key",
+   "Properties": {
+    "EnableKeyRotation": true,
+    "KeyPolicy": {
+     "Statement": [
+      {
+       "Action": "kms:*",
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": "arn:aws:iam::958196000588:root"
+       },
+       "Resource": "*"
+      },
+      {
+       "Action": [
+        "kms:CreateGrant",
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:Encrypt",
+        "kms:GenerateDataKey*",
+        "kms:ReEncrypt*"
+       ],
+       "Condition": {
+        "StringEquals": {
+         "kms:ViaService": "secretsmanager.eu-central-1.amazonaws.com"
+        }
+       },
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": "arn:aws:iam::958196000588:root"
+       },
+       "Resource": "*"
+      },
+      {
+       "Action": "kms:Decrypt",
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": "arn:aws:iam::958196000588:root"
+       },
+       "Resource": "*"
+      },
+      {
+       "Action": "kms:Decrypt",
+       "Condition": {
+        "StringEquals": {
+         "kms:ViaService": "secretsmanager.eu-central-1.amazonaws.com"
+        }
+       },
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": "arn:aws:iam::958196000588:root"
+       },
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/KMS/Resource"
+   }
+  },
+  "SagemakerPipeline10MlOutputSecret9A461FDE9": {
+   "Type": "AWS::SecretsManager::Secret",
+   "Properties": {
+    "KmsKeyId": {
+     "Fn::GetAtt": [
+      "SagemakerPipeline10KMS4996059D",
+      "Arn"
+     ]
+    },
+    "Name": "MlBucketArn9",
+    "SecretString": {
+     "Fn::GetAtt": [
+      "SagemakerPipeline10MlOutput9C5D7F628",
+      "Arn"
+     ]
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlOutputSecret9/Resource"
+   }
+  },
+  "SagemakerPipeline10MlOutputSecret9PolicyEF335F30": {
+   "Type": "AWS::SecretsManager::ResourcePolicy",
+   "Properties": {
+    "ResourcePolicy": {
+     "Statement": [
+      {
+       "Action": [
+        "secretsmanager:DescribeSecret",
+        "secretsmanager:GetSecretValue"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": "arn:aws:iam::958196000588:root"
+       },
+       "Resource": {
+        "Ref": "SagemakerPipeline10MlOutputSecret9A461FDE9"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "SecretId": {
+     "Ref": "SagemakerPipeline10MlOutputSecret9A461FDE9"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/SagemakerPipeline10/MlOutputSecret9/Policy/Resource"
+   }
+  },
+  "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ]
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Sub": "arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role"
+   }
+  },
+  "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "b7f33614a69548d6bafe224d751a7ef238cde19097415e553fe8b63a4c8fd8a6.zip"
+    },
+    "Timeout": 900,
+    "MemorySize": 128,
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Description": {
+     "Fn::Join": [
+      "",
+      [
+       "Lambda function for auto-deleting objects in ",
+       {
+        "Ref": "SagemakerPipeline10MlOutputAccessLog9860FAD36"
+       },
+       " S3 bucket."
+      ]
+     ]
+    }
+   },
+   "DependsOn": [
+    "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler",
+    "aws:asset:path": "../asset.b7f33614a69548d6bafe224d751a7ef238cde19097415e553fe8b63a4c8fd8a6",
+    "aws:asset:property": "Code"
+   }
+  },
+  "AWSCDKTriggerCustomResourceProviderCustomResourceProviderRoleE18FAF0A": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Version": "2012-10-17",
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ]
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Sub": "arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+     }
+    ],
+    "Policies": [
+     {
+      "PolicyName": "Inline",
+      "PolicyDocument": {
+       "Version": "2012-10-17",
+       "Statement": [
+        {
+         "Effect": "Allow",
+         "Action": [
+          "lambda:InvokeFunction"
+         ],
+         "Resource": [
+          {
+           "Fn::Join": [
+            "",
+            [
+             {
+              "Fn::GetAtt": [
+               "SagemakerPipeline10waithandler64B0AA3B",
+               "Arn"
+              ]
+             },
+             ":*"
+            ]
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/AWSCDK.TriggerCustomResourceProviderCustomResourceProvider/Role"
+   }
+  },
+  "AWSCDKTriggerCustomResourceProviderCustomResourceProviderHandler97BECD91": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-stmicro10-assets-958196000588-eu-central-1",
+     "S3Key": "ac4a1bd8c7c7879385a212db2c46b2cb8f9e23b91c993d826d478bff7dbc0af3.zip"
+    },
+    "Timeout": 900,
+    "MemorySize": 128,
+    "Handler": "__entrypoint__.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "AWSCDKTriggerCustomResourceProviderCustomResourceProviderRoleE18FAF0A",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x"
+   },
+   "DependsOn": [
+    "AWSCDKTriggerCustomResourceProviderCustomResourceProviderRoleE18FAF0A"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/AWSCDK.TriggerCustomResourceProviderCustomResourceProvider/Handler",
+    "aws:asset:path": "../asset.ac4a1bd8c7c7879385a212db2c46b2cb8f9e23b91c993d826d478bff7dbc0af3",
+    "aws:asset:property": "Code"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/21TwW7bMAz9ltwVLU0vu6Ye2gEtBiPZumPAyLTHRBYDUUpRGPr3QbKTpkFPfI96JMhHe6nvlt/1YgZvMjfNYW5pp4dNAHNQ8CbbgaDXw5otqqp1JdZsybxnOqKkBP2JDBoIYLnTQ80+tGyJR9FXpPbkDB3BrkTYEARidyPgJppw8/wC0Zl/eYyKnQQP5IKqLMfmkX1fZFNhVn/5kJRAhz0c0Ouhat0P7oFK8z+Cvvbc0rhs7XmPY6PV8ZiUhX7XgB425DqLgd1jdKYMdgFV665xjb4nkcxe0cuUnWBScr8FEQyiVzkoudfDQzQHDA8gqEaYKyY0hg/7r3lSh1708Izl5Rnfk7LciR5euHvyHI/FvQknZbjBXSTb6OFqzQkmhSd0QfSwjtPdo8WkRPr8aXhyXQ0eegzoS9mZJGWy4+3Z8eLvX6BQsWsoZ36Ca8aWn9Jnc7eOG9yL/lXCxUpB4zFIDw66fLVN4bnLhNYoHL3BD28+Z1K6SJSJErjf+omLXr1JVXIXyS39aKfKpTYBOnKdCp66Dr3o3yO4Kaw9n6hBn6+ZVF5N7+XbabnQd0u9nO2FaO6jC9SjXo9RLfRCL2bHMvUrWGpGI/OfeRop+7lpXRfBN/8BCJFZjLwDAAA="
+   },
+   "Metadata": {
+    "aws:cdk:path": "PipelineStack10/MlStage9/MlStack9/CDKMetadata/Default"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/stmicro10/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}
