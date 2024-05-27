@@ -1,8 +1,0 @@
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/AWS/IoTDeviceDefender/source/defender.c:139:17:getTopicLength	8	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/AWS/IoTDeviceDefender/source/defender.c:183:13:writeFormatAndSuffix	8	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/AWS/IoTDeviceDefender/source/defender.c:275:25:extractThingNameLength	8	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/AWS/IoTDeviceDefender/source/defender.c:254:25:matchPrefix	8	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/AWS/IoTDeviceDefender/source/defender.c:305:25:matchBridge	8	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/AWS/IoTDeviceDefender/source/defender.c:326:25:matchApi	24	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/AWS/IoTDeviceDefender/source/defender.c:381:18:Defender_GetTopic	32	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/AWS/IoTDeviceDefender/source/defender.c:462:18:Defender_MatchTopic	32	static

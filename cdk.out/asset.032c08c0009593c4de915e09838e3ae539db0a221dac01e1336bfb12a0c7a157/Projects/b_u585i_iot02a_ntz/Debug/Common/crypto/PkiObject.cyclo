@@ -1,9 +1,0 @@
-PkiObject.c:39:13:xPrvMbedtlsErrToPkiStatus	11
-PkiObject.c:81:13:xPkiObjectFromLabel	2
-PkiObject.c:189:13:xPkiReadCertificate	12
-PkiObject.c:281:13:xPkiWriteCertificate	6
-PkiObject.c:352:13:xPkiWritePubKey	6
-PkiObject.c:424:13:xPkiReadPrivateKey	11
-PkiObject.c:616:13:xPkiReadPublicKeyDer	10
-PkiObject.c:565:13:xPkiReadPublicKey	10
-PkiObject.c:716:13:xPkiGenerateECKeypair	8

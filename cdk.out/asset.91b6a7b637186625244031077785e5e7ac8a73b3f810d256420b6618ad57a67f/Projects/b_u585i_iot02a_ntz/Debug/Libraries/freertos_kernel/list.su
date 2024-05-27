@@ -1,5 +1,0 @@
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/FreeRTOS/kernel/list.c:48:6:vListInitialise	0	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/FreeRTOS/kernel/list.c:73:6:vListInitialiseItem	0	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/FreeRTOS/kernel/list.c:85:6:vListInsertEnd	0	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/FreeRTOS/kernel/list.c:115:6:vListInsert	8	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/FreeRTOS/kernel/list.c:183:13:uxListRemove	0	static

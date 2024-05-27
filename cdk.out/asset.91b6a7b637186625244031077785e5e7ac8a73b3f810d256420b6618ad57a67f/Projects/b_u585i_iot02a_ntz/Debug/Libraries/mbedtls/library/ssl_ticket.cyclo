@@ -1,8 +1,0 @@
-ssl_ticket.c:99:12:ssl_ticket_update_keys	1
-ssl_ticket.c:69:12:ssl_ticket_gen_key	4
-ssl_ticket.c:279:32:ssl_ticket_select_key	3
-ssl_ticket.c:42:6:mbedtls_ssl_ticket_init	1
-ssl_ticket.c:127:5:mbedtls_ssl_ticket_setup	10
-ssl_ticket.c:196:5:mbedtls_ssl_ticket_write	13
-ssl_ticket.c:295:5:mbedtls_ssl_ticket_parse	12
-ssl_ticket.c:390:6:mbedtls_ssl_ticket_free	1

@@ -1,2 +1,0 @@
-../Src/crypto/core_pkcs11_pal_utils.c:56:6:PAL_UTILS_LabelToFilenameHandle	16	static
-../Src/crypto/core_pkcs11_pal_utils.c:139:7:PAL_UTILS_HandleToFilename	8	static

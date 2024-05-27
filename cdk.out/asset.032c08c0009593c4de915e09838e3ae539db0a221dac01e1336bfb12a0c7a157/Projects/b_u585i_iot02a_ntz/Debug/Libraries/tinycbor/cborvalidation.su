@@ -1,5 +1,0 @@
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/tinycbor/src/cborvalidation.c:375:25:validate_floating_point	48	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/tinycbor/src/cborvalidation.c:293:25:validate_number	40	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/tinycbor/src/cborvalidation.c:501:18:validate_value	64	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/tinycbor/src/cborvalidation.c:438:18:validate_container	56	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/tinycbor/src/cborvalidation.c:644:11:cbor_value_validate	32	static

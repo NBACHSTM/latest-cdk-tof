@@ -1,7 +1,0 @@
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/mbedtls/library/nist_kw.c:128:13:calc_a_xor_t	8	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/mbedtls/library/nist_kw.c:283:12:unwrap	96	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/mbedtls/library/nist_kw.c:64:6:mbedtls_nist_kw_init	8	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/mbedtls/library/nist_kw.c:69:5:mbedtls_nist_kw_setkey	24	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/mbedtls/library/nist_kw.c:118:6:mbedtls_nist_kw_free	8	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/mbedtls/library/nist_kw.c:141:5:mbedtls_nist_kw_wrap	96	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/mbedtls/library/nist_kw.c:345:5:mbedtls_nist_kw_unwrap	72	static

@@ -1,5 +1,0 @@
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/lwip/src/netif/bridgeif_fdb.c:153:1:bridgeif_fdb_age_one_second	4	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/lwip/src/netif/bridgeif_fdb.c:180:1:bridgeif_age_tmr	16	static,ignoring_inline_asm
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/lwip/src/netif/bridgeif_fdb.c:76:1:bridgeif_fdb_update_src	32	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/lwip/src/netif/bridgeif_fdb.c:128:1:bridgeif_fdb_get_dst_ports	24	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/lwip/src/netif/bridgeif_fdb.c:195:1:bridgeif_fdb_init	24	static,ignoring_inline_asm

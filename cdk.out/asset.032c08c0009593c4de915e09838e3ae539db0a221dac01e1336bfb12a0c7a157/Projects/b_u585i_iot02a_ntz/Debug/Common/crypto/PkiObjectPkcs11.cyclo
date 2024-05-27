@@ -1,9 +1,0 @@
-PkiObjectPkcs11.c:163:14:xPrvDestoryObject	7
-PkiObjectPkcs11.c:74:14:xPrvExportPubKeyDer	6
-PkiObjectPkcs11.c:197:13:xPrvCkRvToPkiStatus	6
-PkiObjectPkcs11.c:229:13:xPkcs11InitMbedtlsPkContext	11
-PkiObjectPkcs11.c:307:13:xPkcs11WriteCertificate	11
-PkiObjectPkcs11.c:398:13:xPkcs11ReadCertificate	14
-PkiObjectPkcs11.c:478:13:xPkcs11GenerateKeyPairEC	16
-PkiObjectPkcs11.c:583:13:xPkcs11ReadPublicKey	9
-PkiObjectPkcs11.c:663:13:xPkcs11WritePubKey	11

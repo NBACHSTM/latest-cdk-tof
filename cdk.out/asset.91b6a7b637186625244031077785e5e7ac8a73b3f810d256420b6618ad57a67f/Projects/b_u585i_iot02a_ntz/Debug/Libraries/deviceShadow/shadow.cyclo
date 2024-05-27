@@ -1,7 +1,0 @@
-shadow.c:201:23:validateThingName	4
-shadow.c:312:21:getShadowOperationString	11
-shadow.c:370:17:getShadowOperationLength	9
-shadow.c:178:23:containsSubString	3
-shadow.c:233:23:extractShadowMessageType	4
-shadow.c:430:16:Shadow_MatchTopic	13
-shadow.c:536:16:Shadow_GetTopicString	7
