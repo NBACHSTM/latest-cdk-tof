@@ -1,6 +1,0 @@
-../Src/fs/lfs_port_internal_nor.c:137:12:lfs_port_sync	0	static
-../Src/fs/lfs_port_internal_nor.c:142:13:vPopulateConfig	0	static
-../Src/fs/lfs_port_internal_nor.c:115:12:lfs_port_erase	40	static,ignoring_inline_asm
-../Src/fs/lfs_port_internal_nor.c:78:12:lfs_port_prog	24	static,ignoring_inline_asm
-../Src/fs/lfs_port_internal_nor.c:61:12:lfs_port_read	24	static
-../Src/fs/lfs_port_internal_nor.c:208:27:pxInitializeInternalFlashFs	16	static,ignoring_inline_asm

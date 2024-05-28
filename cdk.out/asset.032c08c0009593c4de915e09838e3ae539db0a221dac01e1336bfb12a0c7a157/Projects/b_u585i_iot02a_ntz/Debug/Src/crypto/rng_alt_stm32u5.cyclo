@@ -1,5 +1,0 @@
-rng_alt_stm32u5.c:52:13:vRngInit	3
-rng_alt_stm32u5.c:47:13:vRngIrqHandler	1
-rng_alt_stm32u5.c:68:6:HAL_RNG_ReadyDataCallback	3
-rng_alt_stm32u5.c:83:6:HAL_RNG_ErrorCallback	3
-rng_alt_stm32u5.c:96:5:mbedtls_hardware_poll	15

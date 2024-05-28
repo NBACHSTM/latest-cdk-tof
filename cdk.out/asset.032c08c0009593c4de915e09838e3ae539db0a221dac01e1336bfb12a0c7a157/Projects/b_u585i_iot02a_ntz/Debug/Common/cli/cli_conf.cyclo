@@ -1,5 +1,0 @@
-cli_conf.c:85:13:vSubCommand_GetConfig	14
-cli_conf.c:214:13:vSubCommand_GetConfigAll	2
-cli_conf.c:222:13:vSubCommand_SetConfig	21
-cli_conf.c:71:13:vSubCommand_CommitConfig	2
-cli_conf.c:371:13:vCommand_Configure	6

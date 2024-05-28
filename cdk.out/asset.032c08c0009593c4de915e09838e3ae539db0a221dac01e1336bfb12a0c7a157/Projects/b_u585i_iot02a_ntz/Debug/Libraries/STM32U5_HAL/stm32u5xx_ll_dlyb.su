@@ -1,3 +1,0 @@
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_ll_dlyb.c:109:6:LL_DLYB_SetDelay	0	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_ll_dlyb.c:132:6:LL_DLYB_GetDelay	0	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Drivers/STM32U5xx_HAL/Src/stm32u5xx_ll_dlyb.c:150:10:LL_DLYB_GetClockPeriod	24	static

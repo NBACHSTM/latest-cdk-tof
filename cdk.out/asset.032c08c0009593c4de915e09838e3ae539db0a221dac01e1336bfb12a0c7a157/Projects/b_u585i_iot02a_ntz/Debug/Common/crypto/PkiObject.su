@@ -1,9 +1,0 @@
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/crypto/PkiObject.c:39:13:xPrvMbedtlsErrToPkiStatus	0	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/crypto/PkiObject.c:81:13:xPkiObjectFromLabel	8	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/crypto/PkiObject.c:189:13:xPkiReadCertificate	40	static,ignoring_inline_asm
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/crypto/PkiObject.c:281:13:xPkiWriteCertificate	24	static,ignoring_inline_asm
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/crypto/PkiObject.c:352:13:xPkiWritePubKey	24	static,ignoring_inline_asm
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/crypto/PkiObject.c:424:13:xPkiReadPrivateKey	32	static,ignoring_inline_asm
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/crypto/PkiObject.c:616:13:xPkiReadPublicKeyDer	32	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/crypto/PkiObject.c:565:13:xPkiReadPublicKey	48	static,ignoring_inline_asm
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Projects/Common/crypto/PkiObject.c:716:13:xPkiGenerateECKeypair	40	static

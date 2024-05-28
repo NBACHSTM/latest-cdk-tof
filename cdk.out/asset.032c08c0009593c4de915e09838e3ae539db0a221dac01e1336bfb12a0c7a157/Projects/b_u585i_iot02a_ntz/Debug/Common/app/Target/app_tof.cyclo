@@ -1,9 +1,0 @@
-app_tof.c:110:13:MX_VL53L5CX_SimpleRanging_Init	2
-app_tof.c:74:6:MX_TOF_Init	1
-app_tof.c:194:10:MX_VL53L5CX_SimpleRanging_Process	2
-app_tof.c:96:6:MX_TOF_Process	1
-app_tof.c:255:6:toggle_resolution	5
-app_tof.c:285:6:toggle_signal_and_ambient	1
-app_tof.c:296:6:clear_screen	1
-app_tof.c:302:6:display_commands_banner	1
-app_tof.c:322:6:handle_cmd	4

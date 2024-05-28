@@ -1,7 +1,0 @@
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/littlefs/bd/lfs_filebd.c:13:5:lfs_filebd_createcfg	8	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/littlefs/bd/lfs_filebd.c:41:5:lfs_filebd_create	8	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/littlefs/bd/lfs_filebd.c:58:5:lfs_filebd_destroy	8	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/littlefs/bd/lfs_filebd.c:71:5:lfs_filebd_read	32	static,ignoring_inline_asm
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/littlefs/bd/lfs_filebd.c:108:5:lfs_filebd_prog	40	static,ignoring_inline_asm
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/littlefs/bd/lfs_filebd.c:162:5:lfs_filebd_erase	24	static,ignoring_inline_asm
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/ARM/littlefs/bd/lfs_filebd.c:192:5:lfs_filebd_sync	8	static

@@ -1,6 +1,0 @@
-../Src/fs/lfs_port_ospi.c:74:13:vPopulateConfig	0	static
-../Src/fs/lfs_port_ospi.c:284:12:lfs_port_sync	0	static
-../Src/fs/lfs_port_ospi.c:258:12:lfs_port_erase	8	static,ignoring_inline_asm
-../Src/fs/lfs_port_ospi.c:214:12:lfs_port_prog	32	static,ignoring_inline_asm
-../Src/fs/lfs_port_ospi.c:182:12:lfs_port_read	16	static,ignoring_inline_asm
-../Src/fs/lfs_port_ospi.c:146:27:pxInitializeOSPIFlashFs	16	static,ignoring_inline_asm

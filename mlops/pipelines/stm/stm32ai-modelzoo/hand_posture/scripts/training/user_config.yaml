@@ -29,7 +29,7 @@ data_augmentation:
 model:
   model_type: {name : CNN2D_ST_HandPosture, version : v1}
   input_shape: [8, 8, 2]
-  dropout: 0.2
+  dropout: 0.4
 
 quantization:
   quantize: False

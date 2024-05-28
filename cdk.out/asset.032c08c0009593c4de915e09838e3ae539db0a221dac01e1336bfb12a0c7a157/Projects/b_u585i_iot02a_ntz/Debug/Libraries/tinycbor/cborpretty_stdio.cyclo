@@ -1,3 +1,0 @@
-cborpretty_stdio.c:29:18:cbor_fprintf	1
-cborpretty_stdio.c:63:11:cbor_value_to_pretty_advance	1
-cborpretty_stdio.c:83:11:cbor_value_to_pretty_advance_flags	1
