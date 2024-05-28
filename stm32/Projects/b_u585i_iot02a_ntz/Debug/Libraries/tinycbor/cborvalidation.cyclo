@@ -1,5 +1,0 @@
-cborvalidation.c:375:25:validate_floating_point	36
-cborvalidation.c:293:25:validate_number	21
-cborvalidation.c:501:18:validate_value	74
-cborvalidation.c:438:18:validate_container	20
-cborvalidation.c:644:11:cbor_value_validate	5

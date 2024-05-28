@@ -1,6 +1,0 @@
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/lwip/src/core/ipv4/ip4.c:374:1:ip4_input_accept	8	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/lwip/src/core/ipv4/ip4.c:152:1:ip4_route	4	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/lwip/src/core/ipv4/ip4.c:426:1:ip4_input	32	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/lwip/src/core/ipv4/ip4.c:827:1:ip4_output_if_src	56	static,ignoring_inline_asm
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/lwip/src/core/ipv4/ip4.c:787:1:ip4_output_if	24	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/lwip/src/core/ipv4/ip4.c:1028:1:ip4_output	40	static,ignoring_inline_asm

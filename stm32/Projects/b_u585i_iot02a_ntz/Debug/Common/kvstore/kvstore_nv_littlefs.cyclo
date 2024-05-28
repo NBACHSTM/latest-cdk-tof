@@ -1,4 +1,0 @@
-kvstore_nv_littlefs.c:84:8:xprvGetValueLengthFromImpl	2
-kvstore_nv_littlefs.c:102:12:xprvReadValueFromImpl	18
-kvstore_nv_littlefs.c:190:12:xprvWriteValueToImpl	11
-kvstore_nv_littlefs.c:264:6:vprvNvImplInit	1

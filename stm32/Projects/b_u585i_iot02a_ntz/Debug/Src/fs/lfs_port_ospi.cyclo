@@ -1,6 +1,0 @@
-lfs_port_ospi.c:74:13:vPopulateConfig	1
-lfs_port_ospi.c:284:12:lfs_port_sync	1
-lfs_port_ospi.c:258:12:lfs_port_erase	4
-lfs_port_ospi.c:214:12:lfs_port_prog	8
-lfs_port_ospi.c:182:12:lfs_port_read	6
-lfs_port_ospi.c:146:27:pxInitializeOSPIFlashFs	5

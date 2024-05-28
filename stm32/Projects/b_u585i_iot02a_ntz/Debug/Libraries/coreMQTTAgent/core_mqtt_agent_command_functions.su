@@ -1,8 +1,0 @@
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/FreeRTOS/coreMQTT-Agent/source/core_mqtt_agent_command_functions.c:41:14:MQTTAgentCommand_ProcessLoop	8	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/FreeRTOS/coreMQTT-Agent/source/core_mqtt_agent_command_functions.c:57:14:MQTTAgentCommand_Publish	16	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/FreeRTOS/coreMQTT-Agent/source/core_mqtt_agent_command_functions.c:88:14:MQTTAgentCommand_Subscribe	16	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/FreeRTOS/coreMQTT-Agent/source/core_mqtt_agent_command_functions.c:116:14:MQTTAgentCommand_Unsubscribe	16	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/FreeRTOS/coreMQTT-Agent/source/core_mqtt_agent_command_functions.c:144:14:MQTTAgentCommand_Connect	24	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/FreeRTOS/coreMQTT-Agent/source/core_mqtt_agent_command_functions.c:178:14:MQTTAgentCommand_Disconnect	8	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/FreeRTOS/coreMQTT-Agent/source/core_mqtt_agent_command_functions.c:199:14:MQTTAgentCommand_Ping	8	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/FreeRTOS/coreMQTT-Agent/source/core_mqtt_agent_command_functions.c:221:14:MQTTAgentCommand_Terminate	8	static

@@ -1,7 +1,0 @@
-lfs_rambd.c:9:5:lfs_rambd_createcfg	4
-lfs_rambd.c:45:5:lfs_rambd_create	1
-lfs_rambd.c:60:5:lfs_rambd_destroy	2
-lfs_rambd.c:71:5:lfs_rambd_read	4
-lfs_rambd.c:90:5:lfs_rambd_prog	7
-lfs_rambd.c:117:5:lfs_rambd_erase	3
-lfs_rambd.c:134:5:lfs_rambd_sync	1

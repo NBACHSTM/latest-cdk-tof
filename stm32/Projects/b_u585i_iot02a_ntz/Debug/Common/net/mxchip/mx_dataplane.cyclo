@@ -1,9 +1,0 @@
-mx_dataplane.c:91:13:spi_transfer_error_callback	4
-mx_dataplane.c:73:13:spi_transfer_done_callback	4
-mx_dataplane.c:126:13:spi_flow_callback	3
-mx_dataplane.c:111:13:spi_notify_callback	3
-mx_dataplane.c:363:13:vProcessRxPacket	7
-mx_dataplane.c:304:26:xTransmitReceiveMessage	34
-mx_dataplane.c:53:10:prvGetNextRequestID	3
-mx_dataplane.c:434:6:vInitCallbacks	5
-mx_dataplane.c:491:6:vDataplaneThread	62

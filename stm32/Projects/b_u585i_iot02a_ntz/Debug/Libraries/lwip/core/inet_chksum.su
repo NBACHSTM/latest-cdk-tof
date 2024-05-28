@@ -1,9 +1,0 @@
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/lwip/src/core/inet_chksum.c:133:1:lwip_standard_chksum	16	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/lwip/src/core/inet_chksum.c:260:1:inet_cksum_pseudo_base	24	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/lwip/src/core/inet_chksum.c:399:1:inet_cksum_pseudo_partial_base	40	static,ignoring_inline_asm
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/lwip/src/core/inet_chksum.c:310:1:inet_chksum_pseudo	8	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/lwip/src/core/inet_chksum.c:379:1:ip_chksum_pseudo	16	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/lwip/src/core/inet_chksum.c:456:1:inet_chksum_pseudo_partial	16	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/lwip/src/core/inet_chksum.c:526:1:ip_chksum_pseudo_partial	16	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/lwip/src/core/inet_chksum.c:555:1:inet_chksum	8	static
-C:/Users/bachirin/Desktop/AWS_gs/aws_poc_aed/Middleware/lwip/src/core/inet_chksum.c:568:1:inet_chksum_pbuf	16	static

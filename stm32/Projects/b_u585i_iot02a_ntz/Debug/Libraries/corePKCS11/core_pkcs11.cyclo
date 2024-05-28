@@ -1,7 +1,0 @@
-core_pkcs11.c:48:14:prvOpenSession	4
-core_pkcs11.c:70:7:xGetSlotList	12
-core_pkcs11.c:150:7:xInitializePKCS11	4
-core_pkcs11.c:176:7:xInitializePkcs11Token	16
-core_pkcs11.c:253:7:xInitializePkcs11Session	11
-core_pkcs11.c:309:7:xFindObjectWithLabelAndClass	12
-core_pkcs11.c:374:7:vAppendSHA256AlgorithmIdentifierSequence	3

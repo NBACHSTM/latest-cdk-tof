@@ -1,8 +1,0 @@
-core_pkcs11_pal_littlefs.c:60:14:prvFileExists	4
-core_pkcs11_pal_littlefs.c:98:14:prvReadData	12
-core_pkcs11_pal_littlefs.c:196:7:PKCS11_PAL_Initialize	1
-core_pkcs11_pal_littlefs.c:202:18:PKCS11_PAL_SaveObject	7
-core_pkcs11_pal_littlefs.c:274:18:PKCS11_PAL_FindObject	4
-core_pkcs11_pal_littlefs.c:302:7:PKCS11_PAL_GetObjectValue	5
-core_pkcs11_pal_littlefs.c:331:6:PKCS11_PAL_GetObjectValueCleanup	2
-core_pkcs11_pal_littlefs.c:345:7:PKCS11_PAL_DestroyObject	4
