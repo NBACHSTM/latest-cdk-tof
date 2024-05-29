@@ -321,8 +321,8 @@ void vMotionSensorsPublish( void * pvParameters )
 		Network_Preprocess(&App_Config);
 
 		//print_result(&App_Config);
-	//	LogInfo( " -------------  %f     --------",App_Config.HANDPOSTURE_Input_Data.ranging[27]);
-		//LogInfo( " -------------  NEW VERSION  2   rak chayef    ...........................................................     --------");
+	    sLogInfo( " -------------  %f     --------",App_Config.HANDPOSTURE_Input_Data.ranging[27]);
+		LogInfo( " -------------  NEW VERSION  1    ...........................................................     --------");
 
 			/* Run inference */
 
@@ -346,7 +346,7 @@ void vMotionSensorsPublish( void * pvParameters )
 
         	//LogError( "distance -------------  %d     --------",App_Config.AI_Data.model_output);
 
-     //   LogInfo("\033[1;32m The output \033[0m : %d \r\n",(App_Config.AI_Data.handposture_label));
+            ogInfo("\033[1;32m The output \033[0m : %d \r\n",(App_Config.AI_Data.handposture_label));
 
 
 
