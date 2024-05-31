@@ -27,7 +27,12 @@
 
 /* Global variables ----------------------------------------------------------*/
 
-
+//todo:delete the following block
+//----------------------
+#define BACKGROUND_REMOVAL (120)
+#define MAX_DISTANCE (350)
+#define MIN_DISTANCE (150)
+//-----------------------------------------
 /* Exported macro ------------------------------------------------------------*/
 #define HANDPOSTURE_EXAMPLE_VERSION "0.0.1"
 
