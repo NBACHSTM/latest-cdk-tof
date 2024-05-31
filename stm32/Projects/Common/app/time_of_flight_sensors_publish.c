@@ -61,13 +61,15 @@
 /* Subscription manager header include. */
 #include "subscription_manager.h"
 #include "app_network.h"
-#include "ai_model_config.h"
+#include "../dpu/ai_model_config.h"
 /* Exported macro ------------------------------------------------------------*/
 #define HANDPOSTURE_EXAMPLE_VERSION "0.0.1"
 
 /* Exported constants --------------------------------------------------------*/
 /* Table of classes for the NN model */
 
+//todo: delete the following line
+#define NB_CLASSES          (8)
 /* Includes ------------------------------------------------------------------*/
 const char* classe_table[NB_CLASSES] = {"None" ,   "FlatHand" ,   "Like" ,   "Love" ,   "Dislike" ,   "BreakTime" , "CrossHands" ,   "Fist"};
 /* Private variables ---------------------------------------------------------*/

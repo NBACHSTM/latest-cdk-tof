@@ -20,7 +20,7 @@
 #define INC_APP_NETWORK_H_
 
 /* Includes ------------------------------------------------------------------*/
-#include "ai_model_config.h"
+#include "../../dpu/ai_model_config.h"
 #include "app_utils.h"
 
 /* Exported functions ------------------------------------------------------- */
