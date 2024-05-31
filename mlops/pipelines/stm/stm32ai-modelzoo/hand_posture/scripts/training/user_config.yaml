@@ -5,7 +5,7 @@ general:
 
 train_parameters:
   batch_size: 32
-  training_epochs: 500
+  training_epochs: 600
   optimizer: adam
   initial_learning: 0.01
   learning_rate_scheduler: reducelronplateau
@@ -40,7 +40,7 @@ stm32ai:
   version: 8.1.0
   optimization: balanced
   footprints_on_target: B-U585I-IOT02A
-  path_to_stm32ai: STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AI/8.0.0/Utilities/windows/stm32ai.exe
+  path_to_stm32ai: STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AI/8.1.0/Utilities/windows/stm32ai.exe
 
 mlflow:
   uri: ./mlruns

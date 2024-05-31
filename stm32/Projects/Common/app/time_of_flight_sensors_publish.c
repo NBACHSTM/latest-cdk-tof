@@ -321,8 +321,8 @@ void vMotionSensorsPublish( void * pvParameters )
 		Network_Preprocess(&App_Config);
 
 		//print_result(&App_Config);
-	    sLogInfo( " -------------  %f     --------",App_Config.HANDPOSTURE_Input_Data.ranging[27]);
-		LogInfo( " -------------  NEW VERSION  1    ...........................................................     --------");
+	//	LogInfo( " -------------  %f     --------",App_Config.HANDPOSTURE_Input_Data.ranging[27]);
+		LogInfo( " ------------- VERSION  2   ...........................................................     --------");
 
 			/* Run inference */
 
@@ -342,11 +342,11 @@ void vMotionSensorsPublish( void * pvParameters )
 					"\"dist\": %.1f"
                     "}",(App_Config.AI_Data.handposture_label),App_Config.HANDPOSTURE_Input_Data.ranging[27]/10.0);
 
-//classe_table[(App_Config.AI_Data.handposture_label)],App_Config.HANDPOSTURE_Input_Data.ranging[27]
+			//classe_table[(App_Config.AI_Data.handposture_label)],App_Config.HANDPOSTURE_Input_Data.ranging[27]
 
-        	//LogError( "distance -------------  %d     --------",App_Config.AI_Data.model_output);
+        		LogError( "distance -------------  %d     --------",App_Config.AI_Data.model_output);
 
-            ogInfo("\033[1;32m The output \033[0m : %d \r\n",(App_Config.AI_Data.handposture_label));
+		    	LogInfo("\033[1;32m The output \033[0m : %d \r\n",(App_Config.AI_Data.handposture_label));
 
 
 

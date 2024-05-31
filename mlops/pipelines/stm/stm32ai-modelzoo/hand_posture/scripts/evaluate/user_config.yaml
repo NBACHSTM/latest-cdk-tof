@@ -17,7 +17,7 @@ model:
   model_type: {name : CNN2D_ST_HandPosture, version : v1}
   input_shape: [8, 8, 2]
   model_path: ../../models/CNN2D_ST_HandPosture/ST_pretrainedmodel_custom_dataset/ST_VL53L5CX_handposture_dataset/CNN2D_ST_HandPosture_8classes/CNN2D_ST_HandPosture_8classes.h5
-  dropout: 0.2
+  dropout: 0.4
 
 stm32ai:
   version: 8.1.0

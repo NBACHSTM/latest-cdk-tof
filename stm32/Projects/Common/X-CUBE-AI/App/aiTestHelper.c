@@ -29,16 +29,11 @@
 
 #include <stdio.h>
 #include <string.h>
-//#include "logging_levels.h"
-///* define LOG_LEVEL here if you want to modify the logging level from the default */
-//#define LOG_LEVEL    LOG_INFO
-//#include "logging.h"
 
 #if !defined(TFLM_RUNTIME)
 
 #include <aiTestHelper.h>
 //#include <aiTestUtility.h>
-//#define LC_PRINT(...)   vLoggingPrintf( "INF", 0 , 0, __VA_ARGS__ )
 #define LC_PRINT(...)   fprintf(stdout,__VA_ARGS__)
 
 #include <ai_platform_interface.h>
@@ -122,9 +117,7 @@ void aiPrintBufferInfo(const ai_buffer *buffer)
         int zero_point = AI_BUFFER_META_INFO_INTQ_GET_ZEROPOINT(buffer->meta_info, idx);
         LC_PRINT("(%f,%d),", scale, zero_point);
       }
-      	  if (s_ > max_) {
-      		  LC_PRINT("..");
-      	  }
+      LC_PRINT((s_ > max_)?"..":"");
     } else if (AI_BUFFER_FMT_GET_BITS(fmt) < 8) {
       /* lower of 8b format */
       LC_PRINT(" int32-%db", (int)AI_BUFFER_FMT_GET_BITS(fmt));
@@ -187,9 +180,9 @@ void aiPrintNetworkInfo(const ai_network_report* report)
           report->n_outputs);
 
   for (int i=0; i<report->n_inputs; i++) {
-//     LC_PRINT("  I[%d] %s\r\n", i, aiGetBufferDesc(&report->inputs[i]));
-     LC_PRINT("  I[%d] ", i);
-     aiPrintBufferInfo(&report->inputs[i]);
+    // LC_PRINT("  I[%d] %s\r\n", i, aiGetBufferDesc(&report->inputs[i]));
+    LC_PRINT("  I[%d] ", i);
+    aiPrintBufferInfo(&report->inputs[i]);
     LC_PRINT("\r\n");
   }
 

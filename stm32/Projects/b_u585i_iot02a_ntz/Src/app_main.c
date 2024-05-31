@@ -230,11 +230,11 @@ void vInitTask( void * pvArgs )
 
     xResult = xTaskCreate( vOTAUpdateTask, "OTAUpdate", 4096, NULL, tskIDLE_PRIORITY + 1, NULL );
     configASSERT( xResult == pdTRUE );
-
-
+    
     xResult = xTaskCreate( vMotionSensorsPublish, "MotionS", 2048, NULL, 5, NULL ); // handposture recognition with time of flight sensor
     configASSERT( xResult == pdTRUE );
 
+//
 
  /* xResult = xTaskCreate( vMicSensorPublishTask, "MicSense", 1024, NULL, 6, NULL );
     configASSERT( xResult == pdTRUE );*/
@@ -243,7 +243,7 @@ void vInitTask( void * pvArgs )
 //    configASSERT( xResult == pdTRUE );
 
 
-//
+   
 //    xResult = xTaskCreate( vShadowDeviceTask, "ShadowDevice", 1024, NULL, 5, NULL );
 //    configASSERT( xResult == pdTRUE );
 //
