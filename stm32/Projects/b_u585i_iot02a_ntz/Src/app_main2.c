@@ -194,56 +194,13 @@ void vInitTask( void * pvArgs )
     xResult = xTaskCreate( Task_CLI, "cli", 2048, NULL, 10, NULL );
     configASSERT( xResult == pdTRUE );
 
-    xMountStatus = fs_init();
 
-    if( xMountStatus == LFS_ERR_OK )
-    {
-        /*
-         * FIXME: Need to debug  the cause of internal flash status register error here.
-         * Clearing the flash status register as a workaround.
-         */
-        FLASH_WaitForLastOperation( 1000 );
-
-        LogInfo( "File System mounted." );
-
-        otaPal_EarlyInit();
-
-        ( void ) xEventGroupSetBits( xSystemEvents, EVT_MASK_FS_READY );
-
-        KVStore_init();
-    }
-    else
-    {
-        LogError( "Failed to mount filesystem." );
-    }
-
-    ( void ) xEventGroupSetBits( xSystemEvents, EVT_MASK_FS_READY );
-
-    xResult = xTaskCreate( vHeartbeatTask, "Heartbeat", 128, NULL, tskIDLE_PRIORITY, NULL );
-    configASSERT( xResult == pdTRUE );
-
-    xResult = xTaskCreate( &net_main, "MxNet", 1024, NULL, 23, NULL );
-    configASSERT( xResult == pdTRUE );
-
-    xResult = xTaskCreate( vMQTTAgentTask, "MQTTAgent", 2048, NULL, 10, NULL );
-    configASSERT( xResult == pdTRUE );
-
-    xResult = xTaskCreate( vOTAUpdateTask, "OTAUpdate", 4096, NULL, tskIDLE_PRIORITY + 1, NULL );
-    configASSERT( xResult == pdTRUE );
-
- /* xResult = xTaskCreate( vMicSensorPublishTask, "MicSense", 1024, NULL, 6, NULL );
-    configASSERT( xResult == pdTRUE );*/
-
-//    xResult = xTaskCreate( vEnvironmentSensorPublishTask, "EnvSense", 1024, NULL, 6, NULL );
-//    configASSERT( xResult == pdTRUE );
-
-
-    xResult = xTaskCreate( vMotionSensorsPublish, "MotionS", 2048, NULL, 5, NULL ); // handposture recognition with time of flight sensor
-    configASSERT( xResult == pdTRUE );
+    xResult = xTaskCreate( vMotionSensorsPublish, "MotionS", 2048, NULL, 5, NULL );
+   // configASSERT( xResult == pdTRUE );
 
 //
-//    xResult = xTaskCreate( vShadowDeviceTask, "ShadowDevice", 1024, NULL, 5, NULL );
-//    configASSERT( xResult == pdTRUE );
+ //  xResult = xTaskCreate( vShadowDeviceTask, "ShadowDevice", 1024, NULL, 5, NULL );
+ //  configASSERT( xResult == pdTRUE );
 //
 //    xResult = xTaskCreate( vDefenderAgentTask, "AWSDefender", 2048, NULL, 5, NULL );
 //    configASSERT( xResult == pdTRUE );
