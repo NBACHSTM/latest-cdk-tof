@@ -23,4 +23,4 @@ stm32/Middleware/STM32_AI_Library/*
 
 stm32/Projects/Common/dpu/ai_model_config.h
 stm32/Projects/Common/dpu/user_mel_tables.*
-stm32/Projects/Common/app/Target/ai_model_config.h
+#stm32/Projects/Common/app/Target/ai_model_config.h
