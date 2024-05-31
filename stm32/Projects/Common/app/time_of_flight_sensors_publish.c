@@ -92,7 +92,7 @@ static int32_t status = 0;
  * payloads.
  */
 #define MQTT_PUBLISH_MAX_LEN                 ( 200 )
-#define MQTT_PUBLISH_PERIOD_MS               ( 100 )
+#define MQTT_PUBLISH_PERIOD_MS               ( 50 )
 #define MQTT_PUBLICH_TOPIC_STR_LEN           ( 256 )
 #define MQTT_PUBLISH_BLOCK_TIME_MS           ( 300 )
 #define MQTT_PUBLISH_NOTIFICATION_WAIT_MS    ( 1000 )
@@ -324,7 +324,7 @@ void vMotionSensorsPublish( void * pvParameters )
 
 		//print_result(&App_Config);
 	//	LogInfo( " -------------  %f     --------",App_Config.HANDPOSTURE_Input_Data.ranging[27]);
-		LogInfo( " ------------- VERSION  2   ...........................................................     --------");
+	//	LogInfo( " ------------- VERSION  2   ...........................................................     --------");
 
 			/* Run inference */
 
@@ -346,9 +346,9 @@ void vMotionSensorsPublish( void * pvParameters )
 
 			//classe_table[(App_Config.AI_Data.handposture_label)],App_Config.HANDPOSTURE_Input_Data.ranging[27]
 
-        		LogError( "distance -------------  %d     --------",App_Config.AI_Data.model_output);
+        	//	LogError( "distance -------------  %d     --------",App_Config.AI_Data.model_output);
 
-		    	LogInfo("\033[1;32m The output \033[0m : %d \r\n",(App_Config.AI_Data.handposture_label));
+		    	LogInfo("\033[1;32m The output issss \033[0m : %d \r\n",(App_Config.AI_Data.handposture_label));
 
 
 
@@ -366,7 +366,7 @@ void vMotionSensorsPublish( void * pvParameters )
                 }
             }
         }
-     //   vTaskDelay( pdMS_TO_TICKS( MQTT_PUBLISH_PERIOD_MS ) );
+        vTaskDelay( pdMS_TO_TICKS( MQTT_PUBLISH_PERIOD_MS ) );
     }
 
     vPortFree( pcDeviceId );
