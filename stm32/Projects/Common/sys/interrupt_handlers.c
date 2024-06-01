@@ -28,7 +28,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "hw_defs.h"
-#include "b_u585i_iot02a_audio.h"
+
 extern volatile uint8_t ToF_EventDetected;
 static GPIOInterruptCallback_t volatile xGpioCallbacks[ 16 ] = { NULL };
 static void * volatile xGpioCallbackContext[ 16 ] = { NULL };
@@ -151,7 +151,7 @@ void EXTI15_IRQHandler( void )
   */
 void GPDMA1_Channel0_IRQHandler(void)
 {
-  BSP_AUDIO_IN_IRQHandler(0, AUDIO_IN_DEVICE_DIGITAL_MIC2);
+ // BSP_AUDIO_IN_IRQHandler(0, AUDIO_IN_DEVICE_DIGITAL_MIC2);
 }
 
 /**
@@ -161,7 +161,7 @@ void GPDMA1_Channel0_IRQHandler(void)
   */
 void GPDMA1_Channel6_IRQHandler(void)
 {
-  BSP_AUDIO_IN_IRQHandler(0, AUDIO_IN_DEVICE_DIGITAL_MIC1);
+  //BSP_AUDIO_IN_IRQHandler(0, AUDIO_IN_DEVICE_DIGITAL_MIC1);
 }
 
 void GPDMA1_Channel4_IRQHandler( void )
