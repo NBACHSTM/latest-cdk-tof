@@ -179,15 +179,15 @@ export class Code extends Construct {
         phases: {
           build: {
             commands: [
-              'mkdir -p Middleware/STM32_AI_Library',
-              'cp -r $CODEBUILD_SRC_DIR_ml/stm32ai_files/Inc Middleware/STM32_AI_Library/',
-              'cp -r $CODEBUILD_SRC_DIR_ml/stm32ai_files/Lib Middleware/STM32_AI_Library/',
-              'ls Middleware/STM32_AI_Library/Inc',
-              'ls Middleware/STM32_AI_Library/Lib',
-              'cp -r $CODEBUILD_SRC_DIR_ml/C_header/* Projects/Common/dpu/',
-              'ls Projects/Common/dpu',
-              'mv Middleware/STM32_AI_Library/Lib/NetworkRuntime730_CM33_GCC.a Middleware/STM32_AI_Library/Lib/NetworkRuntime810_CM33_GCC.a', //TODO: check how to sync runtime version
-              'cp -r $CODEBUILD_SRC_DIR_ml/stm32ai_files/network* Projects/Common/X-CUBE-AI/App/',
+              //'mkdir -p Middleware/STM32_AI_Library',
+              //'cp -r $CODEBUILD_SRC_DIR_ml/stm32ai_files/Inc Middleware/STM32_AI_Library/',
+              //'cp -r $CODEBUILD_SRC_DIR_ml/stm32ai_files/Lib Middleware/STM32_AI_Library/',
+              //'ls Middleware/STM32_AI_Library/Inc',
+              //'ls Middleware/STM32_AI_Library/Lib',
+              //..........try to take it off after you decomment the whole thing................'cp -r $CODEBUILD_SRC_DIR_ml/C_header/* Projects/Common/dpu/',
+              //'ls Projects/Common/dpu',
+              //'mv Middleware/STM32_AI_Library/Lib/NetworkRuntime730_CM33_GCC.a Middleware/STM32_AI_Library/Lib/NetworkRuntime810_CM33_GCC.a', //TODO: check how to sync runtime version
+              //'cp -r $CODEBUILD_SRC_DIR_ml/stm32ai_files/network* Projects/Common/X-CUBE-AI/App/',
               '/opt/st/stm32cubeide_1.12.1/headless-build.sh -data . -import Projects/b_u585i_iot02a_ntz -build b_u585i_iot02a_ntz',
             ],
           },

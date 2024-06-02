@@ -17,10 +17,10 @@ stm32/.metadata
 
 stm32/Projects/b_u585i_iot02a_ntz/Debug
 
-stm32/Projects/Common/X-CUBE-AI/App/network*
+#stm32/Projects/Common/X-CUBE-AI/App/network*
 
-stm32/Middleware/STM32_AI_Library/*
+#stm32/Middleware/STM32_AI_Library/*
 
 stm32/Projects/Common/dpu/ai_model_config.h
-stm32/Projects/Common/dpu/user_mel_tables.*
-#stm32/Projects/Common/app/Target/ai_model_config.h
+#stm32/Projects/Common/dpu/user_mel_tables.*
+#stm32/Projects/Common/dpu/ai_model_config.h

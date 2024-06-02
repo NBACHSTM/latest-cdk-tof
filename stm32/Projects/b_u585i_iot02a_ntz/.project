@@ -72,11 +72,6 @@
 			<locationURI>WORKSPACE_LOC/Drivers/BSP/Components/lsm6dso</locationURI>
 		</link>
 		<link>
-			<name>Libraries/AudioPreProcessing</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
 			<name>Libraries/CMSIS</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
@@ -170,16 +165,6 @@
 			<name>Libraries/tinycbor</name>
 			<type>2</type>
 			<locationURI>WORKSPACE_LOC/Middleware/tinycbor/src</locationURI>
-		</link>
-		<link>
-			<name>Libraries/AudioPreProcessing/Inc</name>
-			<type>2</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Middleware/STM32_AI_AudioPreprocessing_Library/Inc</locationURI>
-		</link>
-		<link>
-			<name>Libraries/AudioPreProcessing/Src</name>
-			<type>2</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Middleware/STM32_AI_AudioPreprocessing_Library/Src</locationURI>
 		</link>
 		<link>
 			<name>Libraries/CMSIS/core</name>
