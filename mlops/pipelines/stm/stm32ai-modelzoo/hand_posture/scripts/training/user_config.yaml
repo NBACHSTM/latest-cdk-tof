@@ -5,7 +5,7 @@ general:
 
 train_parameters:
   batch_size: 32
-  training_epochs: 600
+  training_epochs: 1000
   optimizer: adam
   initial_learning: 0.01
   learning_rate_scheduler: reducelronplateau

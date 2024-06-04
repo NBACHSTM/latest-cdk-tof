@@ -339,7 +339,7 @@ void vMotionSensorsPublish( void * pvParameters )
 
         	int lbytesWritten = snprintf( pcPayloadBuf,MQTT_PUBLISH_MAX_LEN,  "{"
 
-        			"\"pred\": %d"
+        			"\"pred V2\": %d"
         			","
 					"\"dist\": %.1f"
                     "}",(App_Config.AI_Data.handposture_label),App_Config.HANDPOSTURE_Input_Data.ranging[27]/10.0);
@@ -348,7 +348,7 @@ void vMotionSensorsPublish( void * pvParameters )
 
         		LogError( "distance -------------  %d     --------",App_Config.AI_Data.model_output);
 
-		    	LogInfo("\033[1;32m The output \033[0m : %d \r\n",(App_Config.AI_Data.handposture_label));
+		    	LogInfo("\033[1;32m The output of  \033[0m : %d \r\n",(App_Config.AI_Data.handposture_label));
 
 
 
