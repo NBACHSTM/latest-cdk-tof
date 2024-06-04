@@ -19,8 +19,8 @@ dataset:
  
 
 pre_processing:
-  Max_distance: 400
-  Min_distance: 150
+  Max_distance: 500
+  Min_distance: 100
   Background_distance: 120
 
 data_augmentation:
