@@ -29,7 +29,7 @@ export class Dashboard extends Construct {
       onEventHandler,
     });
 
-    const mlConfig = parse(readFileSync('/latest-cdk-tof/mlops/pipelines/stm/stm32ai-modelzoo/hand_posture/src/user_config.yaml', 'utf8'));
+    const mlConfig = parse(readFileSync('mlops/pipelines/stm/stm32ai-modelzoo/hand_posture/src/user_config.yaml', 'utf8'));
     const colorMappings = mlConfig.dataset.class_names.reduce((mapping: any, className: string, i: number) => {
       const randomColor = Math.floor(Math.random() * 16777215).toString(16);
       mapping[className] = { index: i, color: '#' + randomColor };
