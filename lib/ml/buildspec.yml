@@ -18,7 +18,7 @@ phases:
      - git clone https://github.com/NBACHSTM/VL53L5CX-tofDataset.git 
      - cd ..
      - echo "Uploading to S3 bucket under /train/datasets/ST_VL53L5CX_handposture_dataset/ ..." 
-     - aws s3 cp temp/VL53L5CX-tofDataset/datasets/ST_VL53L8CX_handposture_dataset s3://${ARTIFACT_BUCKET}/train/datasets/ST_VL53L5CX_handposture_dataset/ --recursive 
+     - aws s3 cp temp/VL53L5CX-tofDataset/datasets/ST_VL53L8CX_handposture_dataset s3://${ARTIFACT_BUCKET}/train/datasets/ST_VL53L8CX_handposture_dataset/ --recursive 
      
 
   build:
