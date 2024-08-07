@@ -7,7 +7,7 @@ import traceback
 
 if __name__ == "__main__":
     
-    module_path = os.path.abspath('hand_posture/src/')
+    module_path = os.path.abspath('hand_posture/src')
     if module_path not in sys.path:
         sys.path.append(module_path)
         
