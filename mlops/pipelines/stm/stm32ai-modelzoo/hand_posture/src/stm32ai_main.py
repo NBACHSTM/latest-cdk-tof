@@ -52,12 +52,12 @@ elif sys.platform.startswith('win'):
 from logs_utils import mlflow_ini, log_to_file
 from gpu_utils import set_gpu_memory_limit
 from cfg_utils import get_random_seed
-from preprocess import preprocess
+import preprocess
 from visualize_utils import display_figures
 from parse_config import get_config
-from train import train
-from evaluate import evaluate
-from deploy import deploy
+from trainn import train
+from evluatee import evaluate
+import deploy
 from common_benchmark import benchmark
 from typing import Optional
 
