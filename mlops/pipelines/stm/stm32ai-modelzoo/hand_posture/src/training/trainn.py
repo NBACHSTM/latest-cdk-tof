@@ -27,7 +27,7 @@ from cfg_utils import collect_callback_args
 from common_training import set_frozen_layers, set_dropout_rate, get_optimizer
 from models_mgt import get_model, get_loss
 from data_augmentation import get_data_augmentation
-from evaluate import evaluate_h5_model
+from evaluatee import evaluate_h5_model
 from visualize_utils import vis_training_curves
 
 
