@@ -97,11 +97,16 @@ def process_mode(mode: str = None,
         display_figures(configs)
         print('[INFO] : Training complete.')
     elif mode == 'evaluation':
+        print('[INFO] : Starting evaluation .')
         if test_ds:
            report_dict = evaluate(cfg=configs, eval_ds=test_ds, name_ds="test set")
         else:
            report_dict = evaluate(cfg=configs, eval_ds=valid_ds, name_ds="validation set")
         display_figures(configs)
+         # log to SageMaker experiments
+        with load_run(experiment_name=os.environ['EXPERIMENT_NAME'], run_name=os.environ['RUN_NAME'], sagemaker_session=session) as run:
+           # Log a metrics over the course of a run
+           run.log_metric(name="test_acc", value=report_dict['multiclass_classification_metrics']['test_acc']['value'])
         print('[INFO] : Evaluation complete.')
     elif mode == 'deployment':
         deploy(cfg=configs)
@@ -114,10 +119,7 @@ def process_mode(mode: str = None,
     else:
         raise ValueError(f"Invalid mode: {mode}")
     
-    # log to SageMaker experiments
-    with load_run(experiment_name=os.environ['EXPERIMENT_NAME'], run_name=os.environ['RUN_NAME'], sagemaker_session=session) as run:
-        # Log a metrics over the course of a run
-        run.log_metric(name="test_acc", value=report_dict['multiclass_classification_metrics']['test_acc']['value'])
+   
         
     # Record the whole hydra working directory to get all info
     mlflow.log_artifact(configs.output_dir)   
