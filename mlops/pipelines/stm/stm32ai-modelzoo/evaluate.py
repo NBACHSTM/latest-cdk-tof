@@ -12,7 +12,13 @@ if __name__ == "__main__":
         sys.path.append(module_path)
         
     try:
-        subprocess.run(["python", os.path.join(module_path, "stm32ai_main.py operation_mode='evaluation'")])
+        subprocess.run([
+        "python",
+        os.path.join(module_path, "stm32ai_main.py"),
+        "--config-path", "./config_file_examples/",
+        "--config-name", "evaluation_config.yaml"
+        ])
+        
         print('Evaluation complete.')
 
             # A zero exit code causes the job to be marked a Succeeded.
