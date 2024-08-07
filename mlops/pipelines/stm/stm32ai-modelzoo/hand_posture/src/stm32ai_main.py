@@ -56,7 +56,7 @@ import preprocess
 from visualize_utils import display_figures
 from parse_config import get_config
 from trainn import train
-from evluatee import evaluate
+from evaluatee import evaluate
 import deploy
 from common_benchmark import benchmark
 from typing import Optional
