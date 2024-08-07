@@ -1,6 +1,6 @@
 general:
   project_name: handposture
-  model_path: ../pretrained_models/CNN2D_ST_HandPosture/ST_pretrainedmodel_custom_dataset/ST_VL53L8CX_handposture_dataset/CNN2D_ST_HandPosture_8classes/CNN2D_ST_HandPosture_8classes.h5
+  model_path: 
   logs_dir: logs
   saved_models_dir: saved_models
   display_figures: True
@@ -50,7 +50,7 @@ training:
       monitor: val_accuracy
       restore_best_weights: true
       patience: 40
-  trained_model_path: trained.h5   # Optional, use it if you want to save the best model at the end of the training to a path of your choice
+  trained_model_path: /opt/ml/input/data/train/best_model/trained.h5   # Optional, use it if you want to save the best model at the end of the training to a path of your choice
 
 tools:
   stedgeai:

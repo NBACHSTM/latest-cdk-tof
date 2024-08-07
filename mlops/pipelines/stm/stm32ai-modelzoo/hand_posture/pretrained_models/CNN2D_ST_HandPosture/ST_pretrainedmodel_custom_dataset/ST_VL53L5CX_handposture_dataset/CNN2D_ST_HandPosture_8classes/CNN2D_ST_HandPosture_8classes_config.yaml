@@ -19,7 +19,7 @@ dataset:
   - Love
   - BreakTime
   - CrossHands
-  training_path: ../datasets/ST_VL53L5CX_handposture_dataset
+  training_path: /opt/ml/input/data/train/datasets/ST_VL53L8CX_handposture_dataset
   validation_path: null
   validation_split: null
   test_path: null
@@ -60,16 +60,16 @@ tools:
     path_to_stedgeai: C:/Users/<XXXXX>/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AI/<*.*.*>/Utilities/windows/stedgeai.exe
   path_to_cubeIDE: C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/stm32cubeide.exe
 benchmarking:
-  board: NUCLEO-F401RE
+  board: B-U585I-IOT02A
 deployment:
-  c_project_path: ../../stm32ai_application_code/hand_posture/
+  c_project_path: ../../../../../../stm32/
   IDE: GCC
   verbosity: 1
   hardware_setup:
-    serie: STM32F4
-    board: NUCLEO-F401RE
+    serie: STM32U5
+    board: B-U585I-IOT02A
 mlflow:
   uri: ./experiments_outputs/mlruns
 hydra:
   run:
-    dir: ./experiments_outputs/${now:%Y_%m_%d_%H_%M_%S}
+    dir: /opt/ml/model/outputs/${now:%Y_%m_%d_%H_%M_%S}
