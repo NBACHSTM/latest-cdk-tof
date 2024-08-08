@@ -333,12 +333,13 @@ def train(cfg: DictConfig = None, train_ds: tf.data.Dataset = None,
                                    "{}/{}".format(saved_models_dir, "best_model.h5"))
     best_model.save(best_model_path)
 
-    # Save a copy of the best model if requested   /opt/ml/input/data/train
+    # Save a copy of the best model if requested   /opt/ml/input/data/train/best_model
     if cfg.training.trained_model_path:
         best_model.save(cfg.training.trained_model_path)
         print("[INFO] : Saved trained model in file {}".format(cfg.training.trained_model_path))
+        
 
-
+    
     # Evaluate h5 best model on the validation set
     evaluate_h5_model(model_path=best_model_path, eval_ds=valid_ds,
                      class_names=class_names, output_dir=output_dir, name_ds="validation_set")

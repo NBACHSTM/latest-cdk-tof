@@ -1,8 +1,8 @@
 general:
   project_name: handposture
-  model_path: /opt/ml/input/data/train/best_model/best_model.h5
+  model_path: 
   logs_dir: logs
-  saved_models_dir: /opt/ml/input/data/train/best_model
+  saved_models_dir: best_models
   display_figures: True
   global_seed: 42
   gpu_memory_limit: 24

@@ -1,5 +1,5 @@
 general:
-  model_path:  /opt/ml/input/data/train/best_model
+  model_path:  /opt/ml/input/data/train/best_model/best_model.h5
  
 operation_mode: evaluation
 
