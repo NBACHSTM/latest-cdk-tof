@@ -127,15 +127,16 @@ def process_mode(mode: str = None,
         mlflow.log_param("model_path", configs.general.model_path)
         mlflow.log_param("stm32ai_version", configs.tools.stm32ai.version)
         mlflow.log_param("target", configs.benchmarking.board)
-        
-    #Create a PropertyFile
-    # A PropertyFile is used to reference outputs from a processing step, in order to use in a condition step
-    output_dir = "/opt/ml/processing/evaluation"
-    pathlib.Path(output_dir).mkdir(parents=True, exist_ok=True)
-    evaluation_path = f"{output_dir}/evaluation.json"
-    with open(evaluation_path, "w") as f:
-        f.write(json.dumps(report_dict))
-        print("Done creating evaluation.json")
+    
+    if mode == 'evaluation':    
+        #Create a PropertyFile
+        # A PropertyFile is used to reference outputs from a processing step, in order to use in a condition step
+        output_dir = "/opt/ml/processing/evaluation"
+        pathlib.Path(output_dir).mkdir(parents=True, exist_ok=True)
+        evaluation_path = f"{output_dir}/evaluation.json"
+        with open(evaluation_path, "w") as f:
+            f.write(json.dumps(report_dict))
+            print("Done creating evaluation.json")
     # logging the completion of the chain
     log_to_file(configs.output_dir, f'operation finished: {mode}')
 
