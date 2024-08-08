@@ -220,7 +220,7 @@ def train(cfg: DictConfig = None, train_ds: tf.data.Dataset = None,
         Path to the best model obtained
     """
 
-    output_dir = HydraConfig.get().runtime.output_dir
+   
     
     print("starting Training\n")
     output_dir = HydraConfig.get().runtime.output_dir
@@ -338,7 +338,8 @@ def train(cfg: DictConfig = None, train_ds: tf.data.Dataset = None,
         best_model.save(cfg.training.trained_model_path)
         print("[INFO] : Saved trained model in file {}".format(cfg.training.trained_model_path))
         
-
+    ml_path = "/opt/ml/processing/input/model/best_model.h5"
+    print(f"Le chemin vérifié : {ml_path}, est-ce un fichier ? : {os.path.isfile(ml_path)}\n")
     
     # Evaluate h5 best model on the validation set
     evaluate_h5_model(model_path=best_model_path, eval_ds=valid_ds,

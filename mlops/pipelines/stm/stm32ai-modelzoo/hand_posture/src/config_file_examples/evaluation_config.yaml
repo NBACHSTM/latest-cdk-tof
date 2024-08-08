@@ -1,5 +1,5 @@
 general:
-  model_path: /opt/ml/model/outputs/saved_models/best_model.h5
+  model_path: /opt/ml/processing/input/model/model.tar.gz
  
 operation_mode: evaluation
 
@@ -18,4 +18,4 @@ mlflow:
 
 hydra:
   run:
-    dir: /opt/ml/model/outputs/${now:%Y_%m_%d_%H_%M_%S}
+    dir: /opt/ml/processing/outputs/build
