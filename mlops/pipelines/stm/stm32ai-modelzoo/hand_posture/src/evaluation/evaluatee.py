@@ -62,7 +62,7 @@ def evaluate_h5_model(model_path: str = None, eval_ds: tf.data.Dataset = None, c
     
     print(f"[INFO] : Accuracy of float model = {test_accuracy} %")
     print(f"[INFO] : Loss of float model = {test_loss}")
-    print(f"[INFO] : ZEBI")
+   
     mlflow.log_metric(f"float_acc_{name_ds}", test_accuracy)
     mlflow.log_metric(f"float_loss_{name_ds}", test_loss)
     log_to_file(output_dir, f"Float model {name_ds}:")
