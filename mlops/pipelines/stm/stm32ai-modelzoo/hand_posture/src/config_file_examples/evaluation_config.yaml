@@ -1,5 +1,6 @@
 general:
-  model_path: /opt/ml/input/data/train/best_model/trained.h5  
+  model_path: 
+  
 operation_mode: evaluation
 
 dataset:
