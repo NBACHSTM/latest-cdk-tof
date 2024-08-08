@@ -1,8 +1,8 @@
 general:
   project_name: handposture
-  model_path: 
+  model_path: /opt/ml/input/data/train/best_model/best_model.h5
   logs_dir: logs
-  saved_models_dir: saved_models
+  saved_models_dir: /opt/ml/input/data/train/best_model
   display_figures: True
   global_seed: 42
   gpu_memory_limit: 24
@@ -29,7 +29,7 @@ data_augmentation:    # Optional section
     mode: horizontal # horizontal, vertical or horizontal_and_vertical
 
 training:
-  model:    # Use it if you want to use a model from the zoo, mutually exclusiv                                                                                              e with 'general.model_path'
+  model:    # Use it if you want to use a model from the zoo, mutually exclusive with 'general.model_path'
     name: CNN2D_ST_HandPosture # custom
     version: v1
     input_shape: (8, 8, 2)
@@ -50,7 +50,8 @@ training:
       monitor: val_accuracy
       restore_best_weights: true
       patience: 40
-#  trained_model_path: /opt/ml/input/data/train/trained.h5   # Optional, use it if you want to save the best model at the end of the training to a path of your choice
+      
+  trained_model_path: /opt/ml/input/data/train/best_model/best_model.h5   # Optional, use it if you want to save the best model at the end of the training to a path of your choice
 
 tools:
   stedgeai:

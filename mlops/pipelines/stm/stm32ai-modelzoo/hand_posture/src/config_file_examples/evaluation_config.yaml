@@ -1,6 +1,6 @@
 general:
-  model_path: 
-  
+  model_path:  /opt/ml/input/data/train/best_model
+ 
 operation_mode: evaluation
 
 dataset:

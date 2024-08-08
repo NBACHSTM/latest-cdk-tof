@@ -435,7 +435,11 @@ def parse_general_section(cfg: DictConfig,
     elif mode in ("deployment"):
         if not ml_path or file_extension not in (".h5", ".tflite", ".onnx"):
             raise ValueError(m1 + ".h5, .tflite or .onnx" + m2)
-
+    
+   
+    entries = os.listdir(ml_path)
+    print(f"\nthe looked up path :{entries} and is it a file : {os.path.isfile(ml_path)}\n")
+    
     # If model_path is set, check that the model file exists.
     if ml_path and not os.path.isfile(ml_path):
         raise FileNotFoundError(f"\nUnable to find file {ml_path}\n"

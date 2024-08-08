@@ -221,6 +221,12 @@ def train(cfg: DictConfig = None, train_ds: tf.data.Dataset = None,
     """
 
     output_dir = HydraConfig.get().runtime.output_dir
+    
+    print("starting Training\n")
+    output_dir = HydraConfig.get().runtime.output_dir
+    print(f"current directory (output_dir) : {output_dir}")
+    
+    
     saved_models_dir = cfg.general.saved_models_dir
     class_names = cfg.dataset.class_names
     num_classes = len(class_names)
@@ -327,7 +333,7 @@ def train(cfg: DictConfig = None, train_ds: tf.data.Dataset = None,
                                    "{}/{}".format(saved_models_dir, "best_model.h5"))
     best_model.save(best_model_path)
 
-    # Save a copy of the best model if requested
+    # Save a copy of the best model if requested   /opt/ml/input/data/train
     if cfg.training.trained_model_path:
         best_model.save(cfg.training.trained_model_path)
         print("[INFO] : Saved trained model in file {}".format(cfg.training.trained_model_path))

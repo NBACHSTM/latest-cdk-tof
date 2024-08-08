@@ -89,8 +89,9 @@ def evaluate(cfg: DictConfig = None, eval_ds: tf.data.Dataset = None,
             "test_acc": {"value": 0},
         },
     }
-    
+    print("starting Evaluation\n")
     output_dir = HydraConfig.get().runtime.output_dir
+    print(f"current directory (output_dir) : {output_dir}")
     class_names = cfg.dataset.class_names
     
     model_path = model_path_to_evaluate if model_path_to_evaluate else cfg.general.model_path
