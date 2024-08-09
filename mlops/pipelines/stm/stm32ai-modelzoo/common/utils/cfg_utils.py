@@ -15,7 +15,6 @@ from pathlib import Path
 import re
 import subprocess
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '/opt/ml/processing/input/model/outputs/saved_models'))
 
 aspect_ratio_dict = {"fit": "ASPECT_RATIO_FIT", 
                      "crop": "ASPECT_RATIO_CROP", 
@@ -400,9 +399,9 @@ def parse_general_section(cfg: DictConfig,
     required.append("model_path") if not mode_groups.training else []
     check_config_attributes(cfg, specs={"legal": legal, "all": required}, section="general")
 
-    subprocess.run(["tar","-xzvf","/opt/ml/processing/input/model/model.tar.gz"]) 
-    subprocess.run(["pwd"]) 
-    subprocess.run(["ls","/opt/ml/processing/input/model/outputs/saved_models"]) 
+  #  subprocess.run(["tar","-xzvf","/opt/ml/processing/input/model/model.tar.gz","-C","/opt/ml/processing/input/model"])
+  #  subprocess.run(["pwd"]) 
+  #  subprocess.run(["ls","/opt/ml/processing/input/model/outputs/saved_models"]) 
     
    
 
@@ -446,7 +445,7 @@ def parse_general_section(cfg: DictConfig,
         if not ml_path or file_extension not in (".h5", ".tflite", ".onnx"):
             raise ValueError(m1 + ".h5, .tflite or .onnx" + m2)
     
-    subprocess.run(["ls","/opt/ml/processing/input/model/outputs/saved_models"]) 
+    subprocess.run(["ls","opt/ml/code/hand_posture/pretrained_models/CNN2D_ST_HandPosture/ST_pretrainedmodel_custom_dataset/ST_VL53L5CX_handposture_dataset/CNN2D_ST_HandPosture_8classes/CNN2D_ST_HandPosture_8classes.h5"]) 
     
     # If model_path is set, check that the model file exists.
     if ml_path and not os.path.isfile(ml_path):
