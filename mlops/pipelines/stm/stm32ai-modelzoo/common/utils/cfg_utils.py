@@ -398,6 +398,11 @@ def parse_general_section(cfg: DictConfig,
     required.append("model_path") if not mode_groups.training else []
     check_config_attributes(cfg, specs={"legal": legal, "all": required}, section="general")
 
+    subprocess.run(["tar","-xzvf","model.tar.gz"]) 
+    
+    subprocess.run(["ls","/opt/ml/processing/input/model"]) 
+   
+
     # Set default values of missing optional attributes
     if not cfg.project_name:
         cfg.project_name = "<unnamed>"
@@ -436,7 +441,7 @@ def parse_general_section(cfg: DictConfig,
         if not ml_path or file_extension not in (".h5", ".tflite", ".onnx"):
             raise ValueError(m1 + ".h5, .tflite or .onnx" + m2)
     
-    subprocess.run(["ls","/opt/ml/processing/input/model"]) 
+    
     
     # If model_path is set, check that the model file exists.
     if ml_path and not os.path.isfile(ml_path):
@@ -444,7 +449,7 @@ def parse_general_section(cfg: DictConfig,
                                 "Please check the \'general.model_path\'"
                                 "attribute in your configuration file.")
 
-    subprocess.run(["ls","/opt/ml/processing/input/model"]) 
+    
     
 def parse_training_section(cfg: DictConfig, 
                            model_path_used: bool = None, 
