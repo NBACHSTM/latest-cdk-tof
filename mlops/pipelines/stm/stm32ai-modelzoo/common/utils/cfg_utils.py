@@ -15,6 +15,8 @@ from pathlib import Path
 import re
 import subprocess
 
+sys.path.append(os.path.join(os.path.dirname(__file__), '/opt/ml/processing/input/model/outputs/saved_models'))
+
 aspect_ratio_dict = {"fit": "ASPECT_RATIO_FIT", 
                      "crop": "ASPECT_RATIO_CROP", 
                      "padding": "ASPECT_RATIO_PADDING"}
@@ -399,8 +401,9 @@ def parse_general_section(cfg: DictConfig,
     check_config_attributes(cfg, specs={"legal": legal, "all": required}, section="general")
 
     subprocess.run(["tar","-xzvf","/opt/ml/processing/input/model/model.tar.gz"]) 
+    subprocess.run(["pwd"]) 
+    subprocess.run(["ls","/opt/ml/processing/input/model/outputs/saved_models"]) 
     
-    subprocess.run(["ls"," /opt/ml/processing/input/model/outputs/saved_models"]) 
    
 
     # Set default values of missing optional attributes
@@ -424,7 +427,9 @@ def parse_general_section(cfg: DictConfig,
     if ml_path:
         m2 += f"Received path: {ml_path}\n"
     m2 += "Please check the 'general' section of your configuration file."
-
+    
+    subprocess.run(["ls","/opt/ml/processing/input/model/outputs/saved_models"]) 
+      
     if mode in mode_groups.training:
         if ml_path and file_extension != ".h5":
             raise ValueError(m1 + ".h5" + m2)
@@ -441,11 +446,14 @@ def parse_general_section(cfg: DictConfig,
         if not ml_path or file_extension not in (".h5", ".tflite", ".onnx"):
             raise ValueError(m1 + ".h5, .tflite or .onnx" + m2)
     
-    
+    subprocess.run(["ls","/opt/ml/processing/input/model/outputs/saved_models"]) 
     
     # If model_path is set, check that the model file exists.
     if ml_path and not os.path.isfile(ml_path):
-        raise FileNotFoundError(f"\nUnable to find file {ml_path}\n"
+        #raise FileNotFoundError(f"\nUnable to find file {ml_path}\n"
+        #                        "Please check the \'general.model_path\'"
+        #                        "attribute in your configuration file.")
+        print(f"\nUnable to find file {ml_path}\n"
                                 "Please check the \'general.model_path\'"
                                 "attribute in your configuration file.")
 

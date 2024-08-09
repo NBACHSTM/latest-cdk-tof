@@ -28,8 +28,8 @@ from sagemaker.experiments.run import Run
 from sagemaker.session import Session
 
 
-sys.path.append(os.path.abspath('/opt/ml/model/outputs/saved_models'))
-sys.path.append(os.path.abspath('/opt/ml/processing/input'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '/opt/ml/processing/input/model/outputs/saved_models'))
+sys.path.append(os.path.join(os.path.dirname(__file__), '/opt/ml/processing/input'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '../../common'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '../../common/benchmarking'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '../../common/deployment'))
