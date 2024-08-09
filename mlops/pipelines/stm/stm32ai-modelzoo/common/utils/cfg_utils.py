@@ -398,9 +398,9 @@ def parse_general_section(cfg: DictConfig,
     required.append("model_path") if not mode_groups.training else []
     check_config_attributes(cfg, specs={"legal": legal, "all": required}, section="general")
 
-    subprocess.run(["tar","-xzvf","/opt/ml/processing/input/model/model.tar.gz"]) 
+    subprocess.run(["tar","-xzf","/opt/ml/processing/input/model/model.tar.gz"]) 
     
-    subprocess.run(["ls","/opt/ml/processing/input/model"]) 
+    subprocess.run(["ls"," /opt/ml/model/outputs/saved_models/best_model.h5"]) 
    
 
     # Set default values of missing optional attributes
