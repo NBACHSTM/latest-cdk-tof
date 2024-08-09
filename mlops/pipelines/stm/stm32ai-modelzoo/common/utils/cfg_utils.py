@@ -427,7 +427,7 @@ def parse_general_section(cfg: DictConfig,
         m2 += f"Received path: {ml_path}\n"
     m2 += "Please check the 'general' section of your configuration file."
     
-    subprocess.run(["ls","/opt/ml/processing/input/model/outputs/saved_models"]) 
+    
       
     if mode in mode_groups.training:
         if ml_path and file_extension != ".h5":
@@ -449,12 +449,10 @@ def parse_general_section(cfg: DictConfig,
     
     # If model_path is set, check that the model file exists.
     if ml_path and not os.path.isfile(ml_path):
-        #raise FileNotFoundError(f"\nUnable to find file {ml_path}\n"
-        #                        "Please check the \'general.model_path\'"
-        #                        "attribute in your configuration file.")
-        print(f"\nUnable to find file {ml_path}\n"
-                                "Please check the \'general.model_path\'"
-                                "attribute in your configuration file.")
+        raise FileNotFoundError(f"\nUnable to find file {ml_path}\n"
+                              "Please check the \'general.model_path\'"
+                              "attribute in your configuration file.")
+    
 
     
     
