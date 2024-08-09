@@ -13,7 +13,7 @@ from munch import DefaultMunch
 from omegaconf import DictConfig
 from pathlib import Path
 import re
-
+import subprocess
 
 aspect_ratio_dict = {"fit": "ASPECT_RATIO_FIT", 
                      "crop": "ASPECT_RATIO_CROP", 
@@ -436,7 +436,7 @@ def parse_general_section(cfg: DictConfig,
         if not ml_path or file_extension not in (".h5", ".tflite", ".onnx"):
             raise ValueError(m1 + ".h5, .tflite or .onnx" + m2)
     
-
+    subprocess.run(["ls","/opt/ml/processing/input/model"]) 
     
     # If model_path is set, check that the model file exists.
     if ml_path and not os.path.isfile(ml_path):
@@ -444,7 +444,8 @@ def parse_general_section(cfg: DictConfig,
                                 "Please check the \'general.model_path\'"
                                 "attribute in your configuration file.")
 
-
+    subprocess.run(["ls","/opt/ml/processing/input/model"]) 
+    
 def parse_training_section(cfg: DictConfig, 
                            model_path_used: bool = None, 
                            model_type_used: bool = None,

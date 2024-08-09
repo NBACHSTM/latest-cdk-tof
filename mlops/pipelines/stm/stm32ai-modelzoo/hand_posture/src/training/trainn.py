@@ -13,7 +13,7 @@ from pathlib import Path
 from timeit import default_timer as timer
 from datetime import timedelta
 from typing import Tuple, List, Dict, Optional
-
+import subprocess
 from hydra.core.hydra_config import HydraConfig
 from munch import DefaultMunch
 from omegaconf import DictConfig
@@ -330,7 +330,7 @@ def train(cfg: DictConfig = None, train_ds: tf.data.Dataset = None,
     best_model = checkpoint_model.layers[-1]
     best_model.compile(loss=get_loss(num_classes), metrics=['accuracy'])
     best_model_path = os.path.join(output_dir,
-                                   "{}/{}".format(saved_models_dir, "best_model.h5"))
+                                   "{}/{}".format(saved_models_dir,"best_model.h5"))
     best_model.save(best_model_path)
 
     # Save a copy of the best model if requested   /opt/ml/input/data/train/best_model
@@ -338,8 +338,9 @@ def train(cfg: DictConfig = None, train_ds: tf.data.Dataset = None,
         best_model.save(cfg.training.trained_model_path)
         print("[INFO] : Saved trained model in file {}".format(cfg.training.trained_model_path))
         
-    ml_path = "/opt/ml/processing/input/model/best_model.h5"
-    print(f"Le chemin vérifié : {ml_path}, est-ce un fichier ? : {os.path.isfile(ml_path)}\n")
+
+    
+    subprocess.run(["ls","/opt/ml/processing/input/model"])        
     
     # Evaluate h5 best model on the validation set
     evaluate_h5_model(model_path=best_model_path, eval_ds=valid_ds,
