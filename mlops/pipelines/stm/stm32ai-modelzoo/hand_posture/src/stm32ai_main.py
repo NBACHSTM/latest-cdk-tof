@@ -179,12 +179,12 @@ def main(cfg: DictConfig) -> None:
         model_path = glob.glob('/opt/ml/processing/input/model/**/**/**/*.h5')
         print(f"model path found for evaluation: {model_path[0]} ")
         cfg.general.model_path = model_path[0]
-        cfg.dataset.train_path = ""
+        cfg.dataset.training_path = ""
         cfg.dataset.test_path = "/opt/ml/processing/input/datasets/ST_VL53L8CX_handposture_dataset"
 
     
     elif cfg.operation_mode == 'training':
-        cfg.dataset.train_path = "/opt/ml/input/data/train/datasets/ST_VL53L8CX_handposture_dataset"
+        cfg.dataset.training_path = "/opt/ml/input/data/train/datasets/ST_VL53L8CX_handposture_dataset"
       
     else:
         print("No traing nor eval mode !!!!!!!!!!!!!!!!!!!!!!")
