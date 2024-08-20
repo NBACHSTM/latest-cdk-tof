@@ -181,11 +181,16 @@ def main(cfg: DictConfig) -> None:
         cfg.general.model_path = model_path[0]
         cfg.dataset.train_path = ""
         cfg.dataset.test_path = "/opt/ml/processing/input/datasets/ST_VL53L8CX_handposture_dataset"
-        cfg.dataset.train_path = cfg.dataset.test_path
-            
+
+    
+    elif cfg.operation_mode == 'training':
+        cfg.dataset.train_path = "/opt/ml/input/data/train/datasets/ST_VL53L8CX_handposture_dataset"
+      
     else:
-        print("Avoided to enter to the FUCKING if condition")
+        print("No traing nor eval mode !!!!!!!!!!!!!!!!!!!!!!")
         print("Le chemin du modèle n'a pas été défini dans la configuration.(propablement a training)")
+    
+    
     # Parse the configuration file
     cfg = get_config(cfg)
     cfg.output_dir = HydraConfig.get().run.dir
