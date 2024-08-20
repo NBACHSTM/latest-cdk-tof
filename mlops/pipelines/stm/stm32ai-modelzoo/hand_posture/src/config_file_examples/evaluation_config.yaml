@@ -1,12 +1,12 @@
 general:
-  model_path: /opt/ml/processing/input/model/outputs/saved_models/best_model.h5
+  model_path: ../pretrained_models/CNN2D_ST_HandPosture/ST_pretrainedmodel_custom_dataset/ST_VL53L5CX_handposture_dataset/CNN2D_ST_HandPosture_8classes/CNN2D_ST_HandPosture_8classes.h5
  
 operation_mode: evaluation
-
+ 
 dataset:
   name: ST_handposture_dataset
   class_names: [None, Like, Dislike, FlatHand, Fist, Love, BreakTime, CrossHands]
-  test_path: /opt/ml/input/data/train/datasets/ST_VL53L8CX_handposture_dataset  # Mandatory
+  test_path: /opt/ml/processing/input/datasets/ST_VL53L8CX_handposture_dataset/  # Mandatory
 
 preprocessing:
   Max_distance: 400

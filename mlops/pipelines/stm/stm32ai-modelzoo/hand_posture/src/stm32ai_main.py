@@ -179,6 +179,7 @@ def main(cfg: DictConfig) -> None:
         model_path = glob.glob('/opt/ml/processing/input/model/**/**/**/*.h5')
         print(f"model path found for evaluation: {model_path[0]} ")
         cfg.general.model_path = model_path[0]
+        cfg.dataset.train_path = cfg.dataset.test_path
         
             
     else:

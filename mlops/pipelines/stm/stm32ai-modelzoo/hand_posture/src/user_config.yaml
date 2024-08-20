@@ -14,10 +14,10 @@ operation_mode: training
 dataset:
   name: ST_handposture_dataset
   class_names: [None, Like, Dislike, FlatHand, Fist, Love, BreakTime, CrossHands] # Mandatory and aligned with utils/handposture_dictionnary.py
-  training_path: /opt/ml/input/data/train/datasets/ST_VL53L8CX_handposture_dataset  # Mandatory
+  training_path: /opt/ml/input/data/train/datasets/ST_VL53L8CX_handposture_dataset  # Mandatory 
   validation_path:    # Optional
   validation_split:   # Optional, default value is 0.2
-  test_path:          # Optional
+  test_path: /opt/ml/processing/input/datasets/ST_VL53L8CX_handposture_dataset        # Optional
 
 preprocessing: # Mandatory
   Max_distance: 400 # Mandatory
