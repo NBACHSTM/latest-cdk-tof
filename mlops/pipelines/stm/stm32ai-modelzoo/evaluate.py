@@ -14,11 +14,7 @@ if __name__ == "__main__":
     try:
         subprocess.run([
         "python",
-        os.path.join(module_path, "stm32ai_main.py"),
-        "--config-path", "./config_file_examples/",
-        "--config-name", "evaluation_config.yaml"
-       # "operation_mode='evaluation'"
-        ])
+        os.path.join(module_path, "stm32ai_main.py"),"operation_mode='evaluation'"])
         
         print('Evaluation complete.')
 

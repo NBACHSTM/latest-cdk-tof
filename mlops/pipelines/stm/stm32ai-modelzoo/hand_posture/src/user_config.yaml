@@ -77,4 +77,4 @@ mlflow:
 
 hydra:
   run:
-    dir: /opt/ml/model/outputs  #/${now:%Y_%m_%d_%H_%M_%S}
+    dir: /opt/ml/model/outputs/${now:%Y_%m_%d_%H_%M_%S}

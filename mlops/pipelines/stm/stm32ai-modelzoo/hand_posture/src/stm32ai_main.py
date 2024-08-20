@@ -26,7 +26,9 @@ import boto3
 from sagemaker.experiments.run import load_run
 from sagemaker.experiments.run import Run
 from sagemaker.session import Session
-
+import shutil
+import glob
+import subprocess
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '/opt/ml/processing/input/model/outputs/saved_models'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '/opt/ml/processing/input'))
@@ -166,6 +168,14 @@ def main(cfg: DictConfig) -> None:
                   "Please consider setting the 'gpu_memory_limit' attribute "
                   "in the 'general' section of your configuration file.")
 
+    
+    shutil.unpack_archive(cfg.general.model_path, '/opt/ml/processing/input/model/')
+    subprocess.run(["pwd"]) 
+    subprocess.run(["ls","/opt/ml/processing/input/model/"]) 
+    
+    model_path = glob.glob('/opt/ml/processing/input/model/**/**/**/*.h5')
+    
+    cfg.general.model_path = model_path[0]
     # Parse the configuration file
     cfg = get_config(cfg)
     cfg.output_dir = HydraConfig.get().run.dir
