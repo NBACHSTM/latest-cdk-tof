@@ -339,10 +339,7 @@ def train(cfg: DictConfig = None, train_ds: tf.data.Dataset = None,
         print("[INFO] : Saved trained model in file {}".format(cfg.training.trained_model_path))
         
 
-    print("the content of /opt/ml/processing/input/model: ")
-    subprocess.run(["ls","/opt/ml/processing/input/model"]) 
-    print("actual directory : ")
-    subprocess.run(["pwd"])
+   
     
     # Evaluate h5 best model on the validation set
     evaluate_h5_model(model_path=best_model_path, eval_ds=valid_ds,
