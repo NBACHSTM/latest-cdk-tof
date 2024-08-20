@@ -353,6 +353,7 @@ def train(cfg: DictConfig = None, train_ds: tf.data.Dataset = None,
         best_model_test_acc = evaluate_h5_model(model_path=best_model_path, eval_ds=test_ds,
                                                 class_names=class_names, output_dir=output_dir, name_ds="test_set")
     
-    cfg.general.model_path = '/opt/ml/processing/input/model/model.tar.gz'
+   
+   
     
     return best_model_path

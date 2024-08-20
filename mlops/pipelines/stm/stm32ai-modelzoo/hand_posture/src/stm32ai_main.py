@@ -168,10 +168,12 @@ def main(cfg: DictConfig) -> None:
             print("[WARNING] The usable GPU memory is unlimited.\n"
                   "Please consider setting the 'gpu_memory_limit' attribute "
                   "in the 'general' section of your configuration file.")
-
+    
+    cfg.general.model_path = '/opt/ml/processing/input/model/model.tar.gz'
+    
     if cfg.general.model_path is not None:
-        if cfg.operation_mode is 'evaluation' :
-            shutil.unpack_archive(cfg.general.model_path, '/opt/ml/processing/input/model/')
+        if cfg.operation_mode == 'evaluation' :
+            shutil.unpack_archive('/opt/ml/processing/input/model/model.tar.gz', '/opt/ml/processing/input/model/')
             subprocess.run(["pwd"]) 
             subprocess.run(["ls","/opt/ml/processing/input/model/"]) 
             model_path = glob.glob('/opt/ml/processing/input/model/**/**/**/*.h5')
