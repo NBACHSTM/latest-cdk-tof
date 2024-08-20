@@ -169,20 +169,21 @@ def main(cfg: DictConfig) -> None:
                   "Please consider setting the 'gpu_memory_limit' attribute "
                   "in the 'general' section of your configuration file.")
     
-    cfg.general.model_path = '/opt/ml/processing/input/model/model.tar.gz'
-    
-    if cfg.general.model_path is not None:
-        if cfg.operation_mode == 'evaluation' :
+   
+    if cfg.operation_mode == 'evaluation':
+        cfg.general.model_path = '/opt/ml/processing/input/model/model.tar.gz'
+        if cfg.general.model_path is not None:
+       
             shutil.unpack_archive('/opt/ml/processing/input/model/model.tar.gz', '/opt/ml/processing/input/model/')
             subprocess.run(["pwd"]) 
             subprocess.run(["ls","/opt/ml/processing/input/model/"]) 
             model_path = glob.glob('/opt/ml/processing/input/model/**/**/**/*.h5')
             print(f"model path found for evaluation: {model_path[0]} ")
             cfg.general.model_path = model_path[0]
-     
-        
-    else:
-        print("Le chemin du modèle n'a pas été défini dans la configuration.(propablement a training)")
+            
+            
+        else:
+            print("Le chemin du modèle n'a pas été défini dans la configuration.(propablement a training)")
     # Parse the configuration file
     cfg = get_config(cfg)
     cfg.output_dir = HydraConfig.get().run.dir
