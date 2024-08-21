@@ -181,6 +181,7 @@ def main(cfg: DictConfig) -> None:
         cfg.general.model_path = model_path[0]
         cfg.dataset.training_path = ""
         cfg.dataset.test_path = "/opt/ml/processing/input/datasets/ST_VL53L8CX_handposture_dataset"
+        cfg.hydra.run.dir = "/opt/ml/processing/outputs/build"
 
     
     elif cfg.operation_mode == 'training':
