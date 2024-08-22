@@ -16,7 +16,7 @@ warnings.filterwarnings("ignore")
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
 
 import tensorflow as tf
-from omegaconf import DictConfig
+from omegaconf import DictConfig, OmegaConf
 import mlflow
 import argparse
 import sys
@@ -30,6 +30,8 @@ import shutil
 import glob
 import subprocess
 
+
+sys.path.append(os.path.join(os.path.dirname(__file__), '/opt/ml/processing/outputs/build'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '/opt/ml/processing/input/model/outputs/saved_models'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '/opt/ml/processing/input'))
 sys.path.append(os.path.join(os.path.dirname(__file__), '../../common'))
@@ -136,7 +138,7 @@ def process_mode(mode: str = None,
     if mode == 'evaluation':    
         #Create a PropertyFile
         # A PropertyFile is used to reference outputs from a processing step, in order to use in a condition step
-        output_dir = "/opt/ml/processing/evaluation"
+        output_dir = "/opt/ml/processing/evaluation"  
         pathlib.Path(output_dir).mkdir(parents=True, exist_ok=True)
         evaluation_path = f"{output_dir}/evaluation.json"
         with open(evaluation_path, "w") as f:
@@ -171,8 +173,7 @@ def main(cfg: DictConfig) -> None:
     
    
     if cfg.operation_mode == 'evaluation' and cfg.general.model_path is None:
-        print("entered in the FUCKING IF condition ")
-        #cfg.general.model_path = '/opt/ml/processing/input/model/model.tar.gz'
+      
         shutil.unpack_archive('/opt/ml/processing/input/model/model.tar.gz', '/opt/ml/processing/input/model/')
         subprocess.run(["pwd"]) 
         subprocess.run(["ls","/opt/ml/processing/input/model/"]) 
@@ -181,14 +182,14 @@ def main(cfg: DictConfig) -> None:
         cfg.general.model_path = model_path[0]
         cfg.dataset.training_path = ""
         cfg.dataset.test_path = "/opt/ml/processing/input/datasets/ST_VL53L8CX_handposture_dataset"
-        cfg.hydra.run.dir = "/opt/ml/processing/outputs/build"
+        
 
     
     elif cfg.operation_mode == 'training':
         cfg.dataset.training_path = "/opt/ml/input/data/train/datasets/ST_VL53L8CX_handposture_dataset"
       
     else:
-        print("No traing nor eval mode !!!!!!!!!!!!!!!!!!!!!!")
+      
         print("Le chemin du modèle n'a pas été défini dans la configuration.(propablement a training)")
     
     
