@@ -261,8 +261,7 @@ def get_config(config_data: DictConfig) -> DefaultMunch:
                           mode=cfg.operation_mode, 
                           mode_groups=mode_groups)
 
-    if cfg.operation_mode == "evaluation":
-        cfg.hydra.run.dir = '/opt/ml/processing/outputs/build'
+    
         
     # Preprocessing section parsing
     if cfg.operation_mode in (mode_groups.training + mode_groups.evaluation + mode_groups.deployment):
