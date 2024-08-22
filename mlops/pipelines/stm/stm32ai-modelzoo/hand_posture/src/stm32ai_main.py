@@ -182,12 +182,7 @@ def main(cfg: DictConfig) -> None:
         cfg.general.model_path = model_path[0]
         cfg.dataset.training_path = ""
         cfg.dataset.test_path = "/opt/ml/processing/input/datasets/ST_VL53L8CX_handposture_dataset"
-        try:
-            cfg.hydra.run.dir = '/opt/ml/processing/outputs/build'
-        except AttributeError as e:
-            print(f"Erreur lors de la modification du chemin de sortie Hydra : {e}")
-        except Exception as e:
-            print(f"Une erreur inattendue s'est produite : {e}")
+       
 
     
     elif op == 'training':
@@ -200,9 +195,13 @@ def main(cfg: DictConfig) -> None:
     
     # Parse the configuration file
     cfg = get_config(cfg) 
+    
+    
     if op == 'evaluation' or op == 'benchmarking' :
-        HydraConfig.get().set_run_dir("/opt/ml/processing/outputs/build")
-    cfg.output_dir = HydraConfig.get().run.dir
+        cfg.output_dir = "/opt/ml/processing/outputs/build"
+    
+    else:
+        cfg.output_dir = HydraConfig.get().run.dir
     mlflow_ini(cfg)
 
     # Seed global seed for random generators
