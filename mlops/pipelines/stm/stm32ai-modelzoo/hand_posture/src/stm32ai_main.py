@@ -173,7 +173,7 @@ def main(cfg: DictConfig) -> None:
     
    
     if cfg.operation_mode == 'evaluation' and cfg.general.model_path is None:
-      
+        op = cfg.operation_mode
         shutil.unpack_archive('/opt/ml/processing/input/model/model.tar.gz', '/opt/ml/processing/input/model/')
         subprocess.run(["pwd"]) 
         subprocess.run(["ls","/opt/ml/processing/input/model/"]) 
@@ -200,7 +200,8 @@ def main(cfg: DictConfig) -> None:
     
     # Parse the configuration file
     cfg = get_config(cfg) 
-    HydraConfig.get().set_run_dir("/opt/ml/processing/outputs/build")
+    if op == 'evaluation':
+        HydraConfig.get().set_run_dir("/opt/ml/processing/outputs/build")
     cfg.output_dir = HydraConfig.get().run.dir
     mlflow_ini(cfg)
 
