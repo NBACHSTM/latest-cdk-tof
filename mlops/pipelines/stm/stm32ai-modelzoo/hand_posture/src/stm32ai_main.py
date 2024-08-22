@@ -171,9 +171,9 @@ def main(cfg: DictConfig) -> None:
                   "Please consider setting the 'gpu_memory_limit' attribute "
                   "in the 'general' section of your configuration file.")
     
-   
-    if cfg.operation_mode == 'evaluation' and cfg.general.model_path is None:
-        op = cfg.operation_mode
+    op = cfg.operation_mode
+    if op == 'evaluation' and cfg.general.model_path is None:
+        
         shutil.unpack_archive('/opt/ml/processing/input/model/model.tar.gz', '/opt/ml/processing/input/model/')
         subprocess.run(["pwd"]) 
         subprocess.run(["ls","/opt/ml/processing/input/model/"]) 
@@ -190,7 +190,7 @@ def main(cfg: DictConfig) -> None:
             print(f"Une erreur inattendue s'est produite : {e}")
 
     
-    elif cfg.operation_mode == 'training':
+    elif op == 'training':
         cfg.dataset.training_path = "/opt/ml/input/data/train/datasets/ST_VL53L8CX_handposture_dataset"
       
     else:
@@ -200,7 +200,7 @@ def main(cfg: DictConfig) -> None:
     
     # Parse the configuration file
     cfg = get_config(cfg) 
-    if op == 'evaluation':
+    if op == 'evaluation' or:
         HydraConfig.get().set_run_dir("/opt/ml/processing/outputs/build")
     cfg.output_dir = HydraConfig.get().run.dir
     mlflow_ini(cfg)
