@@ -30,3 +30,5 @@ marshmallow==3.20.1
 boto3
 botocore
 sagemaker==2.154.0
+pathlib 
+yaml

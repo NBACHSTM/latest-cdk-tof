@@ -197,11 +197,13 @@ def main(cfg: DictConfig) -> None:
     cfg = get_config(cfg) 
     
     
-    if op == 'evaluation' or op == 'benchmarking' :
-        cfg.output_dir = "/opt/ml/processing/outputs/build"
+    #if op == 'evaluation' or op == 'benchmarking' :
+    #    cfg.output_dir = "/opt/ml/processing/outputs/build"
+    #    print(f"new ouput dir for eval and bench")
     
-    else:
-        cfg.output_dir = HydraConfig.get().run.dir
+    #else:
+      
+    cfg.output_dir = HydraConfig.get().run.dir    
     mlflow_ini(cfg)
 
     # Seed global seed for random generators
