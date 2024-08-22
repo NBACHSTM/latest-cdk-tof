@@ -200,7 +200,7 @@ def main(cfg: DictConfig) -> None:
     
     # Parse the configuration file
     cfg = get_config(cfg) 
-    if op == 'evaluation' or:
+    if op == 'evaluation' or op == 'benchmarking' :
         HydraConfig.get().set_run_dir("/opt/ml/processing/outputs/build")
     cfg.output_dir = HydraConfig.get().run.dir
     mlflow_ini(cfg)
