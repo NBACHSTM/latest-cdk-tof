@@ -174,6 +174,7 @@ def main(cfg: DictConfig) -> None:
     op = cfg.operation_mode
     if op == 'evaluation' and cfg.general.model_path is None:
         
+        #unT the folder that conatins the h5 model
         shutil.unpack_archive('/opt/ml/processing/input/model/model.tar.gz', '/opt/ml/processing/input/model/')
         subprocess.run(["pwd"]) 
         subprocess.run(["ls","/opt/ml/processing/input/model/"]) 
@@ -188,6 +189,11 @@ def main(cfg: DictConfig) -> None:
     elif op == 'training':
         cfg.dataset.training_path = "/opt/ml/input/data/train/datasets/ST_VL53L8CX_handposture_dataset"
       
+    
+    elif op == 'benchmarking':
+        model_path = glob.glob('/opt/ml/processing/input/model/**/**/**/*.h5')
+        print(f"model path found for benchmarking: {model_path[0]} ")
+        cfg.general.model_path = model_path[0]
     else:
       
         print("Le chemin du modèle n'a pas été défini dans la configuration.(propablement a training)")
