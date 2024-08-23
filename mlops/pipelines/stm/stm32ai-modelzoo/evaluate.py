@@ -32,12 +32,13 @@ if __name__ == "__main__":
         with open(chemin_fichier, "w") as fichier:
             yaml.dump(donnees, fichier, default_flow_style=False)
         
+        
         subprocess.run([
         "python",
         os.path.join(module_path, "stm32ai_main.py"),"operation_mode='evaluation'"])
-        #   subprocess.run([
-        #  "python",
-        # os.path.join(module_path, "stm32ai_main.py"),"operation_mode='benchmark'"])
+        subprocess.run([
+        "python",
+        os.path.join(module_path, "stm32ai_main.py"),"operation_mode='benchmark'"])
         
         
         print('Evaluation complete.')
