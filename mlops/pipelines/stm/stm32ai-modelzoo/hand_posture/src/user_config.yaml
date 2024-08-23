@@ -65,7 +65,7 @@ benchmarking:
   board: B-U585I-IOT02A
 
 deployment:
-  c_project_path: ../../../../../../stm32/
+  c_project_path: ../stm32ai_application_code/hand_posture/
   IDE: GCC
   verbosity: 1
   hardware_setup:

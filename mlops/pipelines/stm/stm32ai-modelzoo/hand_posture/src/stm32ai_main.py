@@ -190,9 +190,9 @@ def main(cfg: DictConfig) -> None:
         cfg.dataset.training_path = "/opt/ml/input/data/train/datasets/ST_VL53L8CX_handposture_dataset"
       
     
-    elif op == 'benchmarking':
+    elif op == 'benchmarking' or op == 'deployment' :
         model_path = glob.glob('/opt/ml/processing/input/model/**/**/**/best_model.h5')
-        print(f"model path found for benchmarking: {model_path[0]} ")
+        print(f"model path found for {op}: {model_path[0]} ")
         cfg.general.model_path = model_path[0]
         
         cfg.tools.stedgeai.path_to_stedgeai = "C:/STMicroelectronics/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AI/8.1.0/Utilities/windows/stm32ai.exe"
@@ -205,13 +205,6 @@ def main(cfg: DictConfig) -> None:
     # Parse the configuration file
     cfg = get_config(cfg) 
     
-    
-    #if op == 'evaluation' or op == 'benchmarking' :
-    #    cfg.output_dir = "/opt/ml/processing/outputs/build"
-    #    print(f"new ouput dir for eval and bench")
-    
-    #else:
-      
     cfg.output_dir = HydraConfig.get().run.dir    
     mlflow_ini(cfg)
 

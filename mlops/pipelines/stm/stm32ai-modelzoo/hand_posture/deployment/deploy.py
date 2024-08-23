@@ -39,7 +39,8 @@ def deploy(cfg: DictConfig = None, model_path_to_deploy: Optional[str] = None,
     """
     # Build and flash Getting Started
     board = cfg.deployment.hardware_setup.board
-    stlink_serial_number = cfg.deployment.hardware_setup.stlink_serial_number
+    if cfg.deployment.hardware_setup.stlink_serial_number:
+        stlink_serial_number = cfg.deployment.hardware_setup.stlink_serial_number
     c_project_path = cfg.deployment.c_project_path
     output_dir = HydraConfig.get().runtime.output_dir
     stm32ai_output = output_dir + "/stm32ai_files"
@@ -62,7 +63,7 @@ def deploy(cfg: DictConfig = None, model_path_to_deploy: Optional[str] = None,
     print("[INFO] : Generating C header file for Getting Started...")
     gen_h_user_file(config=cfg, model_path=model_path)
 
-    if stm32ai_serie.upper() == "STM32F4" and stm32ai_ide.lower() == "gcc":
+    if (stm32ai_serie.upper() == "STM32F4" or stm32ai_serie.upper() == "STM32U5") and stm32ai_ide.lower() == "gcc":
 
         # Run the deployment
         stm32ai_deploy(target=board, stlink_serial_number=stlink_serial_number, stm32ai_version=stm32ai_version, c_project_path=c_project_path,
