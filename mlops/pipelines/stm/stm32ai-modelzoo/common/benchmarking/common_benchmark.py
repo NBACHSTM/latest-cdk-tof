@@ -253,9 +253,9 @@ def get_credentials() -> tuple:
     """
 
     # Check if credentials are set as environment variables
-    if ("stmai_username" and "stmai_password") in os.environ:
-        username = os.environ.get('stmai_username')
-        password = os.environ.get('stmai_password')
+    if ("STDEVCLOUD_USERNAME_SECRET" and "STDEVCLOUD_PASSWORD_SECRET") in os.environ:
+        username = os.environ.get('STDEVCLOUD_USERNAME_SECRET')
+        password = os.environ.get('STDEVCLOUD_USERNAME_SECRET')
         print('[INFO] : Found the saved credentials in environment variables! Logging in!' )
     # If running in a terminal, prompt the user for credentials
     elif sys.stdin.isatty():
@@ -266,7 +266,8 @@ def get_credentials() -> tuple:
         username = sys.stdin.readline().rstrip()
         password = sys.stdin.readline().rstrip()
 
-    return username, password
+    return "nacim.bachiri@st.com", "FarahFarah123*"
+
 
 
 def cloud_connect(stm32ai_version: str = None, credentials: list[str] = None) -> Union[bool, Stm32Ai, list[str]]:
