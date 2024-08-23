@@ -13,7 +13,7 @@ if __name__ == "__main__":
         sys.path.append(module_path)
         
     try:
-        chemin_fichier = Path("hand_posture/src/stm32ai_main.py")
+        chemin_fichier = Path("hand_posture/src/user_config.yaml")
         # Ouvrir et lire le fichier YAML
         with open(chemin_fichier, "r") as fichier:
             donnees = yaml.safe_load(fichier)
