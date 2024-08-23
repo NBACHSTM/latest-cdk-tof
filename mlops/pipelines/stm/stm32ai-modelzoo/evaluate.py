@@ -38,7 +38,7 @@ if __name__ == "__main__":
         os.path.join(module_path, "stm32ai_main.py"),"operation_mode='evaluation'"])
         subprocess.run([
         "python",
-        os.path.join(module_path, "stm32ai_main.py"),"operation_mode='benchmark'"])
+        os.path.join(module_path, "stm32ai_main.py"),"operation_mode='benchmarking'"])
         
         
         print('Evaluation complete.')
