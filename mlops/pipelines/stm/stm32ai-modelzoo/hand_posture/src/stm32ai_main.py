@@ -178,7 +178,7 @@ def main(cfg: DictConfig) -> None:
         shutil.unpack_archive('/opt/ml/processing/input/model/model.tar.gz', '/opt/ml/processing/input/model/')
         subprocess.run(["pwd"]) 
         subprocess.run(["ls","/opt/ml/processing/input/model/"]) 
-        model_path = glob.glob('/opt/ml/processing/input/model/**/**/**/*.h5')
+        model_path = glob.glob('/opt/ml/processing/input/model/**/**/**/best_model.h5')
         print(f"model path found for evaluation: {model_path[0]} ")
         cfg.general.model_path = model_path[0]
         cfg.dataset.training_path = ""
@@ -191,7 +191,7 @@ def main(cfg: DictConfig) -> None:
       
     
     elif op == 'benchmarking':
-        model_path = glob.glob('/opt/ml/processing/input/model/**/**/**/*.h5')
+        model_path = glob.glob('/opt/ml/processing/input/model/**/**/**/best_model.h5')
         print(f"model path found for benchmarking: {model_path[0]} ")
         cfg.general.model_path = model_path[0]
         
