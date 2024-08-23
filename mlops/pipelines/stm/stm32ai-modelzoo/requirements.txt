@@ -31,4 +31,4 @@ boto3
 botocore
 sagemaker==2.154.0
 pathlib 
-yaml
+PyYAML
