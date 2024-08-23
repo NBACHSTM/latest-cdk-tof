@@ -417,7 +417,7 @@ def cloud_benchmark(ai: Stm32Ai = None, model_path: str = None, board_name: str 
         stmai_params = CliParameters(model=model_name, optimization=optimization, fromModel=get_model_name_output)
     res_benchmark = ai.benchmark(stmai_params,
                                 board_name=board_name,
-                                timeout=1500)
+                                timeout=3000)
 
     # Store the benchmark results in a dictionary
     res_dict = {name: getattr(res_benchmark, name) for name in dir(res_benchmark) if not name.startswith("__")}

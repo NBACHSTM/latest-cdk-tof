@@ -55,10 +55,10 @@ training:
 
 tools:
   stedgeai:
-    version: 8.1.0
+    version: 9.0.0
     optimization: balanced
     on_cloud: True
-    path_to_stedgeai: C:/STMicroelectronics/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AI/8.1.0/Utilities/windows/stm32ai.exe
+    path_to_stedgeai: C:/STMicroelectronics/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AI/9.0.0/Utilities/windows/stm32ai.exe
   path_to_cubeIDE: C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/stm32cubeide.exe 
 
 benchmarking:
