@@ -346,7 +346,7 @@ void vMotionSensorsPublish( void * pvParameters )
 
 			//classe_table[(App_Config.AI_Data.handposture_label)],App_Config.HANDPOSTURE_Input_Data.ranging[27]
 
-        		LogError( "distance -------------  %d     --------",App_Config.AI_Data.model_output);
+        		LogInfo( "distance -------------  %.1f     --------",App_Config.HANDPOSTURE_Input_Data.ranging[27]/10.0);
 
 		    	LogInfo("\033[1;32m The output of  \033[0m : %d \r\n",(App_Config.AI_Data.handposture_label));
 
