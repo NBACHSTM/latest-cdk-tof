@@ -554,7 +554,7 @@ def stm32ai_benchmark(cfg: DictConfig = None,footprints_on_target: str = False, 
 
     # Print footprints
     analyze_footprints(offline=offline, results=cloud_res, stm32ai_output=stm32ai_output, inference_res=inference_res, target_mcu=target_mcu)
-    ai.delete_model(model_path)
+
     
    
 
