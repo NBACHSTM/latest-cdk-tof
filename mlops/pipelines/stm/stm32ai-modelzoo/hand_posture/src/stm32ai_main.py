@@ -120,6 +120,7 @@ def process_mode(mode: str = None,
         print('[INFO] : Deployment complete.')
     elif mode == 'benchmarking':
         benchmark(cfg=configs)
+        
         print('[INFO] : Benchmark complete.')
 
     # Raise an error if an invalid mode is selected
@@ -190,7 +191,7 @@ def main(cfg: DictConfig) -> None:
         cfg.dataset.training_path = "/opt/ml/input/data/train/datasets/ST_VL53L8CX_handposture_dataset"
       
     
-    elif op == 'benchmarking' or op == 'deployment' :
+    elif op == 'benchmarking':
         model_path = glob.glob('/opt/ml/processing/input/model/**/**/**/best_model.h5')
         print(f"model path found for {op}: {model_path[0]} ")
         cfg.general.model_path = model_path[0]
@@ -231,8 +232,8 @@ def main(cfg: DictConfig) -> None:
         # Process the selected mode
         process_mode(mode=mode, 
                      configs=cfg)
-
-
+    
+   
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--config-path', type=str, default='', help='Path to folder containing configuration file')

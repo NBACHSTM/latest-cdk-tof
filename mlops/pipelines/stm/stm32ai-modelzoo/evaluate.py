@@ -44,10 +44,7 @@ if __name__ == "__main__":
         "python",
         os.path.join(module_path, "stm32ai_main.py"),"operation_mode='benchmarking'"])
         
-        #Run deployment  scrypt   
-        subprocess.run([
-        "python",
-        os.path.join(module_path, "stm32ai_main.py"),"operation_mode='deployment'"])
+       
         
         
         print('Evaluation complete.')

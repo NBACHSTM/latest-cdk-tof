@@ -20,7 +20,7 @@ from hydra.core.hydra_config import HydraConfig
 from stm32ai_dc import (CliLibraryIde, CliLibrarySerie, CliParameters, MpuParameters, MpuEngine,
                         CloudBackend, Stm32Ai)
 from stm32ai_dc.errors import BenchmarkServerError
-
+from gen_h_file import gen_h_user_file
 from omegaconf import DictConfig
 from logs_utils import log_to_file
 from models_utils import get_model_name_and_its_input_shape, get_model_name
@@ -56,7 +56,8 @@ def benchmark(cfg: DictConfig = None, model_path_to_benchmark: Optional[str] = N
     get_model_name_output = get_model_name(model_type=str(model_name),
                                            input_shape=str(input_shape[0]),
                                            project_name=cfg.general.project_name)
-    stm32ai_benchmark(footprints_on_target=board,
+    stm32ai_benchmark(cfg = cfg,
+                      footprints_on_target=board,
                       optimization=optimization,
                       stm32ai_version=stm32ai_version, model_path=model_path,
                       stm32ai_output=stm32ai_output, path_to_stm32ai=path_to_stm32ai,
@@ -384,7 +385,7 @@ def get_mpu_options(board_name: str = None) -> tuple:
     return engine_used, num_cpu_cores
 
 
-def cloud_benchmark(ai: Stm32Ai = None, model_path: str = None, board_name: str = None, optimization: str = None,
+def cloud_benchmark(cfg: DictConfig = None,ai: Stm32Ai = None, model_path: str = None, board_name: str = None, optimization: str = None,
                     get_model_name_output: str = None) -> dict:
     """
     Use STM32Cube.AI Developer Cloud Services to benchmark the model on a board and generate C code.
@@ -418,13 +419,27 @@ def cloud_benchmark(ai: Stm32Ai = None, model_path: str = None, board_name: str 
     res_benchmark = ai.benchmark(stmai_params,
                                 board_name=board_name,
                                 timeout=3000)
+    try:
+        print("[INFO] : Generating C header file for Getting Started...")
+        gen_h_user_file(config=cfg, model_path=model_path)
+        output_dir = HydraConfig.get().runtime.output_dir
+        stm32ai_output = output_dir + "/stm32ai_files"
+        IDE = "GCC"
+        serie = "STM32U5"
+        print("[INFO] : Generating the model C code and retrieving STM32Cube.AI Lib from STM32Cube.AI Developer Cloud Services...")
+        ai.generate(CliParameters(model=model_path, output=stm32ai_output, fromModel=get_model_name_output,
+                                                      includeLibraryForSerie=CliLibrarySerie(serie.upper()),
+                                                      includeLibraryForIde=CliLibraryIde(IDE.lower())))
+
+    except Exception as e:
+        raise Exception(e)
 
     # Store the benchmark results in a dictionary
     res_dict = {name: getattr(res_benchmark, name) for name in dir(res_benchmark) if not name.startswith("__")}
     return res_dict
 
 
-def stm32ai_benchmark(footprints_on_target: str = False, optimization: str = None,
+def stm32ai_benchmark(cfg: DictConfig = None,footprints_on_target: str = False, optimization: str = None,
                       stm32ai_version: str = None, model_path: str = None,
                       stm32ai_output: str = None, path_to_stm32ai: str = None,
                       get_model_name_output: str = None, on_cloud: bool = False,
@@ -490,7 +505,7 @@ def stm32ai_benchmark(footprints_on_target: str = False, optimization: str = Non
 
             try:
                 # Benchmark the model inference time
-                cloud_res = cloud_benchmark(ai=ai, model_path=model_path, board_name=board_name,
+                cloud_res = cloud_benchmark(cfg = cfg, ai=ai, model_path=model_path, board_name=board_name,
                                                 optimization=optimization,
                                                 get_model_name_output=get_model_name_output)
 
@@ -538,3 +553,7 @@ def stm32ai_benchmark(footprints_on_target: str = False, optimization: str = Non
 
     # Print footprints
     analyze_footprints(offline=offline, results=cloud_res, stm32ai_output=stm32ai_output, inference_res=inference_res, target_mcu=target_mcu)
+    
+   
+
+    ai.delete_model(model_name)
