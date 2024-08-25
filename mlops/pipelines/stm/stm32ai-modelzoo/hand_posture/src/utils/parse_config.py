@@ -294,6 +294,7 @@ def get_config(config_data: DictConfig) -> DefaultMunch:
     if cfg.operation_mode in mode_groups.benchmarking:
         parse_benchmarking_section(cfg.benchmarking)
         if cfg.hardware_type == "MPU" :
+            print(f" Hardware type: {cfg.hardware_type} \n")
             if not (cfg.tools.stm32ai.on_cloud):
                 print("Target selected for benchmark :", cfg.benchmarking.board)
                 print("Offline benchmarking for MPU is not yet available please use online benchmarking")

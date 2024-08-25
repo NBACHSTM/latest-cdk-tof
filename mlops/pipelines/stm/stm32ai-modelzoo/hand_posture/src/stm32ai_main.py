@@ -195,8 +195,8 @@ def main(cfg: DictConfig) -> None:
         print(f"model path found for {op}: {model_path[0]} ")
         cfg.general.model_path = model_path[0]
         
-        cfg.tools.stedgeai.path_to_stedgeai = "C:/STMicroelectronics/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AI/8.1.0/Utilities/windows/stm32ai.exe"
-        cfg.tools.path_to_cubeIDE =  "C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/stm32cubeide.exe" 
+        #cfg.tools.stedgeai.path_to_stedgeai = "C:/STMicroelectronics/STM32Cube/Repository/Packs/STMicroelectronics/X-CUBE-AI/8.1.0/Utilities/windows/stm32ai.exe"
+        #cfg.tools.path_to_cubeIDE =  "C:/ST/STM32CubeIDE_1.15.0/STM32CubeIDE/stm32cubeide.exe" 
     else:
       
         print("Le chemin du modèle n'a pas été défini dans la configuration.(propablement a training)")

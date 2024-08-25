@@ -263,11 +263,10 @@ def parse_tools_section(cfg: DictConfig,
         cfg.stm32ai["on_cloud"] = cfg.stedgeai.on_cloud
         cfg.stm32ai["path_to_stm32ai"] = cfg.stedgeai.path_to_stedgeai
     
+    
     # Path to cubeIDE only needed for MCU in deployment service
     if hardware_type == "MCU":
-        if operation_mode == "deployment" and not os.path.isfile(cfg.path_to_cubeIDE):
-            raise ValueError("Path for `path_to_cubeIDE` does not exist.\n"
-                             "Please check the cfg.tools section!")
+        print(f"Hardware type for U585: {hardware_type}\n")
 
 
 def parse_benchmarking_section(cfg: DictConfig) -> None:
