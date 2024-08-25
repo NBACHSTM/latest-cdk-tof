@@ -79,7 +79,7 @@ AppConfig_TypeDef App_Config;
 extern int32_t CUSTOM_RANGING_SENSOR_Init(uint32_t Instance);
 extern int32_t MX_VL53L5CX_SimpleRanging_Process(void);
 extern int32_t * r;
-void print_result(AppConfig_TypeDef *App_Config);
+//static void print_result(AppConfig_TypeDef *App_Config);
 static int32_t status = 0;
 
 
@@ -372,8 +372,8 @@ void vMotionSensorsPublish( void * pvParameters )
     vPortFree( pcDeviceId );
 }
 
-
-void print_result(AppConfig_TypeDef *   conf)
+/*
+static void print_result(AppConfig_TypeDef *   conf)
 {
   int8_t i, j, k, l;
   uint8_t zones_per_line;
@@ -381,7 +381,7 @@ void print_result(AppConfig_TypeDef *   conf)
   zones_per_line = 8;
   number_of_zones = 64;
 
-  /* clear screen */
+
   printf("%c[2H", 27);
 
   printf("Demo of Hand-posture recognition model with time-of-flight sensor application\r\n");
@@ -404,7 +404,7 @@ void print_result(AppConfig_TypeDef *   conf)
 
   for (j = 0; j <number_of_zones ; j += zones_per_line)
   {
-    for (i = 0; i < zones_per_line; i++) /* number of zones per line */
+    for (i = 0; i < zones_per_line; i++)
     	printf(" -----------------");
     printf("\r\n");
 
@@ -414,7 +414,7 @@ void print_result(AppConfig_TypeDef *   conf)
 
     for (l = 0; l < RANGING_SENSOR_NB_TARGET_PER_ZONE; l++)
     {
-      /* Print distance and status */
+      
       for (k = (zones_per_line - 1); k >= 0; k--)
       {
         if (conf->RangingData.nb_target_detected[j+k]  > 0  )
@@ -440,7 +440,7 @@ void print_result(AppConfig_TypeDef *   conf)
       printf("|\r\n");
 
 
-        /* Print Signal and Ambient */
+       
         for (k = (zones_per_line - 1); k >= 0; k--)
         {
           if (conf->RangingData.nb_target_detected[j+k] > 0)
@@ -461,3 +461,4 @@ void print_result(AppConfig_TypeDef *   conf)
   printf("\r\n");
 
 }
+*/
