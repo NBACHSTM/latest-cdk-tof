@@ -339,7 +339,7 @@ void vMotionSensorsPublish( void * pvParameters )
 
         	int lbytesWritten = snprintf( pcPayloadBuf,MQTT_PUBLISH_MAX_LEN,  "{"
 
-        			"\"pred V3\": %d"
+        			"\"pred\": %d"
         			","
 					"\"dist\": %.1f"
                     "}",(App_Config.AI_Data.handposture_label),App_Config.HANDPOSTURE_Input_Data.ranging[27]/10.0);
