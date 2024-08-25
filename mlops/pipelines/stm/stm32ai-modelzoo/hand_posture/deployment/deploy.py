@@ -39,8 +39,8 @@ def deploy(cfg: DictConfig = None, model_path_to_deploy: Optional[str] = None,
     """
     # Build and flash Getting Started
     board = cfg.deployment.hardware_setup.board
-    if cfg.deployment.hardware_setup.stlink_serial_number:
-        stlink_serial_number = cfg.deployment.hardware_setup.stlink_serial_number
+    stlink_serial_number = cfg.deployment.hardware_setup.stlink_serial_number
+    stlink_serial_number = cfg.deployment.hardware_setup.stlink_serial_number
     c_project_path = cfg.deployment.c_project_path
     output_dir = HydraConfig.get().runtime.output_dir
     stm32ai_output = output_dir + "/stm32ai_files"
