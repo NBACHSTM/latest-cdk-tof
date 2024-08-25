@@ -430,7 +430,8 @@ def cloud_benchmark(cfg: DictConfig = None,ai: Stm32Ai = None, model_path: str =
         ai.generate(CliParameters(model=model_path, output=stm32ai_output, fromModel=get_model_name_output,
                                                       includeLibraryForSerie=CliLibrarySerie(serie.upper()),
                                                       includeLibraryForIde=CliLibraryIde(IDE.lower())))
-
+        ai.delete_model(model_path)
+        
     except Exception as e:
         raise Exception(e)
 
@@ -556,4 +557,4 @@ def stm32ai_benchmark(cfg: DictConfig = None,footprints_on_target: str = False, 
     
    
 
-    ai.delete_model(model_name)
+    
