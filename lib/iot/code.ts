@@ -176,6 +176,7 @@ export class Code extends Construct {
         artifacts: {
           files: [
             'Projects/b_u585i_iot02a_ntz/Debug/b_u585i_iot02a_ntz.map',
+            'Projects/b_u585i_iot02a_ntz/Debug/b_u585i_iot02a_ntz.elf',
             'Projects/b_u585i_iot02a_ntz/Debug/b_u585i_iot02a_ntz.bin',
             'Projects/b_u585i_iot02a_ntz/STM32U585AIIXQ_FLASH.ld'], // Ajout du fichier .map
         
