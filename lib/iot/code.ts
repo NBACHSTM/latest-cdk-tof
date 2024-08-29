@@ -76,7 +76,7 @@ export class Code extends Construct {
       enforceSSL: true,
       encryption: aws_s3.BucketEncryption.S3_MANAGED,
       blockPublicAccess: aws_s3.BlockPublicAccess.BLOCK_ALL,
-      autoDeleteObjects: false,
+      autoDeleteObjects: true,
       removalPolicy: RemovalPolicy.DESTROY,
       serverAccessLogsBucket: new aws_s3.Bucket(this, 'FirmwaresAccessLog', {
         versioned: true,
@@ -174,12 +174,7 @@ export class Code extends Construct {
       buildSpec: aws_codebuild.BuildSpec.fromObject({
         version: '0.2',
         artifacts: {
-          files: [
-            'Projects/b_u585i_iot02a_ntz/Debug/b_u585i_iot02a_ntz.map',
-            'Projects/b_u585i_iot02a_ntz/Debug/b_u585i_iot02a_ntz.elf',
-            'Projects/b_u585i_iot02a_ntz/Debug/b_u585i_iot02a_ntz.bin',
-            'Projects/b_u585i_iot02a_ntz/STM32U585AIIXQ_FLASH.ld'], // Ajout du fichier .map
-        
+          files: ['Projects/b_u585i_iot02a_ntz/Debug/b_u585i_iot02a_ntz.bin'],
         },
         phases: {
           build: {
@@ -189,13 +184,11 @@ export class Code extends Construct {
               'cp -r $CODEBUILD_SRC_DIR_ml/stm32ai_files/Lib Middleware/STM32_AI_Library/',
               'ls Middleware/STM32_AI_Library/Inc',
               'ls Middleware/STM32_AI_Library/Lib',
-              'mkdir Projects/Common/dpu/',
               'cp -r $CODEBUILD_SRC_DIR_ml/C_header/* Projects/Common/dpu/', 
               'ls Projects/Common/dpu',
               'mv Middleware/STM32_AI_Library/Lib/NetworkRuntime730_CM33_GCC.a Middleware/STM32_AI_Library/Lib/NetworkRuntime810_CM33_GCC.a', //TODO: check how to sync runtime version
               'cp -r $CODEBUILD_SRC_DIR_ml/stm32ai_files/network* Projects/Common/X-CUBE-AI/App/',
-              '/opt/st/stm32cubeide_1.12.1/headless-build.sh -data . -import Projects/b_u585i_iot02a_ntz -build b_u585i_iot02a_ntz',
-              
+              //'/opt/st/stm32cubeide_1.12.1/headless-build.sh -data . -import Projects/b_u585i_iot02a_ntz -build b_u585i_iot02a_mtz',
             ],
           },
         },

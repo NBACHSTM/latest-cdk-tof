@@ -15,7 +15,7 @@ __pycache__/
 
 stm32/.metadata
 
-stm32/Projects/b_u585i_iot02a_ntz/Debug
+#stm32/Projects/b_u585i_iot02a_ntz/Debug
 
 #stm32/Projects/Common/X-CUBE-AI/App/network*
 
