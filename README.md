@@ -1,6 +1,6 @@
 # AWS STM32 ML at Edge Accelerator
 
-This is an AWS STM32 example project that implements MLOps infrastructure using SageMaker pipeline to train and generate an audio classification model that will run on edge devices (stm32u5 series) with OTA updates using Freertos. Devices are connected to Iot Core and data is collected via mqtt.
+This is an AWS STM32 example project that implements MLOps infrastructure using SageMaker pipeline to train and generate a and posture recognition classification model that will run on edge devices (stm32u5 series) with OTA updates using Freertos. Devices are connected to Iot Core and data is collected via mqtt.
 
 ## Architecture
 
@@ -142,27 +142,6 @@ Our device should be publishing MQTT messages now. If you go to AWS IoT console 
 
 These messages are streamed and stored into Amazon Timestream. Which will then be used as a datasource for Grafana to visualise it.
 
-## Grafana Dashboard
-
-To see everything in action, we can login to Grafana and checkout our Dashboard.
-After deployment the url for our grafana instance will be printed out in your command line or you could get the url from your AWS console by visiting the Managed Grafana service page, however you won't have access yet.
-AWS Managed Grafana is using AWS IAM Identity Center for Authorisation previously known as AWS Single Sign-On (SSO).
-
-As mentioned in prequisite you should have an IAM Identity User created by now, if not then please [enable AWS IAM Identity Center and create a user for yourself](https://console.aws.amazon.com/singlesignon/identity/home). Now we need to give your user permission to access our Grafana Instance.
-
-1. Login to your console and visit the Managed Grafana servie page.
-1. Go to the grafana workspace created by our deployment.
-1. In the Authentication tab, click on `Configure users and user groups`
-1. Add your IAM Identity User
-
-Now you are ready to visit grafana dashboard
-
-1. Just visit the grafana url either printed in your terminal or diplayed in your console under Grafana workspace Url.
-1. login using your IAM Identity User credentials
-1. Visit the dashboard section, choose browse and you can view the dashboard created by our deployment as seen below.
-1. You change the device being displayed in top left dropdown menu called device
-
-   ![grafana dashboard](./doc/images/grafana-dashboard.png)
 
 ## Continous Deployment
 
@@ -172,10 +151,10 @@ Any changes in the repo will trigger the pipeline. The pipeline will go through 
 
 Any changes will eventually be deployed Over-The-Air. However no changes will be accepted by the device unless the semantic version is higher than its current version. So you must ensure for any new release you must update the semantic versioning in the following file [ota_firmware_version.c](stm32/Projects/b_u585i_iot02a_ntz/Src/ota_pal/ota_firmware_version.c)
 
-So for example lets say we want to remove a class name `dog` from the Model.
+So for example lets say we want to remove a class name `like` from the Model.
 
-1. We go to [user_config.yaml](mlops/pipelines/stm/stm32ai-modelzoo/audio_event_detection/scripts/training/user_config.yaml) in training script section and remove the class in class_names array.
-1. We also go to [user_config.yaml](mlops/pipelines/stm/stm32ai-modelzoo/audio_event_detection/scripts/evaluate/user_config.yaml) in evaluate script section and remove the class in class_names array.
+1. in training script section and remove the class in class_names array.
+1. We also go to [user_config.yaml](mlops/pipelines/stm/stm32ai-modelzoo/hand_posture/scripts/evaluate/user_config.yaml) in evaluate script section and remove the class in class_names array.
 1. Go to [ota_firmware_version.c](stm32/Projects/b_u585i_iot02a_ntz/Src/ota_pal/ota_firmware_version.c) and increment `APP_VERSION_MINOR`
 1. Commit and push your changes.
 
